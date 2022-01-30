@@ -42,7 +42,6 @@ section {
     margin: 1rem auto;
 }
 
-.home,
 .contact-me {
     padding: 0 1rem 0 1rem;
 }
@@ -236,7 +235,7 @@ input[type="submit"] {
     display: block;
     width: 100%;
     margin: 1em auto;
-    height: 2em;
+    height: 50px;
     font-size: 1.1rem;
     background-color: var(--color-yellow-brighter);
     border-color: var(--color-yellow-brighter);
@@ -244,6 +243,7 @@ input[type="submit"] {
     cursor: pointer;
     color: var(--color-black);
     font-weight: 600;
+    font-size: 1.25rem;
 }
 
 
@@ -254,8 +254,39 @@ input[type="submit"] {
     HOME SECTION
   ========================================
 */
+.home {
+    margin-bottom: 5.5rem;
+}
+
+
+
+.home {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
 .home p {
-    margin: 0.4rem 0 0 0;
+    margin: 0.6rem 1rem 0 1rem;
+    flex-basis: 100%;
+}
+
+.home h2,
+.home h1 {
+    flex-basis: 100%;
+}
+
+
+.home .yellow-waves-home {
+    flex-basis: 100%;
+    bottom: 77px;
+    position: relative;
+}
+
+.home .yellow-waves-home img {
+    width: 100%;
+    height: 100%;
+    
 }
 
 /*
@@ -455,6 +486,7 @@ input[type="submit"] {
 .one-step {
     width:280px;
     height:255px;
+    margin-bottom: 1rem;
 }
 
 .cpf-pics img {
