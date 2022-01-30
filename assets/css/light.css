@@ -48,6 +48,10 @@ section {
 
 body {
     overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+html {
+    scroll-behavior: smooth;
   }
 
 /*
