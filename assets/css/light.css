@@ -8,6 +8,7 @@
     --color-white: #FFFFFF;
     --color-black: #343A40;
     --color-yellow: #FFF3BF;
+    --color-yellow-brighter: #FFE066;
     --color-grey: #737373;
     --color-red: #C6302C;
 }
@@ -27,7 +28,7 @@ html {
 
 body {
     background-color: var(--color-white);
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
 }
 
@@ -37,10 +38,18 @@ h1, h2 {
 }
 
 section {
-    max-width: 1200px;
+    max-width: 550px;
     margin: 1rem auto;
+}
+
+.home,
+.contact-me {
     padding: 0 1rem 0 1rem;
 }
+
+body {
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+  }
 
 /*
   ========================================
@@ -65,8 +74,20 @@ h1 {
 }
 
 h2, .p-special {
+    font-size: 1.3rem;
+}
+
+h2 {
+    font-weight: 600;
+}
+
+.skill-label {
+    font-weight: bold;
+}
+
+.intro-p {
     font-size: 1.15rem;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 p {
@@ -82,6 +103,20 @@ section {
 a {
     text-decoration: none;
     color: var(--color-black);
+}
+
+input,
+button,
+textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+::placeholder {
+    color: var(--color-white);
+    opacity: 1;
 }
 
 /*
@@ -158,6 +193,63 @@ nav a:hover, nav a:active {
 
 /*
   ========================================
+  SHARED: 
+    BUTTONS
+  ========================================
+*/
+/* CODEPEN, FEEDBACK BUTTON */
+.codepen-button,
+.feedback-button {
+    width: 300px;
+    height: 50px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    border-radius: 10px;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    margin-bottom: 2rem;
+}
+
+.feedback-button {
+    margin-bottom: 3rem;
+}
+
+.cp-link,
+.fb-link {
+    flex-basis: 15%;
+    font-size: 2rem;
+    padding-left: 1.8rem;
+}
+
+.p-special {
+    flex-basis: 80%;
+    padding-right: 0.4rem;
+}
+
+/* SUBMIT BUTTON */
+input[type="submit"] {
+    display: block;
+    width: 100%;
+    margin: 1em auto;
+    height: 2em;
+    font-size: 1.1rem;
+    background-color: var(--color-yellow-brighter);
+    border-color: var(--color-yellow-brighter);
+    border-radius: 0.25rem;
+    cursor: pointer;
+    color: var(--color-black);
+    font-weight: 600;
+}
+
+
+
+/*
+  ========================================
   CUSTOM: 
     HOME SECTION
   ========================================
@@ -172,6 +264,7 @@ nav a:hover, nav a:active {
     PROJECTS SECTION
   ========================================
 */
+/* YELLOW WAVES */
 
 .yellow-waves {
     flex-basis: 100%;
@@ -189,21 +282,34 @@ nav a:hover, nav a:active {
 
 .yellow-waves h2 {
     flex-basis: 100%;
+    text-align: center;
 }
 .yellow-waves h1 {
     flex-basis: 100%;
 }
 
-#projects {
+/* FLEXBOX FOR CENTERING & SPACING */
+
+.projects,
+.projects article,
+.feedback,
+.about-me,
+.about-me article,
+.contact-me {
     padding: 0;
-    margin: 0 auto 3rem auto; 
+    margin: 0 auto; 
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
     gap: 0.5rem;   
 }
-#projects h2,
-#projects .flip-yeah {
+
+.feedback {
+    gap: 0.1rem;
+}
+
+.projects h2,
+.projects .flip-yeah {
     flex-basis: 100%;
 }
 
@@ -212,40 +318,14 @@ nav a:hover, nav a:active {
     justify-content: center;
 }
 
-
-/* CODEPEN BUTTON */
-
-.codepen-button {
-    width: 250px;
-    height: 40px;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    border-radius: 10px;
-    background-color: var(--color-black);
-    color: var(--color-white);
-    margin-bottom: 2rem;
-}
-
-.cp-link {
-    flex-basis: 12%;
-}
-
-.p-special {
-    flex-basis: 70%;
-}
-
 /* FLIP CARD */
 
 .flip-card {
     background-color: transparent;
-    width: 250px;
-    height: 250px;
+    width: 280px;
+    height: 280px;
     perspective: 1000px;
+    margin: 0.4rem 0 0.4rem 0;
 }
 
 .flip-card-inner {
@@ -254,7 +334,6 @@ nav a:hover, nav a:active {
     height: 100%;
     transition: transform 0.6s;
     transform-style: preserve-3d;
-    /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
 }
 
 .flip-card:hover .flip-card-inner {
@@ -286,9 +365,9 @@ nav a:hover, nav a:active {
 .flip-card-back6 p,
 .flip-card-back3 p,
 .flip-card-back4 p {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     text-align: left;
-    padding: 2.1rem 1rem 0 1rem;
+    padding: 2.4rem 1rem 0 1rem;
     font-style: italic;
 }
 .flip-card-back5 .languages,
@@ -346,8 +425,183 @@ nav a:hover, nav a:active {
     height: auto;
 }
     
+/* FEEDBACK */
+.feedback p {
+    margin: 0 1rem 0 1rem;
+}
 
+/*
+  ========================================
+  CUSTOM: 
+    ABOUT SECTION
+  ========================================
+*/
+.about-me {
+    margin-bottom: 1rem;
+}
 
+.about-me article {
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 0 1rem 0 1rem;
+}
 
+.about-me p  {
+    margin-bottom: 0.7rem;
+}
 
+/* IMAGES SIZING */
+.jk-dp,
+.one-step {
+    width:280px;
+    height:255px;
+}
+
+.cpf-pics img {
+    width: 87.2px;
+    height: 80.9px;
+}
+
+.hcd-pics img:not(.design),
+.ju-pics img:not(.design) {
+    width: 68.6px;
+    height: 77.8px;
+}
+
+.hcd-pics .design,
+.ju-pics .design {
+    width: 80px;
+    height: 80px;
+}
+
+/* IMAGES POSITIONING */
+.about-me .hcd-pics,
+.about-me .ju-pics,
+.about-me .cpf-pics {
+    flex-basis: 100%;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 0.5rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.8rem;
+}
+
+.cpf-pics li,
+.hcd-pics li,
+.ju-pics li {
+    text-align: center;
+    flex-basis: 25%;
+}
+
+.hcd-pics p
+.ju-pics p {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.intro-flexbasis {
+    flex-basis: 100%;
+    margin-bottom: 0;
+}
+
+/*
+  ========================================
+  CUSTOM:
+    CONTACT
+  ========================================
+*/
+/* FORM */
+form {
+    /* width: 60vw; */
+    max-width: 450px;
+    min-width: 300px;
+    margin: 0 auto;
+    padding: 1rem 1rem;
+    border-radius: 0.25rem;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+}
+
+label {
+    display: block;
+    margin: 0.5rem 0;
+    text-align: left;
+}
+
+input,
+textarea {
+    margin: 10px 0 0 0;
+    width: 100%;
+    min-height: 2em;
+    padding: 5px;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    border: 1px solid var(--color-black);
+    border-radius: 0.25rem;
+}
+
+/* LINKS */
+.links-pics img {
+    width: 80px;
+    height: 73px;
+}
+.contact-me .links-pics {
+    flex-basis: 100%;
+    list-style-type: none;
+    padding: 0;
+    margin: 0.5rem 0;
+    margin-bottom: 0.5rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.8rem;
+}
+
+.links-pics li {
+    text-align: center;
+    flex-basis: 25%;
+}
+
+.links-pics p {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+}
+
+.link-label {
+    font-size: 0.8rem;
+    text-decoration: underline;
+}
+
+/*
+  ========================================
+  CUSTOM:
+    FOOTER
+  ========================================
+*/
+.footer-info {
+    position: relative;
+}
+
+.footer-info h2,
+.footer-info p {
+    position: absolute;
+}
+
+.footer-info h2 {
+    bottom: 86px;
+}
+
+.footer-info p {
+    bottom: 65px;
+}
 
