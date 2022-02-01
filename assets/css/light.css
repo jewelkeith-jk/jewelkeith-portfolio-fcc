@@ -1,5 +1,36 @@
 /*
   ========================================
+            TABLE OF CONTENTS:
+  I. VARIABLES
+        A) COLORS
+  II. GENERIC SITE STYLES
+  III. SHARED STYLES
+        A) TYPOGRAPHY
+        B) YELLOW WAVES AS BG
+        C) IMAGES SIZING
+        D) IMAGES' POSITIONING AND SPACING
+        E) BUTTONS
+            1) CODEPEN, FEEDBACK BUTTON
+            2) SUBMIT BUTTON
+        F) SECTIONS' POSITIONING & SPACING (EXCEPT FOR HOME SECTION)
+            1) MAIN SECTIONS
+            2) CHILDREN'S FLEXBASIS
+        G) HEADER - NAVIGATION
+  IV. CUSTOM STYLES
+        A) HOME SECTION
+        B) PROJECTS SECTION
+            1) FLIP CARD
+            2) FEEDBACK
+        C) ABOUT ME SECTION
+        D) CONTACT ME SECTION
+            1) FORM
+            2) LINKS
+        E) FOOTER
+  ========================================
+*/ 
+
+/*
+  ========================================
   VARIABLES:
     COLORS
   ========================================
@@ -30,29 +61,23 @@ body {
     background-color: var(--color-white);
     margin: 0 auto;
     padding: 0;
-}
-
-h1, h2 {
-    margin: 0;
-    padding: 0;
-}
-
-section {
-    max-width: 550px;
+    text-align: center;
     margin: 1rem auto;
-}
-
-.contact-me {
-    padding: 0 1rem 0 1rem;
-}
-
-body {
     overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+.home, 
+.projects article,
+.about-me article,
+.contact-me p,
+.contact-me ul,
+.contact-me form {
+    max-width: 870px;
 }
 
 html {
     scroll-behavior: smooth;
-  }
+}
 
 /*
   ========================================
@@ -65,6 +90,12 @@ body {
     color: var(--color-black);
 }
 
+h1, 
+h2 {
+    margin: 0;
+    padding: 0;
+}
+
 h1 {
     font-size: 2.25rem;
     font-weight: 800;
@@ -72,23 +103,16 @@ h1 {
     font-style: italic;
 }
 
-.underline {
-    text-decoration: underline;
-}
-
-h2, .p-special {
-    font-size: 1.3rem;
-}
-
 h2 {
     font-weight: 600;
 }
 
-.skill-label {
-    font-weight: bold;
+h2, 
+.p-button {
+    font-size: 1.3rem;
 }
 
-.intro-p {
+.p-intro-heading {
     font-size: 1.15rem;
     font-weight: 600;
 }
@@ -99,13 +123,27 @@ p {
     margin: 0;
 }
 
-section {
-    text-align: center;
+.skill-label {
+    font-weight: bold;
+}
+
+.link-label {
+    font-size: 0.8rem;
+    text-decoration: underline;
+}
+
+.underline {
+    text-decoration: underline;
 }
 
 a {
     text-decoration: none;
     color: var(--color-black);
+}
+
+label {
+    font-weight: 600;
+    font-size: 1rem;
 }
 
 input,
@@ -122,184 +160,34 @@ textarea {
     opacity: 1;
 }
 
-/*
-  ========================================
-  SHARED: 
-    PRIMARY NAVIGATION 
-  ========================================
-*/
-
-.nav-link img {
-    width: 100%;
-    height: 100%;
+@media (min-width: 365px) {
+    h1 {
+        font-size: 3rem;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+    .p-intro-heading {
+        font-size: 1.3rem;
+    }
 }
 
-.nav-link {
-    font-size: 6vh;
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    align-items: center;
-    background-color: var(--color-black);
-    border-radius: 10px 10px 0 0;
-}
-
-nav li {
-    text-align: center;
-    flex-basis: 10%;
-}
-
-nav li:first-child {
-    flex-basis: 25%;
-    order: 2;
-}
-
-nav li:nth-child(2),
-nav li:nth-child(3) {
-    order: 1;
-}
-
-nav li:nth-child(4),
-nav li:nth-child(5) {
-    order: 3;
-}
-
-nav {
-    background-color: var(--color-black);
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 10%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px 10px 0 0;
-    z-index: 999;
-}
-
-nav a {
-    text-decoration: none;
-    display: block;
-    color: var(--color-white);
-    padding: 0.2rem;
-}
-
-nav a:hover, nav a:active {
-    color: var(--color-grey);
-}
-
-/*
-  ========================================
-  SHARED: 
-    BUTTONS
-  ========================================
-*/
-/* CODEPEN, FEEDBACK BUTTON */
-.codepen-button,
-.feedback-button {
-    width: 300px;
-    height: 50px;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    border-radius: 10px;
-    background-color: var(--color-black);
-    color: var(--color-white);
-    margin-bottom: 2rem;
-}
-
-.feedback-button {
-    margin-bottom: 3rem;
-}
-
-.cp-link,
-.fb-link {
-    flex-basis: 15%;
-    font-size: 2rem;
-    padding-left: 1.8rem;
-}
-
-.p-special {
-    flex-basis: 80%;
-    padding-right: 0.4rem;
-}
-
-/* SUBMIT BUTTON */
-input[type="submit"] {
-    display: block;
-    width: 100%;
-    margin: 1em auto;
-    height: 50px;
-    font-size: 1.1rem;
-    background-color: var(--color-yellow-brighter);
-    border-color: var(--color-yellow-brighter);
-    border-radius: 0.25rem;
-    cursor: pointer;
-    color: var(--color-black);
-    font-weight: 600;
-    font-size: 1.25rem;
-}
-
-
-
-/*
-  ========================================
-  CUSTOM: 
-    HOME SECTION
-  ========================================
-*/
-.home {
-    margin-bottom: 5.5rem;
-}
-
-
-
-.home {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-}
-
-.home p {
-    margin: 0.6rem 1rem 0 1rem;
-    flex-basis: 100%;
-}
-
-.home h2,
-.home h1 {
-    flex-basis: 100%;
-}
-
-
-.home .yellow-waves-home {
-    flex-basis: 100%;
-    bottom: 77px;
-    position: relative;
-}
-
-.home .yellow-waves-home img {
-    width: 100%;
-    height: 100%;
+@media (min-width: 437px) {
+    h1 {
+        font-size: 3.5rem;
+    }
     
+    .p-intro-heading {
+        font-size: 1.5rem;
+    }
 }
 
 /*
   ========================================
-  CUSTOM: 
-    PROJECTS SECTION
+  SHARED: 
+    YELLOW WAVES AS BG
   ========================================
 */
-/* YELLOW WAVES */
 
 .yellow-waves {
     flex-basis: 100%;
@@ -323,8 +211,154 @@ input[type="submit"] {
     flex-basis: 100%;
 }
 
-/* FLEXBOX FOR CENTERING & SPACING */
+.yellow-waves-home {
+    margin-top: -105px;
+}
 
+@media (min-width: 437px) {
+    .yellow-waves {
+        height: 180px;
+    }
+    .yellow-waves-home {
+        margin-top: -136px;
+    }
+}
+
+/*
+  ========================================
+  SHARED: 
+    IMAGES SIZING
+  ========================================
+*/
+.jk-dp,
+.one-step {
+    width:280px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.cpf-pics img {
+    width: 87.2px;
+    height: auto;
+}
+
+.hcd-pics img:not(.design),
+.ju-pics img:not(.design) {
+    width: 68.6px;
+    height: auto;
+}
+
+.hcd-pics .design,
+.ju-pics .design {
+    width: 80px;
+    height: auto;
+}
+
+/*
+  ========================================
+  SHARED: 
+    IMAGES' POSITIONING AND SPACING
+  ========================================
+*/
+.about-me .hcd-pics,
+.about-me .ju-pics,
+.about-me .cpf-pics {
+    flex-basis: 100%;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 0.5rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.8rem;
+}
+
+.cpf-pics li,
+.hcd-pics li,
+.ju-pics li {
+    text-align: center;
+    flex-basis: 25%;
+}
+
+.hcd-pics p
+.ju-pics p {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+/*
+  ========================================
+  SHARED: 
+    BUTTONS
+  ========================================
+*/
+/* CODEPEN, FEEDBACK BUTTON */
+.codepen-button,
+.feedback-button {
+    width: 100%;
+    max-width: 350px;
+    height: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    border-radius: 10px;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    margin-bottom: 2rem;
+}
+
+.cp-link-button {
+    width: 280px;
+    height: 50px;
+}
+
+.feedback-button {
+    margin-bottom: 3rem;
+}
+
+.cp-link,
+.fb-link {
+    flex-basis: 20%;
+    font-size: 2rem;
+    padding-left: 1rem;
+} 
+
+#projects .p-button {
+    flex-basis: 80%;
+    padding-right: 0.5rem;
+    padding-left: 0rem;
+    text-align: center;
+}
+
+/* SUBMIT BUTTON */
+input[type="submit"] {
+    display: block;
+    width: 100%;
+    margin: 1em auto;
+    height: 50px;
+    font-size: 1.1rem;
+    background-color: var(--color-yellow-brighter);
+    border-color: var(--color-yellow-brighter);
+    border-radius: 0.25rem;
+    cursor: pointer;
+    color: var(--color-black);
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+/*
+  ========================================
+  SHARED: 
+    SECTIONS' POSITIONING & SPACING
+    (EXCEPT FOR HOME SECTION)
+  ========================================
+*/
+/* MAIN SECTIONS */
 .projects,
 .projects article,
 .feedback,
@@ -343,20 +377,167 @@ input[type="submit"] {
     gap: 0.1rem;
 }
 
-.projects h2,
-.projects .flip-yeah {
-    flex-basis: 100%;
-}
-
 .flip-yeah {
     display: flex;
     justify-content: center;
 }
 
-/* FLIP CARD */
+/* CHILDREN'S FLEXBASIS */
+.p-intro-heading-flexbasis {
+    flex-basis: 100%;
+    margin-bottom: 0;
+}
 
+.projects h2,
+.projects .flip-yeah {
+    flex-basis: 100%;
+}
+
+/*
+  ========================================
+  SHARED: 
+    HEADER - NAVIGATION 
+  ========================================
+*/
+.header .nav-link img {
+    width: auto;
+    height: 50px;
+}
+
+.header .nav-link {
+    font-size: 6vh;
+}
+
+@media (min-width: 365px) {
+    .header .nav-link {
+        font-size: 7vh;
+    }
+    .header .nav-link img {
+        height: 54px;
+    }
+}
+
+@media (min-width: 437px) {
+    .header .nav-link {
+        font-size: 8vh;
+    }
+    .header .nav-link img {
+        height: 65px;
+    }
+}
+
+.header nav ul {
+    flex-basis: 100%;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--color-black);
+    border-radius: 10px 10px 0 0;
+}
+
+.header nav li {
+    text-align: center;
+    flex-basis: 10%;
+}
+
+.header nav li:first-child {
+    flex-basis: 25%;
+    order: 2;
+    flex-grow: 1.4;
+}
+
+.header nav li:nth-child(2),
+.header nav li:nth-child(3) {
+    order: 1;
+    flex-grow: 1;
+}
+
+.header nav li:nth-child(4),
+.header nav li:nth-child(5) {
+    order: 3;
+    flex-grow: 1;
+}
+
+.header nav {
+    background-color: var(--color-black);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 9%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px 10px 0 0;
+    z-index: 999;
+}
+
+.header nav a {
+    text-decoration: none;
+    display: block;
+    color: var(--color-white);
+    padding: 0.2rem;
+}
+
+.header nav a:hover, .header nav a:active {
+    color: var(--color-grey);
+}
+
+@media (min-width: 365px) {
+    .header nav {
+        height: 10%;
+    }
+}
+@media (min-width: 437px) {
+    .header nav {
+        height: 11%;
+    }
+}
+
+/*
+  ========================================
+  CUSTOM: 
+    HOME SECTION
+  ========================================
+*/
+.home {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.home p {
+    margin: 0.6rem 1rem 0 1rem;
+    flex-basis: 100%;
+}
+
+.home h2,
+.home h1 {
+    flex-basis: 100%;
+}
+
+/*
+  ========================================
+  CUSTOM: 
+    PROJECTS SECTION
+  ========================================
+*/
+.projects article {
+    margin-bottom: 1rem;
+}
+.project-medium-large {
+    display: none;
+}
+.project-info-align-right {
+    display: none;
+}
+/* FLIP CARD */
 .flip-card {
-    background-color: transparent;
     width: 280px;
     height: 280px;
     perspective: 1000px;
@@ -464,11 +645,28 @@ input[type="submit"] {
 .feedback p {
     margin: 0 1rem 0 1rem;
 }
-
+.feedback img {
+    width: 150px;
+    height: auto;
+}
+.feedback-info-button {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+.feedback-info-button .feedback-info-margin {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+@media (min-width: 410px) {
+    .feedback-info-button .feedback-info-margin {
+        flex-basis: 79%;
+    }
+}
 /*
   ========================================
   CUSTOM: 
-    ABOUT SECTION
+    ABOUT ME SECTION
   ========================================
 */
 .about-me {
@@ -476,7 +674,6 @@ input[type="submit"] {
 }
 
 .about-me article {
-    max-width: 550px;
     margin: 0 auto;
     padding: 0 1rem 0 1rem;
 }
@@ -485,70 +682,10 @@ input[type="submit"] {
     margin-bottom: 0.7rem;
 }
 
-/* IMAGES SIZING */
-.jk-dp,
-.one-step {
-    width:280px;
-    height:255px;
-    margin-bottom: 1rem;
-}
-
-.cpf-pics img {
-    width: 87.2px;
-    height: 80.9px;
-}
-
-.hcd-pics img:not(.design),
-.ju-pics img:not(.design) {
-    width: 68.6px;
-    height: 77.8px;
-}
-
-.hcd-pics .design,
-.ju-pics .design {
-    width: 80px;
-    height: 80px;
-}
-
-/* IMAGES POSITIONING */
-.about-me .hcd-pics,
-.about-me .ju-pics,
-.about-me .cpf-pics {
-    flex-basis: 100%;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    margin-bottom: 0.5rem;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 0.8rem;
-}
-
-.cpf-pics li,
-.hcd-pics li,
-.ju-pics li {
-    text-align: center;
-    flex-basis: 25%;
-}
-
-.hcd-pics p
-.ju-pics p {
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-}
-
-.intro-flexbasis {
-    flex-basis: 100%;
-    margin-bottom: 0;
-}
-
 /*
   ========================================
   CUSTOM:
-    CONTACT
+    CONTACT ME SECTION
   ========================================
 */
 /* FORM */
@@ -587,8 +724,8 @@ textarea {
 /* LINKS */
 .links-pics img {
     width: 80px;
-    height: 73px;
-}
+    height: auto;
+} 
 .contact-me .links-pics {
     flex-basis: 100%;
     list-style-type: none;
@@ -613,11 +750,6 @@ textarea {
     font-weight: 400;
 }
 
-.link-label {
-    font-size: 0.8rem;
-    text-decoration: underline;
-}
-
 /*
   ========================================
   CUSTOM:
@@ -640,4 +772,417 @@ textarea {
 .footer-info p {
     bottom: 65px;
 }
+
+@media (min-width: 437px) {
+    .footer-info h2 {
+        bottom: 105px;
+    }
+    
+    .footer-info p {
+        bottom: 82px;
+    }
+}
+
+
+/*
+  ========================================
+  FLEXBOX / GRID SYSTEM FOR RESPONSIVENESS: 
+    MEDIUM DEVICES - TABLETS (501px to 850px)
+  ========================================
+*/
+@media (min-width: 501px) {
+/* SHARED > TYPOGRAPHY */
+    p {
+        font-size: 1.2rem;
+    }
+    h1 {
+        font-size: 4rem;
+    }
+    .p-intro-heading {
+        font-size: 2rem;
+    }
+    .about-me .skill-label {
+        font-size: 1.2rem;
+    }
+    .p-contact-intro,
+    .p-about-intro,
+    .h2-feedback-intro,
+    .footer .p-intro-heading {
+        font-size: 1.5rem;
+    }
+/* SHARED > YELLOW WAVES AS BG */
+    .yellow-waves {
+        height: 250px;
+    }
+    .yellow-waves-home {
+        margin-top: -197px;
+    }
+    .footer .yellow-waves {
+        margin-top: 2rem;
+        height: 175px
+    }
+/* SHARED > FOOTER  */
+    .footer-info h2 {
+        bottom: 103px;
+    }
+    .footer-info p {
+        bottom: 79px;
+    }
+/* SHARED > HEADER-NAV */
+    .header nav li:first-child {
+        flex-grow: 0.2;
+    }
+    .header nav {
+        height: 12%;
+    }
+    .header .nav-link img {
+        height: 73px;
+    }
+    .header .nav-link {
+        font-size: 9vh;
+    }
+/* CUSTOM > PROJECTS > FLIP CARD */
+    .empty-div,
+    .empty-div-2,
+    .projects .project-info-align-right {
+        display: none;
+    }
+/* SHARED > IMAGES SIZING */
+    .cpf-pics img {
+        width: 140px;
+        height: auto;
+    }
+    .hcd-pics img:not(.design),
+    .ju-pics img:not(.design) {
+        width: 100px;
+        height: auto;
+    }
+    .hcd-pics .design,
+    .ju-pics .design {
+        width: 100px;
+        height: auto;
+    }
+    .about-me .hcd-pics, 
+    .about-me .ju-pics, 
+    .about-me .cpf-pics {
+        gap: 1rem;
+    }
+/* CUSTOM > CONTACT > LINKS */
+    .contact-me .links-pics {
+        gap: 1.5rem;
+    }
+    .links-pics img {
+        width: 120px;
+        height: auto;
+    }
+}
+
+@media (min-width: 585px) { 
+/* SHARED > TYPOGRAPHY */
+    h1 {
+        font-size: 4.5rem;
+    }
+    .p-intro-heading {
+        font-size: 2.1rem;
+    }
+    .about-me .skill-label {
+        font-size: 1.2rem;
+    }
+    .p-contact-intro,
+    .p-about-intro,
+    .h2-feedback-intro,
+    .footer .p-intro-heading {
+        font-size: 1.5rem;
+    }
+/* SHARED > YELLOW WAVES AS BG */
+    .footer .yellow-waves {
+        margin-top: 2rem;
+        height: 171px
+    }
+/* SHARED > FOOTER  */
+    .footer-info h2 {
+        bottom: 104px;
+    }
+    .footer-info p {
+        bottom: 80px;
+    }
+/* SHARED > HEADER-NAV */
+    .header .nav-link {
+        font-size: 10vh;
+    }
+/* CUSTOM > PROJECTS > FLIP CARD */
+    .flip-card {
+        display: none;
+    }
+    .empty-div,
+    .empty-div-2,
+    .projects .project-info-align-right {
+        display: block;
+    }
+    .projects article {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+    .empty-div,
+    .empty-div-2 {
+        height: 40px;
+    }
+    .projects .underline,
+    .projects .empty-div,
+    .projects .empty-div-2,
+    .project-medium-large,
+    .projects .cp-link-button,
+    .projects .project-info-align-right {
+        flex-basis: 45%;
+    }
+/* left align */
+    .projects .underline,
+    .empty-div,
+    .project-medium-large,
+    .project-info-align-right,
+    .cp-link-button {
+        order: 1;
+    }
+    .empty-div-2 {
+        order: 2;
+    }
+    .projects .project-info-align-right p {
+        text-align: left;
+        padding-left: 1rem;
+    }
+/* right align */
+    .projects .empty-div-left {
+        order: 1;
+    }
+    .projects .underline-right {
+        order: 2;
+    }
+    .projects .project-info-align-left {
+        order: 3;
+    }
+    .projects .project-medium-large-right {
+        order: 4;
+    }
+    .projects .empty-div-2-left {
+        order: 5;
+    }
+    .projects .cp-link-button-right {
+        order: 6;
+    }
+    .projects .project-info-align-left p {
+        padding-right: 1rem;
+    }
+
+    .projects ul {
+        list-style-type: none;
+        padding: 0;
+        padding-left: 2rem;
+        margin: 0;
+        display: flex;
+        flex-flow: row wrap;
+    }
+    .projects li {
+        font-style: normal;
+        font-weight: bold;
+        text-align: center;
+        flex-basis: 10%;
+        font-size: 1rem;
+        padding: 0.3rem 0 0 1rem;
+    }
+    .projects .languages {
+        font-weight: bold;
+        padding-left: 1rem;
+        margin-top: 0.5rem;
+    }
+    .projects img {
+        width: 40px;
+        height: auto;
+    }
+    #projects .project-medium-large {
+        display: inline-block;
+        width: 280px;
+        max-width: 350px;
+        height: auto;
+    }
+/* CUSTOM > PROJECTS > FEEDBACK */
+    .feedback h2 {
+        margin-bottom: 0.8rem;
+    }
+    .feedback h2 {
+        flex-basis: 80%;
+    }
+    #projects .feedback img {
+        width: 150px;
+        height: auto;
+        flex-basis: 30%;
+        margin-right: 1rem;
+    }
+    .feedback-info-button {
+        flex-basis: 50%;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    #projects .feedback-button {
+        flex-basis: 95%;
+        width: 0;
+        height: 0;
+        margin-bottom: 1rem;
+    }
+/* CUSTOM > ABOUT ME */
+    .about-me article {
+        padding: 0 0.5rem 0 0.5rem;
+    }
+    .about-me .jk-dp {
+        width: 270px;
+        margin-right: 1rem;
+    }
+    .about-me .one-step {
+        width: 270px;
+        margin-left: 1rem;
+        order: 2;
+    }
+    .about-me .jk-dp-info,
+    .about-me .one-step-info {
+        flex-basis: 100%;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        gap: 0.5rem;
+    }
+    .about-me .jk-dp-info .jk-dp,
+    .about-me .jk-dp-info p,
+    .about-me .one-step-info .one-step,
+    .about-me .one-step-info p {
+        flex-basis: 45%;
+    }
+    .about-me .jk-dp-info p {
+        text-align: left;
+    }
+    .about-me .one-step-info p {
+        text-align: right;
+        order: 1;
+    }
+    .about-me .about-p-intro-margin {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        flex-basis: 80%;
+    }
+/* CUSTOM > CONTACT  > FORM */
+    .contact-me .contact-form {
+        flex-basis: 75%;
+    }
+/* CUSTOM > CONTACT > LINKS */
+    .links-pics li {
+        flex-basis: 10%;
+    }
+    .links-pics img {
+        width: 69px;
+    }
+}
+
+@media (min-width: 691px) {
+    h1 {
+        font-size: 5.7rem;
+    }
+    .p-intro-heading {
+        font-size: 2.7rem;
+    }
+    .about-me .skill-label {
+        font-size: 1.4rem;
+    }
+    .p-contact-intro,
+    .p-about-intro,
+    .h2-feedback-intro,
+    .footer .p-intro-heading {
+        font-size: 1.7rem;
+    }
+/* SHARED > YELLOW WAVES > FOOTER */
+    .yellow-waves {
+        height: 270px;
+    }
+    .footer .yellow-waves {
+        height: 173px;
+    }
+/* SHARED > BUTTONS*/
+    .cp-link-button {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+    }
+    .cp-link-button .p-button {
+        font-size: 1.5rem;
+    }
+    .projects .underline {
+        font-size: 1.9rem;
+    }
+/* CUSTOM > CONTACT > LINKS */
+    .links-pics li {
+        flex-basis: 10%;
+    }
+    .links-pics img {
+        width: 85px;
+    }
+}
+
+@media (min-width: 786px) {
+/* SHARED > TYPOGRAPHY */
+    h1 {
+        font-size: 6.2rem;
+    }
+    .p-intro-heading {
+        font-size: 2.8rem;
+    }
+    .about-me .skill-label {
+        font-size: 1.7rem;
+    }
+    .p-contact-intro,
+    .p-about-intro,
+    .h2-feedback-intro,
+    .footer .p-intro-heading {
+        font-size: 2rem;
+    }
+/* SHARED > YELLOW WAVES */
+    .yellow-waves {
+        height: 290px;
+    }
+    .yellow-waves-home {
+        height: 249px;
+    }
+/* SHARED > YELLOW WAVES > FOOTER */
+    .footer .yellow-waves {
+        height: 184px;
+    }
+/* SHARED > IMAGES SIZING */
+    .cpf-pics img {
+        width: 160px;
+    }
+    .hcd-pics img:not(.design),
+    .ju-pics img:not(.design) {
+        width: 130px;
+    }
+    .hcd-pics .design,
+    .ju-pics .design {
+        width: 130px;
+    }
+/* SHARED > CONTACT > FORM */
+    .contact-me .contact-form {
+        flex-basis: 70%;
+    }
+/* SHARED > CONTACT > LINKS */
+    .links-pics img {
+        width: 90px;
+    }
+}
+
+/*
+  ========================================
+  FLEXBOX / GRID SYSTEM FOR RESPONSIVENESS: 
+    LARGE DEVICES - DESKTOPS (851px to 1200px)
+  ========================================
+*/
 
