@@ -160,6 +160,22 @@ textarea {
     opacity: 1;
 }
 
+@media (min-width: 344px) {
+    h1 {
+        font-size: 2.8rem;
+    }
+    .p-intro-heading,
+    .p-contact-intro,
+    .p-about-intro,
+    .h2-feedback-intro,
+    .footer .p-intro-heading {
+        font-size: 1.2rem;
+    }
+    .about-me .skill-label {
+        font-size: 1rem;
+    }
+}
+
 @media (min-width: 365px) {
     h1 {
         font-size: 3rem;
@@ -169,6 +185,9 @@ textarea {
     }
     .p-intro-heading {
         font-size: 1.3rem;
+    }
+    #projects .h2-feedback-intro {
+        flex-basis: 90%;
     }
 }
 
@@ -193,7 +212,7 @@ textarea {
     flex-basis: 100%;
     background-image: url('../img/(Colorful-Others)_Icons_&_Pictures_Pp/Waves_Yellow_Picture.png');
     background-size: 100% 100%;
-    height: 140px;
+    height: 155px;
     width: auto;
     display: flex;
     flex-flow: row wrap;
@@ -215,12 +234,19 @@ textarea {
     margin-top: -105px;
 }
 
+.footer .yellow-waves {
+    height: 140px;
+}
+
 @media (min-width: 437px) {
     .yellow-waves {
         height: 180px;
     }
     .yellow-waves-home {
         margin-top: -136px;
+    }
+    .footer .yellow-waves {
+        height: 165px;
     }
 }
 
