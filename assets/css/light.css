@@ -72,7 +72,8 @@ body {
 .contact-me p,
 .contact-me ul,
 .contact-me form {
-    max-width: 870px;
+    max-width: 950px;
+    flex-basis: 100%;
 }
 
 html {
@@ -129,6 +130,8 @@ p {
 
 .link-label {
     font-size: 0.8rem;
+}
+.link-label:hover {
     text-decoration: underline;
 }
 
@@ -325,7 +328,7 @@ textarea {
 .codepen-button,
 .feedback-button {
     width: 100%;
-    max-width: 350px;
+    max-width: 300px;
     height: 100%;
     display: flex;
     flex-flow: row nowrap;
@@ -336,6 +339,15 @@ textarea {
     background-color: var(--color-black);
     color: var(--color-white);
     margin-bottom: 2rem;
+    margin-top: 0.3rem;
+}
+
+.codepen-button:hover,
+.feedback-button:hover {
+    background-color: var(--color-yellow-brighter);
+    color: var(--color-black);
+    border: 1px solid var(--color-black);
+    border-color: var(--color-black);
 }
 
 .cp-link-button {
@@ -365,6 +377,7 @@ textarea {
 input[type="submit"] {
     display: block;
     width: 100%;
+    max-width: 550px;
     margin: 1em auto;
     height: 50px;
     font-size: 1.1rem;
@@ -375,6 +388,11 @@ input[type="submit"] {
     color: var(--color-black);
     font-weight: 600;
     font-size: 1.25rem;
+}
+input[type="submit"]:hover {
+    background-color: var(--color-black);
+    border-color: var(--color-black);
+    color: var(--color-white);
 }
 
 /*
@@ -425,9 +443,15 @@ input[type="submit"] {
     HEADER - NAVIGATION 
   ========================================
 */
+.header .large-screen-nav {
+    display: none;
+}
+
 .header .nav-link img {
     width: auto;
     height: 50px;
+    margin-top: 0rem;
+    margin-bottom: -0.5rem;
 }
 
 .header .nav-link {
@@ -440,6 +464,8 @@ input[type="submit"] {
     }
     .header .nav-link img {
         height: 54px;
+        margin-top: 0rem;
+        margin-bottom: -0.5rem;
     }
 }
 
@@ -448,11 +474,14 @@ input[type="submit"] {
         font-size: 8vh;
     }
     .header .nav-link img {
-        height: 65px;
+        height: 60px;
+        margin-top: 0rem;
+        margin-bottom: -0.5rem;
     }
 }
 
-.header nav ul {
+.header nav .first-ul,
+.header nav .second-ul {
     flex-basis: 100%;
     list-style-type: none;
     padding: 0;
@@ -508,7 +537,8 @@ input[type="submit"] {
     padding: 0.2rem;
 }
 
-.header nav a:hover, .header nav a:active {
+.header nav a:hover, 
+.header nav a:active {
     color: var(--color-grey);
 }
 
@@ -532,6 +562,8 @@ input[type="submit"] {
 .home {
     margin-top: 5rem;
     margin-bottom: 5rem;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
@@ -720,13 +752,15 @@ form {
     max-width: 450px;
     min-width: 300px;
     margin: 0 auto;
-    padding: 1rem 1rem;
+    padding: 1rem 1.5rem 1rem 1.5rem;
     border-radius: 0.25rem;
 }
 
 fieldset {
     border: none;
     padding: 0;
+    margin: 0 auto;
+    max-width: 550px;
 }
 
 label {
@@ -862,7 +896,9 @@ textarea {
         height: 12%;
     }
     .header .nav-link img {
-        height: 73px;
+        height: 65px;
+        margin-top: 0rem;
+        margin-bottom: -0.5rem;
     }
     .header .nav-link {
         font-size: 9vh;
@@ -1028,7 +1064,7 @@ textarea {
     #projects .project-medium-large {
         display: inline-block;
         width: 280px;
-        max-width: 350px;
+        max-width: 300px;
         height: auto;
     }
 /* CUSTOM > PROJECTS > FEEDBACK */
@@ -1112,6 +1148,7 @@ textarea {
 }
 
 @media (min-width: 691px) {
+/* SHARED > TYPOGRAPHY */
     h1 {
         font-size: 5.7rem;
     }
@@ -1172,6 +1209,12 @@ textarea {
     .footer .p-intro-heading {
         font-size: 2rem;
     }
+    label {
+        font-size: 1.25rem;
+    }
+    input[type="submit"] {
+        font-size: 1.5rem;
+    }
 /* SHARED > YELLOW WAVES */
     .yellow-waves {
         height: 290px;
@@ -1208,7 +1251,190 @@ textarea {
 /*
   ========================================
   FLEXBOX / GRID SYSTEM FOR RESPONSIVENESS: 
-    LARGE DEVICES - DESKTOPS (851px to 1200px)
+    LARGE DEVICES - DESKTOPS (851px to 1600px)
   ========================================
 */
+@media (min-width: 850px) {
+/* SHARED > TYPOGRAPHY */
+    h1 {
+        font-size: 7rem;
+    }
+    .p-intro-heading {
+        font-size: 3rem;
+    }
+    .p-contact-intro,
+    .p-about-intro,
+    .h2-feedback-intro,
+    .footer .p-intro-heading {
+        font-size: 2.25rem;
+    }
+    p {
+        font-size: 1.4rem;
+    }
+    label {
+        font-size: 1.25rem;
+    }
+/* SHARED > HEADER > NAV */
+    .header .small-medium-screen-nav {
+        display: none;
+    }
+    .header .large-screen-nav {
+        display: block;
+        top: 0;
+        border-radius: 0 0 10px 10px;
+    }
+    .header .large-screen-nav .second-ul {
+        border-radius: 0 0 10px 10px;
+    }
+    .header .nav-link {
+        font-size: 3vh;
+    }
+    .header .nav-link img {
+        height: 52px;
+    }
+    .header .second-nav .second-ul li {
+        flex-basis: 10%;
+    }
+    .header nav {
+        height: 10%;
+    }
+/* SHARED > YELLOW WAVES */
+    .yellow-waves {
+        height: 320px;
+    }
+    .yellow-waves-home {
+        height: 330px;
+    }
+/* SHARED > SECTIONS > TOP SPACING */
+    .projects,
+    .about-me,
+    .contact-me {
+        padding-top: 6rem;
+    }
+/* CUSTOM > HOME */
+    .home {
+        margin-top: 4rem;
+        margin-bottom: 0;
+    }
+/* CUSTOM > PROJECTS > FEEDBACK */
+    .projects .feedback {
+        margin-top: 2rem;
+    }
+    .projects .languages {
+        margin-bottom: 0.5rem;
+    }
+    .projects img {
+        width: 50px;
+    }
+    .feedback-info-button .feedback-info-margin {
+        margin-bottom: -3rem;
+    }
+/* CUSTOM > CONTACT > LINKS */
+    .link-label {
+        font-size: 1rem;
+    }
+/* CUSTOM > FOOTER > YELLOW WAVES & INFO */
+    .yellow-waves-none-large {
+        display: none;
+    }
+    .footer .yellow-waves {
+        flex-basis: 100%;
+        background-image: url('../img/(Colorful-Others)_Icons_&_Pictures_Pp/Waves_Yellow_Picture_Footer_Large.png');
+        background-size: 100% 100%;
+        height: 155px;
+        width: auto;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        margin-bottom: -1rem;
+    }
+    .footer-info h2 {
+        bottom: 52px;
+    }
+    .footer-info p {
+        bottom: 25px;
+    }
+}
+
+@media (min-width: 950px) {
+/* CUSTOM > PROJECTS */
+    .projects .project-info-align-right p {
+        padding-left: 2rem;
+    }
+    .projects .project-info-align-left p {
+        padding-right: 2rem;
+    }
+/* CUSTOM > ABOUT */
+    .about-me .jk-dp {
+        margin-right: 2rem;
+    }
+    .about-me .one-step {
+        margin-left: 2rem;
+    }
+/* CUSTOM > ABOUT > FEEDBACK */
+    .feedback-info-button .feedback-info-margin {
+        margin-bottom: -3rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .header .nav-link {
+        font-size: 3.5vh;
+    }
+}
+
+@media (min-width: 1400px) {
+/* SHARED > YELLOW WAVES */
+    .yellow-waves {
+        height: 380px;
+    }
+}
+
+@media (min-width: 1300px) {
+/* SHARED > HEADER > NAV */
+    .header nav {
+        height: 10%;
+    }
+}
+
+@media (min-width: 1600px) {
+/* CUSTOM > ABOUT */
+    .projects article {
+        flex-basis: 49%;
+    }
+/* right align */
+    .projects .empty-div-left {
+        order: 2;
+    }
+    .projects .underline-right {
+        order: 1;
+    }
+    .projects .project-info-align-left {
+        order: 4;
+    }
+    .projects .project-medium-large-right {
+        order: 3;
+    }
+    .projects .empty-div-2-left {
+        order: 6;
+    }
+    .projects .cp-link-button-right {
+        order: 5;
+    }
+    .projects .project-info-align-left p {
+        padding-right: 0.5rem;    
+    }
+    #projects .medium-large-marginleft-negative {
+        margin-left: 0.5rem;
+    }
+    #projects .medium-large-marginright-negative {
+        margin-right: 0.5rem;
+    }
+    #projects .feedback-button {
+        margin-bottom: -2rem;
+    }
+}
+
 

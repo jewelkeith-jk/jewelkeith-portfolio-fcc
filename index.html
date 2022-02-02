@@ -16,8 +16,9 @@
         <div class="wrapper">
             <!-- HEADER -->
                 <header id="header" class="header">
-                    <nav>
-                        <ul>
+                <!-- 1ST NAV FOR SMALL-MEDIUM SCREENS -->
+                    <nav class="first-nav small-medium-screen-nav">
+                        <ul class="first-ul small-medium-screen-nav">
                             <li>
                                 <a href="index.html" class="nav-link">
                                     <img 
@@ -46,6 +47,38 @@
                             </li>
                         </ul>
                     </nav>
+            
+                <!-- 2ND NAV ONLY FOR LARGE SCREENS -->
+                    <nav class="second-nav large-screen-nav">
+                        <ul class="second-ul large-screen-nav">
+                            <li>
+                                <a href="index.html" class="nav-link">
+                                    <img 
+                                    src="assets/img/(Colorful-Others)_Icons_&_Pictures_Pp/Jewel_Keith_Logo_Picture.png" alt="Jewel Keith Logo. Click for Home or to go back top.">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link">
+                                    LIGHT
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#projects" class="nav-link">
+                                    PROJECTS
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#about-me" class="nav-link">
+                                    ABOUT
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#contact-me" class="nav-link">
+                                    CONTACT
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
                 </header>
             <!-- HOME -->
                 <div class="yellow-waves yellow-waves-home">                        
@@ -62,7 +95,7 @@
                         <h2 class="p-intro-heading">I proudly present to you my</h2>
                         <h1>PROJECTS</h1>
                     </div>
-                    <article>
+                    <article class="medium-large-marginleft-negative">
                     <!-- TRIBUTE TITLE -->
                         <h2 class="underline">TRIBUTE PAGE</h2>
                         <div class="empty-div"></div>
@@ -124,7 +157,7 @@
                         <div class="empty-div-2"></div>
                     </article>
 
-                    <article>
+                    <article class="medium-large-marginright-negative">
                     <!-- SURVEY TITLE -->
                         <h2 class="underline underline-right">SURVEY FORM</h2>
                         <div class="empty-div empty-div-left"></div>
@@ -186,7 +219,7 @@
                         <div class="empty-div-2 empty-div-2-left"></div>
                     </article>
 
-                    <article>
+                    <article class="medium-large-marginleft-negative">
                     <!-- TECH DOC TITLE -->
                         <h2 class="underline">TECHNICAL <br> DOCUMENTATION</h2>
                         <div class="empty-div"></div>
@@ -248,7 +281,7 @@
                         <div class="empty-div-2"></div>                       
                     </article>
 
-                    <article>
+                    <article class="medium-large-marginright-negative">
                     <!-- PRODUCT LANDING PAGE TITLE -->
                         <h2 class="underline underline-right">PRODUCT <br> LANDING PAGE</h2>
                         <div class="empty-div empty-div-left"></div>
@@ -481,10 +514,10 @@
 
             <!-- FOOTER -->
                 <footer class="footer">
-                    <div class="yellow-waves footer-info">
-                        <h2 class="p-intro-heading">Thank you for visiting!</h2>
-                        <p>Made with &#128151; by Jewel Keith</p>
-                    </div>
+                        <div class="yellow-waves footer-info yellow-waves-none-large">
+                            <h2 class="p-intro-heading">Thank you for visiting!</h2>
+                            <p>Made with &#128151; by Jewel Keith</p>
+                        </div>
                 </footer>
         </div>
     </main>
