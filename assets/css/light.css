@@ -561,7 +561,7 @@ input[type="submit"]:hover {
     display: block;
     color: var(--color-white);
     padding: 0.2rem;
-}
+} 
 
 .header nav a:hover, 
 .header nav a:active {
