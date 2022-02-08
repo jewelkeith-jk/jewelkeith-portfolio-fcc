@@ -711,7 +711,7 @@ header .row {
         margin-top: -18.5rem;
     }
     .new-yellow-waves {
-        margin-top: 9rem;
+        margin-top: 3rem;
     }
 }
 @media (min-width: 1300px) {
@@ -1786,7 +1786,8 @@ header .row {
     max-width: 550px;
     min-width: 300px;
     margin: 0 auto;
-    padding: 1rem 1.5rem 1rem 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     border-radius: 0.25rem;
 }
 
