@@ -1,0 +1,1924 @@
+/* 
+  ========================================
+            TABLE OF CONTENTS:
+  I. VARIABLES
+        A) COLORS
+  II. GENERIC SITE STYLES
+  III. SHARED STYLES
+        A) TYPOGRAPHY
+        B) YELLOW WAVES AS BG
+        C) IMAGES SIZING
+        D) IMAGES' POSITIONING AND SPACING
+        E) BUTTONS
+            1) CODEPEN, FEEDBACK BUTTON
+            2) SUBMIT BUTTON
+        F) SECTIONS' POSITIONING & SPACING (EXCEPT FOR HOME SECTION)
+            1) MAIN SECTIONS
+            2) CHILDREN'S FLEXBASIS
+        G) HEADER - NAVIGATION
+        H) ANIMATIONS
+  IV. CUSTOM STYLES
+        A) HOME SECTION
+        B) PROJECTS SECTION
+            1) FLIP CARD
+            2) FEEDBACK
+	    3) OTHERS
+        C) ABOUT ME SECTION
+        D) CONTACT SECTION
+            1) FORM
+            2) LINKS
+        E) FOOTER
+   V. MEDIA QUERIES
+        A) MEDIUM SCREENS - TABLETS (500px to 849px)
+            1) 500px
+            2) 585px
+            3) 691px
+            4) 786px
+	    B) LARGE SCREENS - DESKTOP (850px to 1600px)
+            1) 850px
+            2) 950px
+            3) 1200px
+            4) 1300px
+            5) 1400px
+            6) 1600px
+  VI. CREDITS FOR RESOURCES USED
+	    A) FLIP CARD IN MOBILE SCREEN
+	    B) ANIMATION
+	    C) YELLOW WAVES AS BACKGROUND FOR MAIN HEADINGS
+	    D) ICONS
+	    E) PICTURES
+	    F) OFF CANVAS MENU (CSS ONLY)
+        G) BACK TO TOP BUTTON (CSS ONLY)
+        H) DESIGN TOOL
+  ========================================
+*/ 
+
+/*
+  ========================================
+  I. VARIABLES:
+    COLORS
+  ========================================
+*/ 
+:root {
+    --color-white: #FFFFFF;
+    --color-black: #343A40;
+    --color-grey: #737373;
+    --color-yellow: #FFF3BF;
+    --color-yellow-opacity: rgba(255, 243, 191, 0.8);
+    --color-yellow-brighter: #FFE066;
+    --color-nav-ul-bg: #1a1a1a;
+    --color-nav-li-border: #383838;
+    --color-menu-backdrop: rgba(0,0,0,.85);
+}
+
+/*
+  ========================================
+  II. GENERIC SITE STYLES
+  ========================================
+*/
+html {
+    box-sizing: border-box;
+    height: 100%;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: var(--color-white);
+    margin: 0 auto;
+    padding: 0;
+    text-align: right; /*to position top button*/
+    margin: 1rem auto;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+.header {
+    margin: 1rem 1rem 0 1rem;
+}
+
+section {
+    margin-bottom: 1rem;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+.wrapper {
+    margin: 0 1rem -2rem 1rem;
+}
+
+/*
+  ========================================
+  III. SHARED:
+    A) TYPOGRAPHY
+  ========================================
+*/
+/* APPLIED TO ALL SCREEN SIZES */
+    /* SETTING FONT FAMILY, COLOR FOR ALL TEXT */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--color-black);
+            margin: 0 auto;
+        }
+    /* CENTERING ALL TEXT */
+        .wrapper {
+            text-align: center;
+        }
+    /* ALIGN LEFT SOME TEXT */
+        .home,
+        .about .code-design-solutions-problems-sub-section p,
+        .about .one-step-sub-section p,
+        .skills .gained-skills-intro-p,
+        .skills .currently-learning-intro-p,
+        .education .class-central-list-intro-p,
+        .education .blog-twitter-linkedin-intro-p {
+            text-align: left;
+        }
+    /* ADDING LEFT BORDER FOR SOME TEXT FOR EASIER READING */
+        .about .code-design-solutions-problems-sub-section p,
+        .about .one-step-sub-section p,
+        .skills .gained-skills-intro-p,
+        .skills .currently-learning-intro-p,
+        .education .class-central-list-intro-p,
+        .education .blog-twitter-linkedin-intro-p {
+            border-left: 5px solid var(--color-grey);
+            padding-left: 1rem;
+        }
+    /* REMOVING ALL POSSIBLE DEFAULT MARGIN AND PADDING */
+        h1, 
+        h2,
+        h3,
+        p,
+        label,
+        input,
+        button,
+        textarea {
+            margin: 0;
+            padding: 0;
+        }
+    /* COLOR FOR ALL LINKS */
+        a {
+            text-decoration: none;
+            color: var(--color-black);
+        }
+    /* BACKGROUND COLOR FOR LINKS IN TEXT */
+        .link-in-text {
+            background-color: var(--color-yellow-opacity);
+        }
+    /* CONTACT FORM TEXT */
+        label,
+        input,
+        button,
+        textarea {
+            font-family: inherit;
+            font-size: inherit;
+            line-height: inherit;
+        }
+        ::placeholder {
+            color: var(--color-white);
+            opacity: 1;
+        }
+
+/* APPLIED TO SMALL SCREENS*/
+    /* FONT SIZES, STYLE, WEIGHT  */
+        h1 {
+            font-size: 2.3rem;
+            font-weight: 800;
+            font-style: italic;
+        }
+        h2,
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+        }
+        .project-title {
+            font-size: 1.4rem;
+        }
+        p,
+        .skill-label,
+        label {
+            font-size: 1rem; /* just making sure lol */
+            font-weight: 400;
+        }
+        .skills .skill-label {
+            font-weight: bold;
+        }
+        .contact label {
+            font-weight: 600;
+        }
+        .contact .link-label {
+            font-size: 0.8rem;
+        }
+
+/* APPLIED TO SMALL & MEDIUM SCREENS */
+    /* OFF CANVAS MENU - TOGGLE OFF ON ICONS */
+        .fa-bars,
+        .fa-close {
+            font-size: 2rem;
+        }
+        @media (min-width: 500px) {
+            .fa-bars,
+            .fa-close {
+                font-size: 2.5rem;
+            }
+            .contact .link-label {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (min-width: 850px) {
+            .fa-bars {
+                font-size: 3rem;
+            }
+            .header .nav-link {
+                font-size: 1.3rem;
+                font-weight: 600;
+            }
+        }
+
+/* APPLIED TO MEDIUM SCREENS */
+    @media (min-width: 580px) {
+    /* YELLOW WAVES INTRODUCTION */
+        .waves-section-intro h2 {
+            font-size: 1.4rem;
+        }
+        .waves-section-intro h1 {
+            font-size: 2.8rem;
+        }
+    }
+    @media (min-width: 630px) {
+    /* YELLOW WAVES INTRODUCTION */
+        .waves-section-intro h2 {
+            font-size: 1.8rem;
+        }
+        .waves-section-intro h1 {
+            font-size: 3.5rem;
+        }
+    }
+    @media (min-width: 700px) {
+    /* HEADINGS, SUB-HEADINGS, PROJECT TITLE */
+        h1 {
+            font-size: 2.8rem;
+        }
+        h2,
+        h3,
+        .skill-label {
+            font-size: 1.4rem;
+        }
+        .project-title {
+            font-size: 1.6rem;
+        } 
+    }
+    @media (min-width: 737px) {
+    /* PARAGRAPHS */
+        p {
+            font-size: 1.05rem;
+        }
+    }
+    @media (min-width: 769px) {
+    /* PARAGRAPHS */
+        p {
+            font-size: 1.1rem;
+        }
+    }
+    @media (min-width: 801px) {
+    /* HEADINGS, SUB-HEADINGS, PROJECT TITLE */
+        h1 {
+            font-size: 3.5rem;
+        }
+        h2,
+        h3 {
+            font-size: 1.6rem;
+        }
+        .project-title {
+            font-size: 1.8rem;
+        }
+    }
+    @media (min-width: 850px) {
+    /* PARAGRAPHS */
+        p {
+            font-size: 1.15rem;
+        }
+        .home p {
+            padding-bottom: 1rem;
+        }
+    /* YELLOW WAVES INTRODUCTION */
+        .waves-section-intro h2 {
+            font-size: 2rem;
+        }
+        .waves-section-intro h1 {
+            font-size: 4.5rem;
+        }
+    }
+    @media (min-width: 1100px) {
+    /* YELLOW WAVES INTRODUCTION */
+        .waves-section-intro h2 {
+            font-size: 3rem;
+        }
+        .waves-section-intro h1 {
+            font-size: 5.5rem;
+        }
+    }
+    @media (min-width: 1350px) {
+    /* YELLOW WAVES INTRODUCTION */
+        .waves-section-intro h2 {
+            font-size: 4rem;
+        }
+        .waves-section-intro h1 {
+            font-size: 6.5rem;
+        }
+    }
+
+/* MOVE NAV BAR TO THE LEFT SIDE !!!! */
+    @media (min-width: 1600px) {
+    /* YELLOW WAVES INTRODUCTION */
+        .waves-section-intro h2 {
+            font-size: 4rem;
+        }
+        .waves-section-intro h1 {
+            font-size: 6.5rem;
+        }
+    }
+    @media (min-width: 1850px) {
+        p {
+            font-size: 1.15rem;
+        }
+        .home p {
+            padding-bottom: 1rem;
+        }
+    /* YELLOW WAVES INTRODUCTION */
+        .waves-section-intro h2 {
+            font-size: 2rem;
+        }
+        .waves-section-intro h1 {
+            font-size: 4.5rem;
+        }
+    }
+
+/*
+  ========================================
+  III. SHARED:
+    B) PORTFOLIO NAVIGATION
+  ========================================
+*/
+/* SMALL & MEDIUM SCREENS */
+.nav-bar {
+    display: none;
+}
+header .row {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+.header nav li:first-child img {
+    width: 75px;
+    height: auto;
+}
+
+.header nav li:first-child img:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+.header nav .projects-link {
+    border-top: 1px solid var(--color-nav-li-border);
+}
+
+.menu-toggle {
+    color: var(--color-black);
+    margin-left: -1rem;
+    position: fixed;
+    z-index: 998;
+}
+
+.menu-toggle:hover,
+.menu-toggle:focus {
+    color: var(--color-grey);
+}
+
+.main-menu {
+    position: fixed;
+    display: none;
+    left: -200px;
+    top: 0;
+    height: 100%;
+    overflow-x: visible;
+    overflow-y: auto;
+    transition: left 0.3 ease;
+    z-index: 999;
+}
+
+.main-menu ul {
+    list-style: none;
+    margin: 0;
+    padding-top: 2.5em;
+    padding-left: 0;
+    min-height: 100%;
+    width: 200px;
+    background-color: var(--color-nav-ul-bg);
+}
+
+.main-menu a {
+    text-decoration: none;
+}
+
+.main-menu .nav-link {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 25% 75%;
+    padding: 0.75rem;
+    padding-left: 1.25rem;
+    margin: 0;
+    color: #fff;
+    border-bottom: 1px solid var(--color-nav-li-border);
+}
+
+.main-menu .nav-link i {
+    grid-column: 1/ span 1;
+}
+.main-menu .nav-link p,
+.main-menu .nav-link img {
+    grid-column: 2/ span 2;
+} 
+
+.main-menu .nav-link .fa-home {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-content: center;
+}
+
+.main-menu .fa-close {
+    padding: 1rem;
+    text-decoration: none;
+    color: var(--color-white);
+}
+.main-menu .first-link {
+    margin-top: 2rem;
+}
+
+.main-menu a {
+    font-size: 1.2rem;
+    text-align: left;
+}
+  
+.main-menu a:hover,
+.main-menu a:focus {
+    background: var(--color-black);
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+.main-menu .menu-close {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.main-menu:target {
+    display: block;
+    left: 0;
+    outline: none;
+}
+
+.main-menu:target .menu-close {
+    z-index: 1001;
+}
+
+.main-menu:target ul {
+    position: relative;
+    z-index: 1000;
+}
+
+.main-menu:target + .backdrop {
+    position: fixed;
+    display: block;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 998;
+    background: var(--color-menu-backdrop);
+    cursor: default;
+}
+
+/* LARGE SCREENS */
+@media (min-width: 850px) {
+    .small-medium-nav,
+    .header .home-link p {
+        display: none;
+    }
+    .header,
+    .header nav .nav-grp1 {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+    .header nav .nav-grp2 {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 2rem;
+    }
+    .header nav {
+        flex-basis: 100%;
+        width: 100%;
+        height: 70px;
+        background-color: var(--color-black);
+        position: fixed;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+    }
+    .header nav ul {
+        flex-basis: 100%;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        background-color: var(--color-black);
+        display: grid;
+        grid-template-columns: 15% 85%;
+    }
+    .header nav li {
+        text-align: center;
+    }
+    .header nav .nav-grp1 {
+        grid-column: 1/ span 1;
+    }
+    .header nav .nav-grp2 {
+        grid-column: 2/ span 1;
+    }
+    .header nav .nav-grp2 li:last-child {
+        margin-right: 2rem;
+    }
+    .header .nav-link {
+        margin: 0;
+        padding: 0;
+        margin-bottom: -0.2rem;
+        text-decoration: none;
+        display: block;
+        color: var(--color-white);
+    }
+    .header .nav-link p {
+        font-size: 1.1rem;
+    }
+    .header nav li:first-child img {
+        width: 90px;
+        height: auto;
+    }
+    .header .nav-link:hover {
+        transform: scale(1.1);
+        transition: 0.5s;
+    }
+}
+
+/*
+  ========================================
+  III. SHARED: 
+    B) YELLOW WAVES AS BG
+  ========================================
+*/
+.new-yellow-waves {
+    margin-bottom: 3rem;
+}
+.new-yellow-waves img {
+    height: 142px;
+    width: auto;
+}
+.new-yellow-waves .waves-section-intro {
+    margin-top: -6.5rem;
+}
+
+@media (min-width: 410px) {
+    .new-yellow-waves img {
+        height: 173px;
+        width: auto;
+    }
+    .new-yellow-waves .waves-section-intro {
+        margin-top: -7.5rem;
+    }
+    .new-yellow-waves {
+        margin-bottom: 5rem;
+    }
+}
+@media (min-width: 500px) {
+    .new-yellow-waves img {
+        height: 185px;
+    }
+}
+@media (min-width: 530px) {
+    .new-yellow-waves img {
+        height: 200px;
+    }
+    .new-yellow-waves .waves-section-intro {
+        margin-top: -8.5rem;
+    }
+}
+@media (min-width: 575px) {
+    .new-yellow-waves img {
+        height: 220px;
+    }
+    .new-yellow-waves .waves-section-intro {
+        margin-top: -9.5rem;
+    }
+}
+@media (min-width: 630px) {
+    .new-yellow-waves img {
+        height: 245px;
+    }
+    .new-yellow-waves .waves-section-intro {
+        margin-top: -10.5rem;
+    }
+}
+@media (min-width: 700px) {
+    .new-yellow-waves img {
+        height: 280px;
+    }
+    .new-yellow-waves .waves-section-intro {
+        margin-top: -11.75rem;
+    }
+    .new-yellow-waves {
+        margin-bottom: 7rem;
+    }
+}
+@media (min-width: 800px) {
+    .new-yellow-waves img {
+        height: 300px;
+    }
+    .new-yellow-waves .waves-section-intro {
+        margin-top: -11.75rem;
+    }
+}
+@media (min-width: 850px) {
+    .new-yellow-waves img {
+        height: 333px;
+    }
+    .new-yellow-waves .waves-section-intro {
+        margin-top: -13.5rem;
+    }
+}
+@media (min-width: 950px) {
+    .new-yellow-waves img {
+        height: 351px;
+    }
+    .new-yellow-waves .waves-section-intro {
+        margin-top: -14.5rem;
+    }
+    .new-yellow-waves {
+        margin-bottom: 9rem;
+    }
+}
+@media (min-width: 1000px) {
+    .new-yellow-waves img {
+        height: 386px;
+    }
+    .new-yellow-waves .waves-section-intro {
+        margin-top: -15.5rem;
+    }
+}
+@media (min-width: 1100px) {
+    .new-yellow-waves img {
+        height: 421px;
+    }
+    .new-yellow-waves .waves-section-intro {
+        margin-top: -17.5rem;
+    }
+}
+@media (min-width: 1200px) {
+    .new-yellow-waves img {
+        height: 456px;
+    }
+    .new-yellow-waves .waves-section-intro {
+        margin-top: -18.5rem;
+    }
+    .new-yellow-waves {
+        margin-top: 9rem;
+    }
+}
+@media (min-width: 1300px) {
+    .new-yellow-waves img {
+        height: 490px;
+    }
+    .new-yellow-waves .waves-section-intro {
+        margin-top: -20.5rem;
+    }
+}
+@media (min-width: 1400px) {
+    .new-yellow-waves img {
+        height: 527px;
+    }
+    .new-yellow-waves .waves-section-intro {
+        margin-top: -21.5rem;
+    }
+}
+@media (min-width: 1500px) {
+    .new-yellow-waves img {
+        height: 560px;
+    }
+    .new-yellow-waves .waves-section-intro {
+        margin-top: -22.5rem;
+    }
+}
+
+/* MOVE NAV BAR TO THE LEFT SIDE SO RETAIN WAVES SIZE!!!! */
+@media (min-width: 1600px) {
+    .new-yellow-waves img {
+        height: 560px;
+    }
+    .new-yellow-waves {
+        margin-bottom: 11rem;
+    }
+}
+@media (min-width: 1700px) {
+    .new-yellow-waves img {
+        height: 560px;
+    }
+}
+@media (min-width: 1800px) {
+    .new-yellow-waves img {
+        height: 560px;
+    }
+}
+@media (min-width: 1900px) {
+    .new-yellow-waves img {
+        height: 560px;
+    }
+}
+
+/*
+  ========================================
+  III. SHARED: 
+    C) IMAGES SIZING
+  ========================================
+*/
+/* HOME */
+.jewel-keith-dp {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+/* PROJECTS > FEEDBACK */
+.feedback img {
+    width: 150px;
+    max-width: 200px;
+    height: auto;
+}
+
+/* ABOUT */
+.code-design-pics-list img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+.one-step-goal-flag-pics-list img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+}
+.con-per-fai-pics-list img {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+}
+
+/* SKILLS */
+.html-css-des-pics-list img,
+.js-uxui-pics-list img {
+    height: 100%;
+    max-height: 80px;
+    width: auto;
+}
+@media (min-width: 580px) {
+    .html-css-des-pics-list img,
+    .js-uxui-pics-list img {
+        max-height: 100px;
+    }
+}
+
+/* EDUCATION */
+.list-brain-strengthening-pics-list img,
+.happy-sharing-writings-money-pics-list img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+/* CONTACT */
+.contact-links-pics img {
+    width: 80px;
+    height: auto;
+} 
+
+
+/*
+  ========================================
+  III. SHARED: 
+    D) IMAGES' POSITIONING AND SPACING !!!!!!!CHANGEEEEEE / MOVE TO MAIN SECTION NA !!!!!!!!!!
+  ========================================
+*/
+
+
+/* ABOUT */
+.about article {
+    max-width: 1600px;
+}
+.about article section {
+    flex-basis: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+    /* > CODE DESIGN SOLUTION SUB SEC */
+        /* > GRID */
+.about .code-design-solutions-problems-sub-section {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: auto;
+}
+.code-design-pics-list,
+.code-design-solutions-problems-sub-section p {
+    grid-column: 1/ span 1;
+}
+.code-design-pics-list {
+    grid-row: 1/ span 1;
+}
+.code-design-solutions-problems-sub-section p {
+    grid-row: 2/ span 1;
+}
+        /* > FLEXBOX */
+.about .code-design-pics-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+    /* > ONE STEP SUB SEC */
+        /* > GRID */
+.about .one-step-sub-section {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: auto;
+    grid-gap: 5% 0;
+}
+.one-step-goal-flag-pics-list,
+.one-step-sub-section p {
+    grid-column: 1/ span 1;
+    margin: 0 auto 1rem auto;
+}
+.one-step-goal-flag-pics-list {
+    grid-row: 1/ span 1;
+}
+.one-step-sub-section p {
+    grid-row: 2/ span 1;
+}
+        /* > FLEXBOX */
+.about .one-step-goal-flag-pics-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+    /* CON-PER-FAI-SUB-SEC */
+        /* GRID */
+.about .con-per-fai-sub-section {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: auto;
+    grid-gap: 10%;
+}
+.con-per-fai-pics-list,
+.con-per-fai-sub-section h3 {
+    grid-column: 1/ span 1;
+}
+.con-per-fai-pics-list {
+    grid-row: 1/ span 1;
+}
+.con-per-fai-sub-section h3 {
+    grid-row: 2/ span 1;
+}
+        /* > FLEXBOX */
+.about .con-per-fai-pics-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* SKILLS */
+.skills article {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+.skills article section {
+    flex-basis: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+.skills .skill-label {
+    margin-bottom: 0.5rem;
+}
+
+
+    /* > GAINED SKILLS SUB SEC */
+        /* > GRID */
+.skills .gained-skills-sub-section {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: auto;
+    grid-gap: 5%;
+    margin-bottom: 5rem;
+}
+.html-css-des-pics-list,
+.skills-label-p,
+.gained-skills-intro-p {
+    grid-column: 1/ span 1;
+}
+.html-css-des-pics-list {
+    grid-row: 1/ span 1;
+}
+.skills-label-p {
+    grid-row: 2/ span 1;
+}
+.gained-skills-intro-p {
+    grid-row: 3/ span 1;
+}
+
+        /* FLEXBOX */
+.skills .html-css-des-pics-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    gap: 2rem;
+}
+    /* CURRENTLY LEARNING SUB SECTION */
+        /* GRID */
+.skills .currently-learning-sub-section {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: auto;
+    grid-gap: 5%;
+    margin-bottom: 5rem;
+}
+.js-uxui-pics-list,
+.learning-skills-label-p,
+.currently-learning-intro-p {
+    grid-column: 1/ span 1;
+}
+.js-uxui-pics-list {
+    grid-row: 1/ span 1;
+}
+.learning-skills-label-p {
+    grid-row: 2/ span 1;
+}
+.currently-learning-intro-p {
+    grid-row: 3/ span 1;
+}
+        /* FLEXBOX */
+.skills .js-uxui-pics-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+/* EDUCATION */
+.education article {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+.education article section {
+    flex-basis: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+.grateful-label-p,
+.actions-thank-you-label-p {
+    flex-basis: 100%;
+}
+
+    /* CLASS CENTRAL LIST SUB SECTION,
+       BLOG TWITTER LINKEDIN SUB SECTION */
+        /* GRID */
+.education .class-central-list-sub-section,
+.education .blog-twitter-linkedin-sub-section {
+    flex-basis: 100%;
+    padding: 0;
+    padding-bottom: 1rem;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: flex-start;
+    gap: 1rem;
+}
+
+.list-brain-strengthening-pics-list,
+.happy-sharing-writings-money-pics-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+
+/*
+  ========================================
+  III. SHARED: 
+    E) BUTTONS
+  ========================================
+*/
+/* CODEPEN, FEEDBACK, CLASS CENTRAL LIST, BLOG, TWITTER, LINKEDIN BUTTONS */
+.codepen-link-button,
+.fb-link-button,
+.cc-link-button,
+.bg-link-button,
+.tr-link-button,
+.ln-link-button {
+    width: 280px;
+    height: 50px;
+}
+.codepen-button,
+.feedback-button,
+.list-class-central-button,
+.blog-button,
+.twitter-button,
+.linkedin-button {
+    /* looks */
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    /* positioning */
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 20% 80%;
+}
+.codepen-button i,
+.feedback-button i,
+.list-class-central-button i,
+.blog-button i,
+.twitter-button i,
+.linkedin-button i,
+.codepen-button p,
+.feedback-button p,
+.list-class-central-button p,
+.blog-button p,
+.twitter-button p,
+.linkedin-button p  {
+    grid-row: 1/ span 1;
+}
+.codepen-button i,
+.feedback-button i,
+.list-class-central-button i,
+.blog-button i,
+.twitter-button i,
+.linkedin-button i {
+    grid-column: 1/ span 1;
+}
+.codepen-button p,
+.feedback-button p,
+.list-class-central-button p,
+.blog-button p,
+.twitter-button p,
+.linkedin-button p  {
+    grid-column: 2/ span 1;
+}
+.codepen-button .link-icon,
+.feedback-button .link-icon,
+.list-class-central-button .link-icon,
+.blog-button .link-icon,
+.twitter-button .link-icon,
+.linkedin-button .link-icon,
+.codepen-button .view-on-codepen,
+.feedback-button .leave-a-message,
+.list-class-central-button .view-on-class-central,
+.blog-button .view-on-blog,
+.twitter-button .view-on-twitter,
+.linkedin-button .view-on-linkedin {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    align-content: center;
+}
+.codepen-button .link-icon,
+.feedback-button .link-icon,
+.list-class-central-button .link-icon,
+.blog-button .link-icon,
+.twitter-button .link-icon,
+.linkedin-button .link-icon {
+    justify-content: flex-end;
+}
+.codepen-button .view-on-codepen,
+.feedback-button .leave-a-message,
+.list-class-central-button .view-on-class-central,
+.blog-button .view-on-blog,
+.twitter-button .view-on-twitter,
+.linkedin-button .view-on-linkedin {
+    justify-content: flex-start;
+    margin-left: 1.5rem;
+}
+/* TYPOGRAPHY */
+.codepen-button p,
+.feedback-button p,
+.list-class-centralbutton p,
+.blog-button p,
+.twitter-button p,
+.linkedin-button p {
+    font-size: 1.2rem;
+}
+.codepen-button .link-icon,
+.feedback-button .link-icon,
+.cc-link-button .link-icon,
+.bg-link-button .link-icon,
+.tr-link-button .link-icon,
+.ln-link-button .link-icon {
+    font-size: 1.75rem;
+}
+@media (min-width:850px) {
+    .view-on-class-central p {
+        font-size: 1.05rem;
+    }
+}
+#projects .feedback-button .leave-a-message p {
+    margin: 0;
+}
+.education .view-on-class-central {
+    font-size: 1.05rem;
+}
+
+.codepen-button:hover,
+.feedback-button:hover,
+.list-class-central-button:hover,
+.blog-button:hover,
+.twitter-button:hover,
+.linkedin-button:hover {
+    color: var(--color-black);
+    background-color: var(--color-yellow);
+    border: 1px solid var(--color-black);
+}
+
+/* SUBMIT BUTTON */
+#contact input[type="submit"] {
+    display: block;
+    width: 100%;
+    max-width: 550px;
+    margin: 1em auto;
+    height: 50px;
+    font-size: 1.1rem;
+    background-color: var(--color-yellow-brighter);
+    border-color: var(--color-yellow-brighter);
+    border-radius: 0.25rem;
+    cursor: pointer;
+    color: var(--color-black);
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+#contact input[type="submit"]:hover {
+    background-color: var(--color-black);
+    border-color: var(--color-black);
+    color: var(--color-white);
+}
+
+/* BACK TO TOP BUTTON */
+.top-button {
+    place-self: end;
+    position: sticky;
+    bottom: 20px;
+    margin-right: 1.5rem;
+    margin-top: 100vh;
+    text-decoration: none;
+    padding: 0px;
+    color: var(--color-black);
+    font-size: 3rem;
+  }
+
+/*
+  ========================================
+  III. SHARED: 
+    F) SECTIONS' POSITIONING & SPACING
+    (EXCEPT FOR HOME SECTION)
+  ========================================
+*/
+/* 1) MAIN SECTIONS */
+.projects,
+.projects article,
+.flip-yeah,
+.feedback,
+.about,
+.about article,
+.skills,
+.skills article,
+.education,
+.education article,
+.contact {
+    padding: 0;
+    margin: 0 auto; 
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 1rem;   
+}
+
+.feedback {
+    gap: 0.1rem;
+}
+.h3-feedback-intro,
+.feedback img {
+    flex-basis: 100%;
+}
+
+/*
+  ========================================
+  III. SHARED:
+    H) ANIMATIONS
+  ========================================
+*/
+/* ----------------------------------------------
+ * Generated by Animista on 2022-2-3 15:6:36
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+ .slide-in-left {
+    -webkit-animation: slide-in-left 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) ;
+            animation: slide-in-left 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) ;
+}
+    @-webkit-keyframes slide-in-left {
+    0% {
+      -webkit-transform: translateX(-1000px);
+              transform: translateX(-1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  @keyframes slide-in-left {
+    0% {
+      -webkit-transform: translateX(-1000px);
+              transform: translateX(-1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .contact-link-hover:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+/*
+  ========================================
+  CUSTOM: 
+    A) HOME SECTION
+  ========================================
+*/
+.empty-div-home {
+    display: none;
+}
+.home {
+    margin-top: 4rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.jewel-keith-intro-home,
+.home img {
+    flex-basis: 100%;
+}
+.jewel-keith-intro-home {
+    max-width: 525px;
+}
+.home img {
+    max-width: 350px;
+}
+
+@media (min-width: 620px) {
+    .home {
+        justify-content: flex-start;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 900px;
+    }
+    .empty-div-home {
+        display: inline-block;
+        height: 28px;
+        width: auto;
+    }
+    .jewel-keith-intro-home {
+        flex-basis: 70%;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        margin-left: 1.5rem;
+        max-width: 500px;
+    }
+    .home img {
+        max-width: 400px;
+    }
+    .empty-div-home,
+    .jewel-keith-intro-home h2,
+    .jewel-keith-intro-home h1,
+    .jewel-keith-intro-home .home-bio {
+        flex-basis: 100%;
+    }
+    /* GRID FOR POSITIONING IN MEDIUM & LARGE SCREENS */
+    .home {
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: 40% 60%;
+    }
+    .empty-div-home,
+    .home .jewel-keith-intro-home, 
+    .home img {
+        grid-row: 1/ span 1;
+    }
+    .home img {
+        grid-column: 1/ span 1;
+        justify-self: end;
+    }
+    .home .jewel-keith-intro-home {
+        grid-column: 2/ span 1;
+        justify-self: start;
+    }
+}
+
+@media (min-width: 670px) {
+    .empty-div-home {
+        height: 34px;
+    }
+}
+
+@media (min-width: 700px) {
+    .empty-div-home {
+        height: 48px;
+    }
+    .jewel-keith-intro-home h2 {
+        font-size: 1.4rem;
+    }
+    .jewel-keith-intro-home h1 {
+        font-size: 2.8rem;
+    }
+}
+@media (min-width: 737px) {
+    .jewel-keith-intro-home p {
+        font-size: 1.05rem;
+    }
+}
+@media (min-width: 769px) {
+    .jewel-keith-intro-home p {
+        font-size: 1.1rem;
+    }
+}
+@media (min-width: 801px) {
+    .jewel-keith-intro-home h2 {
+        font-size: 1.6rem;
+    }
+    .jewel-keith-intro-home h1 {
+        font-size: 3.5rem;
+    }
+}
+@media (min-width: 820px) {
+    .empty-div-home {
+        height: 59px;
+    }
+}
+@media (min-width: 850px) {
+    .jewel-keith-intro-home p {
+        font-size: 1.15rem;
+        padding-bottom: 1rem;
+    }
+    .empty-div-home {
+        height: 76px;
+    }
+    .home {
+        margin-top: 6rem;
+    }
+}
+
+/*
+  ========================================
+  IV. CUSTOM: 
+    B) PROJECTS SECTION
+  ========================================
+*/
+/* SETTING MAX WIDTH FOR PROJECTS' ARTICLES*/
+.projects {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+.projects article {
+    flex-basis: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+/* 1) FLIP CARD */
+.flip-card {
+    width: 280px;
+    height: 280px;
+    perspective: 1000px;
+    margin: 0.4rem 0 0.4rem 0;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, 
+.flip-card-back5, 
+.flip-card-back6,
+.flip-card-back3,
+.flip-card-back4 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.flip-card-back5,
+.flip-card-back6,
+.flip-card-back3,
+.flip-card-back4 {
+    transform: rotateY(180deg);
+    background-image: url('../img/(Light-Projects)_Small_Pp/Projects_Window_W_lightbg_Back.png');
+    background-size: 100% 100%;
+}
+
+.flip-card-back5 p,
+.flip-card-back6 p,
+.flip-card-back3 p,
+.flip-card-back4 p {
+    font-size: 0.9rem;
+    text-align: left;
+    padding: 2.4rem 1rem 0 1rem;
+    font-style: italic;
+}
+.flip-card-back5 .languages,
+.flip-card-back6 .languages,
+.flip-card-back3 .languages,
+.flip-card-back4 .languages {
+    padding: 0.4rem 1rem 0 1rem;
+}
+
+.flip-card-back5 .languages,
+.flip-card-back6 .languages,
+.flip-card-back3 .languages,
+.flip-card-back4 .languages,
+.flip-card-back5 li,
+.flip-card-back6 li,
+.flip-card-back3 li,
+.flip-card-back4 li {
+    font-style: normal;
+    font-weight: bold;
+}
+
+.flip-card-back5 ul,
+.flip-card-back6 ul,
+.flip-card-back3 ul,
+.flip-card-back4 ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.flip-card-back5 li,
+.flip-card-back6 li,
+.flip-card-back3 li,
+.flip-card-back4 li {
+    text-align: center;
+    flex-basis: 10%;
+    font-size: 0.7rem;
+    padding: 0.3rem 0 0 1rem;
+}
+
+.flip-card-back5 li:first-child,
+.flip-card-back6 li:first-child,
+.flip-card-back3 li:first-child,
+.flip-card-back4 li:first-child {
+    padding: 0.3rem 0 0 2rem;
+}
+
+.flip-card-back5 img,
+.flip-card-back6 img,
+.flip-card-back3 img,
+.flip-card-back4 img {
+    width: 40px;
+    height: auto;
+}
+    
+/* 2) FEEDBACK */
+.feedback p {
+    margin: 0 1rem 0 1rem;
+}
+.feedback-info-button {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+.feedback-info-button .feedback-info-margin {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 410px) {
+    .feedback-info-button .feedback-info-margin {
+        flex-basis: 79%;
+    }
+}
+
+.projects .project-title {
+    flex-basis: 100%;
+}
+
+/* BIT SPACE AFTER PROJECT ARTICLE */
+.projects article {
+    margin-bottom: 1rem;
+}
+
+/* DISPLAY OFF THE MEDIUM & LARGE LAYOUT FOR SMALL */
+.projects .empty-div-1-left,
+.projects .empty-div-1-right,
+.projects .empty-div-2-left,
+.projects .empty-div-2-right,
+.project-preview-left,
+.project-preview-right,
+.project-info-right,
+.project-info-left {
+    display: none;
+}
+
+/* MEDIUM SCREEN LAYOUT */
+@media (min-width: 620px) {
+/* DISPLAY OFF THE SMALL LAYOUT FOR MEDIUM AND LARGE */
+    .flip-yeah {
+        display: none;
+    }
+/* DISPLAY ON THE MEDIUM & LARGE LAYOUT  */
+    .projects .empty-div-1-left,
+    .projects .empty-div-1-right,
+    .projects .empty-div-2-left,
+    .projects .empty-div-2-right,
+    .project-preview-left,
+    .project-preview-right,
+    .project-info-right,
+    .project-info-left {
+        display: block;
+    }
+/* FLEXBASIS FOR CONSUMED SPACE */
+    .project-title-left,
+    .empty-div-1-right,
+    .project-preview-left,
+    .project-info-right,
+    .codepen-link-button-left,
+    .empty-div-2-right,
+    .empty-div-1-left,
+    .project-title-right,
+    .project-info-left,
+    .project-preview-right,
+    .empty-div-2-left
+    .codepen-link-button-right {
+        flex-basis: 45%;
+    }
+/* FILLING SPACE IN EMPTY DIVS */
+    .empty-div-1-left,
+    .empty-div-1-right,
+    .empty-div-2-left,
+    .empty-div-2-right {
+        height: 25px;
+        width: auto;
+    }
+/* STYLING LANGUAGES LIST & LOGOS, PROJECTS' PREVIEW */
+    .project-info-left ul,
+    .project-info-right ul {
+        list-style-type: none;
+        padding: 0;
+        padding-left: 2rem;
+        margin: 0;
+        display: flex;
+        flex-flow: row wrap;
+    }
+    .project-info-left li,
+    .project-info-right li {
+        font-style: normal;
+        font-weight: bold;
+        text-align: center;
+        flex-basis: 10%;
+        font-size: 1rem;
+        padding: 0.3rem 0 0 1rem;
+    }
+    .project-info-left .languages,
+    .project-info-right .languages {
+        font-weight: bold;
+        margin-top: 0.5rem;
+    }
+    .project-info-left ul img,
+    .project-info-right ul img {
+        width: 40px;
+        height: auto;
+    }
+    .project-preview-left,
+    .project-preview-right {
+        display: inline-block;
+        width: 280px;
+        max-width: 300px;
+        height: auto;
+    }
+/* GRID FOR ARRANGING THE CELLS UNDER PROJECT ARTICLES */
+    .projects .first-project,
+    .projects .second-project,
+    .projects .third-project,
+    .projects .fourth-project {
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: 50% 50%;
+    }
+    /* UNIFORM ROWS */
+    .project-title-left,
+    .empty-div-1-right,
+    .empty-div-1-left,
+    .project-title-right {
+        grid-row: 1/ span 1;
+    }
+    .project-preview-left,
+    .project-info-right,
+    .project-info-left,
+    .project-preview-right {
+        grid-row: 2/ span 1;
+    }
+    .codepen-link-button-left,
+    .empty-div-2-right,
+    .empty-div-2-left
+    .codepen-link-button-right {
+        grid-row: 3/ span 1;
+    }
+    /* ODD PROJECTS - LEFT SIDE */
+    .project-title-left,
+    .project-preview-left,
+    .codepen-link-button-left {
+        grid-column: 1/ span 1;
+    }
+    .empty-div-1-right,
+    .project-info-right,
+    .empty-div-2-right {
+        grid-column: 2/ span 1;
+    }
+    /* EVEN PROJECTS - RIGHT SIDE */
+    .empty-div-1-left,
+    .project-info-left,
+    .empty-div-2-left {
+        grid-column: 1/ span 1;
+    }
+    .project-title-right,
+    .project-preview-right,
+    .codepen-link-button-right {
+        grid-column: 2/ span 1;
+    }
+    
+/* TEXT ALIGN LEFT FOR PROJ INFO LEFT & RIGHT */
+    .project-info-right,
+    .project-info-left {
+        text-align: left;
+    }
+/* ADDING PADDING AT ONE SIDE TO PROJ INFOS */
+    .project-info-right {
+        padding-left: 0.5rem;
+    }
+    .project-info-left {
+        padding-right: 0.5rem;
+    }
+/* CENTERING THE PROJ PREVIEW & BUTTON */
+    .project-preview-left,
+    .project-preview-right,
+    .codepen-link-button-left,
+    .codepen-link-button-right {
+        margin: 0 auto;
+    }
+    
+}
+
+
+
+/*
+  ========================================
+  IV. CUSTOM: 
+    C) ABOUT SECTION
+  ========================================
+*/
+.about article {
+    gap: 0;
+}
+.about article section {
+    margin-bottom: 3rem;
+}
+
+/*
+  ========================================
+  IV. CUSTOM:
+    D) CONTACT SECTION
+  ========================================
+*/
+/* 1) FORM */
+.contact form {
+    max-width: 550px;
+    min-width: 300px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem 1rem 1.5rem;
+    border-radius: 0.25rem;
+}
+
+.contact fieldset {
+    border: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 550px;
+}
+
+.contact label {
+    display: block;
+    margin: 0.5rem 0;
+    text-align: left;
+}
+
+.contact input,
+.contact textarea {
+    margin: 10px 0 0 0;
+    width: 100%;
+    min-height: 2em;
+    padding: 5px;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    border: 1px solid var(--color-black);
+    border-radius: 0.25rem;
+}
+
+/* 2) LINKS */
+.contact-links-pics {
+    flex-basis: 100%;
+    list-style-type: none;
+    padding: 0;
+    margin-top: 1.5rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.8rem;
+}
+
+.contact-links-pics li {
+    text-align: center;
+    flex-basis: 25%;
+}
+@media (min-width: 620px) {
+    .contact-links-pics li {
+        flex-basis: 17%;
+    }
+}
+
+.contact-links-pics p {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+}
+.contact .links-my-accounts p {
+    margin-bottom: 1.5rem;
+}
+
+/* POSITIONING */
+    /* FLEXBASIS & MAX WIDTH */
+        .contact .intro-and-contact-form,
+        .contact .links-my-accounts  {
+            flex-basis: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+
+
+/*
+  ========================================
+  IV. CUSTOM:
+    E) FOOTER
+  ========================================
+*/
+.footer .footer-info {
+    margin-top: 3.5rem;
+    margin-bottom: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1600px;
+}
+
+@media (min-width: 500px) {
+    .footer .footer-info {
+        margin-bottom: 0;
+    }
+}
+
+/*
+  ========================================
+  VI. CREDITS FOR RESOURCES USED 
+    A) FLIP CARD IN SMALL SCREENS: 
+            @w3schools - https://www.w3schools.com/
+                >tutorial link: https://www.w3schools.com/howto/howto_css_flip_card.asp
+    B) ANIMATION: 
+            @animista - https://animista.net/
+                >slide-in-left link: https://animista.net/play/entrances/slide-in/slide-in-left
+                >price: free! just make sure to give some credits
+                >discovered it through Brett's AWESOME WebGuide - https://webguide.space/theguide/
+    C) YELLOW WAVES AS BACKGROUND FOR MAIN HEADINGS: 
+            @haikei - https://app.haikei.app/
+                >layered waves: found at "layered waves" section
+                >discovered it through Brett's AWESOME WebGuide - https://webguide.space/theguide/
+    D) ICONS / PICTURES / LOGOS: 
+            @font awesome - https://fontawesome.com/
+                >icons in buttons, navigation bar: all under free category
+            @canva - https://www.canva.com
+                >icons or pictures in projects, about, skills, and education sections: free for all canva users (Many icons were a combination of different free icons and shapes. I put them together to create better images more suitable for my specific needs.)
+                >logos in projects & contact section (except for github & freeCodeCamp): free for all canva users
+            @github - https://github.com/logos
+                >github logo used in contact section
+                >the link points out to a page where it discusses how the github logo must be used. (In my case, I used it to link to my github profile which is one of the awesome things to do under their rules.)
+            @freecodecamp - https://design-style-guide.freecodecamp.org/
+                >freecodecamp logo used in contact section to point out to my learner's profile where you can see my learning progress under the curriculum
+    F) OFF CANVAS MENU (CSS ONLY):
+            @frontend masters - https://frontendmasters.com/
+                >course: Advanced CSS Layouts by Jen Kramer
+                >section: Pure CSS Off-Canvas Menu
+                >link: https://frontendmasters.com/courses/advanced-css-layouts/
+                >price: 5months free access for those who have the github student developer pack - https://education.github.com/pack
+    G) BACK TO TOP BUTTON (CSS ONLY):
+            @freeCodeCamp News/Articles - https://www.freecodecamp.org/news
+                >article: How to Make an Animated Back to Top Button Using Only CSS by Temani Afif
+                >link: https://www.freecodecamp.org/news/css-only-back-to-top-button/
+    H) FONT FAMILY:
+            @google - https://fonts.google.com/
+                >montserrat - https://fonts.google.com/specimen/Montserrat
+    I) DESIGN TOOLS:
+            @canva - https://www.canva.com (I used it to design and customize the overall layout, typography and colors of my website and logo.)
+            @open color - https://yeun.github.io/open-color/ (I used it for building my color palette. Discovered it through Brett's AWESOME WebGuide - https://webguide.space/theguide/)
+  ========================================
+*/
