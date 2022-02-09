@@ -2040,8 +2040,6 @@ body {
 .about article {
     flex-basis: 100%;
     gap: 0;
-    margin-left: 3rem;
-    margin-right: 3rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -2056,6 +2054,13 @@ body {
 .about .code-design-solutions-problems-sub-section,
 .about .one-step-sub-section {
     margin-bottom: 3rem;
+}
+
+@media (min-width: 760px) {
+    .about article {
+        margin-left: 3rem;
+        margin-right: 3rem;
+    }
 }
 
 
