@@ -76,39 +76,56 @@
   II. GENERIC SITE STYLES
   ========================================
 */
+/* border box to always account border and padding when sizing*/
+    html {
+        box-sizing: border-box;
+        height: 100%;
+    }
+
+    *, *::before, *::after {
+        box-sizing: inherit;
+    }
 html {
-    box-sizing: border-box;
-    height: 100%;
+    /* avoiding instant jump to diff sections */
+        scroll-behavior: smooth;
 }
-
-*, *::before, *::after {
-    box-sizing: inherit;
-}
-
 body {
-    background-color: var(--color-white);
-    margin: 0 auto;
-    padding: 0;
-    text-align: right; /*to position top button*/
-    margin: 1rem auto;
-    overflow-x: hidden;
     height: 100%;
-}
-
-.header {
-    margin: 1rem 1rem 0 1rem;
-}
-
-section {
-    margin-bottom: 1rem;
-}
-
-html {
-    scroll-behavior: smooth;
+    padding: 0;
+    margin: 1rem auto;
+    background-color: var(--color-white);
+    /* to remove horizontal scrolling */
+        overflow-x: hidden;
+    /*to position top button*/
+        text-align: right; 
 }
 .wrapper {
-    margin: 0 1rem -2rem 1rem;
+    /* since a pure css top button is added i have to adjust the whole content's margin */
+        margin: 0 1rem -2rem 1rem;
 }
+
+@media (min-width:1360px) {
+    body {
+        background-color: #EDF2F7;
+    }
+    /* to center the content */
+    .wrapper {
+        margin: 0 auto;
+        box-shadow:
+            1.6px 1.6px 1.2px rgba(0, 0, 0, 0.015),
+            3.4px 3.4px 2.7px rgba(0, 0, 0, 0.022),
+            5.8px 5.8px 4.6px rgba(0, 0, 0, 0.027),
+            8.7px 8.7px 6.9px rgba(0, 0, 0, 0.031),
+            12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
+            17.7px 17.7px 14.2px rgba(0, 0, 0, 0.039),
+            25.1px 25.1px 20.1px rgba(0, 0, 0, 0.043),
+            36.5px 36.5px 29.2px rgba(0, 0, 0, 0.048),
+            56.3px 56.3px 45px rgba(0, 0, 0, 0.055),
+            100px 100px 80px rgba(0, 0, 0, 0.07)
+            ;
+    }
+}
+
 
 /*
   ========================================
@@ -117,17 +134,19 @@ html {
   ========================================
 */
 /* APPLIED TO ALL SCREEN SIZES */
-    /* SETTING FONT FAMILY, COLOR FOR ALL TEXT */
+    /* setting font family & color for all text */
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Montserrat', Arial, Verdana, "Trebuchet MS", sans-serif;
             color: var(--color-black);
             margin: 0 auto;
         }
-    /* CENTERING ALL TEXT */
+    /* centering all text */
         .wrapper {
             text-align: center;
+            max-width: 1374px;
+            background-color: var(--color-white);
         }
-    /* ALIGN LEFT SOME TEXT */
+    /* align some text */
         .home,
         .about .code-design-solutions-problems-sub-section p,
         .about .one-step-sub-section p,
@@ -137,7 +156,7 @@ html {
         .education .blog-twitter-linkedin-intro-p {
             text-align: left;
         }
-    /* ADDING LEFT BORDER FOR SOME TEXT FOR EASIER READING */
+    /* adding left border on some text for easier reading */
         .about .code-design-solutions-problems-sub-section p,
         .about .one-step-sub-section p,
         .skills .gained-skills-intro-p,
@@ -147,7 +166,7 @@ html {
             border-left: 5px solid var(--color-grey);
             padding-left: 1rem;
         }
-    /* REMOVING ALL POSSIBLE DEFAULT MARGIN AND PADDING */
+    /* removing all possible deafult margin and padding */
         h1, 
         h2,
         h3,
@@ -159,16 +178,16 @@ html {
             margin: 0;
             padding: 0;
         }
-    /* COLOR FOR ALL LINKS */
+    /* color for all links */
         a {
             text-decoration: none;
             color: var(--color-black);
         }
-    /* BACKGROUND COLOR FOR LINKS IN TEXT */
+    /* background color for links in text */
         .link-in-text {
             background-color: var(--color-yellow-opacity);
         }
-    /* CONTACT FORM TEXT */
+    /* contact form text */
         label,
         input,
         button,
@@ -182,8 +201,8 @@ html {
             opacity: 1;
         }
 
-/* APPLIED TO SMALL SCREENS*/
-    /* FONT SIZES, STYLE, WEIGHT  */
+/* APPLIED TO SMALL SCREENS (320-499) */
+    /* font sizes, style, weight  */
         h1 {
             font-size: 2.3rem;
             font-weight: 800;
@@ -213,8 +232,8 @@ html {
             font-size: 0.8rem;
         }
 
-/* APPLIED TO SMALL & MEDIUM SCREENS */
-    /* OFF CANVAS MENU - TOGGLE OFF ON ICONS */
+/* APPLIED TO SMALL & MEDIUM SCREENS (320-849) */
+    /* off canvas menu - toggle of on icons */
         .fa-bars,
         .fa-close {
             font-size: 2rem;
@@ -239,123 +258,128 @@ html {
             }
         }
 
-/* APPLIED TO MEDIUM SCREENS */
+/* APPLIED TO MEDIUM SCREENS (500-849) */
     @media (min-width: 580px) {
-    /* YELLOW WAVES INTRODUCTION */
-        .waves-section-intro h2 {
-            font-size: 1.4rem;
-        }
-        .waves-section-intro h1 {
-            font-size: 2.8rem;
-        }
+        /* yellow waves intro */
+            .waves-section-intro h2 {
+                font-size: 1.4rem;
+            }
+            .waves-section-intro h1 {
+                font-size: 2.8rem;
+            }
     }
     @media (min-width: 630px) {
-    /* YELLOW WAVES INTRODUCTION */
-        .waves-section-intro h2 {
-            font-size: 1.8rem;
-        }
-        .waves-section-intro h1 {
-            font-size: 3.5rem;
-        }
+        /* yellow waves intro */
+            .waves-section-intro h2 {
+                font-size: 1.8rem;
+            }
+            .waves-section-intro h1 {
+                font-size: 3.5rem;
+            }
     }
     @media (min-width: 700px) {
-    /* HEADINGS, SUB-HEADINGS, PROJECT TITLE */
-        h1 {
-            font-size: 2.8rem;
-        }
-        h2,
-        h3,
-        .skill-label {
-            font-size: 1.4rem;
-        }
-        .project-title {
-            font-size: 1.6rem;
-        } 
+        /* headings, sub-headings, project title */
+            h1 {
+                font-size: 2.8rem;
+            }
+            h2,
+            h3,
+            .skill-label {
+                font-size: 1.4rem;
+            }
+            .project-title {
+                font-size: 1.6rem;
+            } 
     }
     @media (min-width: 737px) {
-    /* PARAGRAPHS */
-        p {
-            font-size: 1.05rem;
-        }
+        /* paragraphs */
+            p {
+                font-size: 1.05rem;
+            }
     }
     @media (min-width: 769px) {
-    /* PARAGRAPHS */
-        p {
-            font-size: 1.1rem;
-        }
+        /* paragraphs */
+            p {
+                font-size: 1.1rem;
+            }
     }
     @media (min-width: 801px) {
-    /* HEADINGS, SUB-HEADINGS, PROJECT TITLE */
-        h1 {
-            font-size: 3.5rem;
-        }
-        h2,
-        h3 {
-            font-size: 1.6rem;
-        }
-        .project-title {
-            font-size: 1.8rem;
-        }
-    }
-    @media (min-width: 850px) {
-    /* PARAGRAPHS */
-        p {
-            font-size: 1.15rem;
-        }
-        .home p {
-            padding-bottom: 1rem;
-        }
-    /* YELLOW WAVES INTRODUCTION */
-        .waves-section-intro h2 {
-            font-size: 2rem;
-        }
-        .waves-section-intro h1 {
-            font-size: 4.5rem;
-        }
-    }
-    @media (min-width: 1100px) {
-    /* YELLOW WAVES INTRODUCTION */
-        .waves-section-intro h2 {
-            font-size: 3rem;
-        }
-        .waves-section-intro h1 {
-            font-size: 5.5rem;
-        }
-    }
-    @media (min-width: 1350px) {
-    /* YELLOW WAVES INTRODUCTION */
-        .waves-section-intro h2 {
-            font-size: 4rem;
-        }
-        .waves-section-intro h1 {
-            font-size: 6.5rem;
-        }
+        /* headings, sub-headings, project title */
+            h1 {
+                font-size: 3.5rem;
+            }
+            h2,
+            h3 {
+                font-size: 1.6rem;
+            }
+            .project-title {
+                font-size: 1.8rem;
+            }
     }
 
-/* MOVE NAV BAR TO THE LEFT SIDE !!!! */
+/* APPLIED TO LARGE SCREENS (850-1360) */
+    @media (min-width: 850px) {
+        /* paragraphs */
+            p {
+                font-size: 1.15rem;
+            }
+            .home p {
+                padding-bottom: 1rem;
+            }
+        /* yellow waves intro */
+            .waves-section-intro h2 {
+                font-size: 2rem;
+            }
+            .waves-section-intro h1 {
+                font-size: 4.5rem;
+            }
+    }
+    @media (min-width: 1100px) {
+        /* yellow waves intro */
+            .waves-section-intro h2 {
+                font-size: 3rem;
+            }
+            .waves-section-intro h1 {
+                font-size: 5.5rem;
+            }
+    }
+
+/* APPLIED TO LARGER SCREENS (1360-1920) */
+    @media (min-width: 1360px) {
+        /* yellow waves intro */
+            .waves-section-intro h2 {
+                font-size: 3rem;
+            }
+            .waves-section-intro h1 {
+                font-size: 5.5rem;
+            }
+    }
+
+
     @media (min-width: 1600px) {
-    /* YELLOW WAVES INTRODUCTION */
-        .waves-section-intro h2 {
-            font-size: 4rem;
-        }
-        .waves-section-intro h1 {
-            font-size: 6.5rem;
-        }
+        /* yellow waves intro */
+            .waves-section-intro h2 {
+                font-size: 3rem;
+            }
+            .waves-section-intro h1 {
+                font-size: 5.5rem;
+            }
     }
     @media (min-width: 1850px) {
-        p {
-            font-size: 1.15rem;
-        }
-        .home p {
-            padding-bottom: 1rem;
-        }
-    /* YELLOW WAVES INTRODUCTION */
-        .waves-section-intro h2 {
-            font-size: 2rem;
-        }
-        .waves-section-intro h1 {
-            font-size: 4.5rem;
-        }
+        /* paragraphs */
+            p {
+                font-size: 1.15rem;
+            }
+            .home p {
+                padding-bottom: 1rem;
+            }
+        /* yellow waves intro */
+            .waves-section-intro h2 {
+                font-size: 3rem;
+            }
+            .waves-section-intro h1 {
+                font-size: 5.5rem;
+            }
     }
 
 /*
@@ -364,232 +388,301 @@ html {
     B) PORTFOLIO NAVIGATION
   ========================================
 */
-/* SMALL & MEDIUM SCREENS */
-.nav-bar {
-    display: none;
-}
-header .row {
-    display: flex;
-    flex-flow: row nowrap;
-}
+/* SMALL & MEDIUM SCREENS (320-849) */
+    /* display off the second nav bar */
+        .nav-bar {
+            display: none;
+        }
+    /* for the toggle meanu to be rightly positioned */
+        header .row {
+            display: flex;
+            flex-flow: row nowrap;
+        }
+        .header {
+            margin: 1rem 1rem 0 1rem;
+        }
+    /* For screen reader only https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html for more info */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            border: 0;
+        }
+    /* logo sizing to fit in the nav menu */
+        .header nav li:first-child img {
+            width: 70px;
+            height: auto;
+        }
+    /* to rightly position the menu toggle - hamburger button, 
+    & adding color to it */
+        .menu-toggle {
+            color: var(--color-black);
+            margin-left: -1rem;
+            position: fixed;
+            z-index: 998;
+        }
+    /* menu toggle changes color when hovered */
+        .menu-toggle:hover,
+        .menu-toggle:focus {
+            color: var(--color-grey);
+        }
+    /*  > menu set to fixed and 100% in height so users can't scroll away from it and it'll occupy 100% of the screen height.
+        > display, left - to have scrollbars appear when needed
+        > overflow to have possible long nav names to be fully visible
+        > z-index is for layering the main-menu, close icon button and ul (CSS line 524), and the backdrop (CSS line 537) */
+        .main-menu {
+            position: fixed;
+            height: 100%;
+            display: none;
+            left: -200px;
+            overflow-x: visible;
+            overflow-y: auto;
+            transition: left 0.3s ease;
+            top: 0;
+            z-index: 999;
+        }
+    /*  > turn off bullets
+        > set bg color of flyout menu
+        > "width" here and the "left" property in .main-menu should be the same absolute manner */
+        .main-menu ul {
+            list-style: none;
+            background-color: var(--color-nav-ul-bg);
+            width: 200px;
+            margin: 0;
+            padding-top: 2.5em;
+            padding-left: 0;
+            min-height: 100%;
+        }
+    /*  removes underline in links */
+        .main-menu a {
+            text-decoration: none;
+        }
+    /*  > setting the "a" in li (< ul < nav) to grid so i can arrange the icons and labels within it
+        > set some padding and marge to rightly position the links
+        > set some color on link text
+        > added border on top of each link for easier reading */
+        .main-menu .nav-link {
+            display: grid;
+            grid-template-rows: auto;
+            grid-template-columns: 25% 75%;
+            padding: 0.75rem;
+            padding-left: 1.25rem;
+            margin: 0;
+            color: #fff;
+            border-bottom: 1px solid var(--color-nav-li-border);
+        }
+    /* added border top on "projects" link for easier reading */
+        /* .header nav .projects-link {
+            border-top: 1px solid var(--color-nav-li-border);
+        } */
+     /*positioning of icons in first column */
+        .main-menu .nav-link i {
+            grid-column: 1/ span 1;
+        }
+    /*positioning of p and logo img in second column */
+        .main-menu .nav-link p,
+        .main-menu .nav-link img {
+            grid-column: 2/ span 2;
+        } 
+    /* flex for home icon to rightly position it with the logo img */
+        .main-menu .nav-link .fa-home {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: flex-start;
+            align-content: center;
+        }
+    /* setting styles for the close X icon */
+        .main-menu .fa-close {
+            padding: 1rem;
+            text-decoration: none;
+            color: var(--color-white);
+        }
+    /* setting a small margin on top of the logo img to have space betweeen it and the close icon */
+        .main-menu .first-link {
+            margin-top: 2rem;
+        }
+    /* size and alignment of the text in links for easier reading */
+        .main-menu a {
+            font-size: 1.2rem;
+            text-align: left;
+        }
+    /* to slowly zoom in on logo img when hovered */
+        .header nav li:first-child img:hover {
+            transform: scale(1.1);
+            transition: 0.5s;
+        }
+    /* to slowly zoom in on links when hovered */
+        .main-menu a:hover,
+        .main-menu a:focus {
+            background: var(--color-black);
+            transform: scale(1.1);
+            transition: 0.5s;
+        }
+    /*  > to position the close icon button in the upper right corner */
+        .main-menu .menu-close {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    /*  
+    Q1: How is the menu showed when clicked?
+        > when users target (or click) the main-menu (hamburger icon button), the navigation menu shows because we set the left property to 0 from -200px (CSS line 431)
+    Q2: But how does the main-menu (hamburger icon link button) target the off-canvas menu or the hidden nav bar?
+        >   follow HTML line 23: 
+                <a href="#main-menu" id="main-menu-toggle" class="menu-toggle" aria-label="Open main menu">
+        >   if it's targeted (or clicked), the href targets the main-menu, both class and ID. follow HTML line 29:
+                <nav id="main-menu" class="main-menu" aria-label="main menu">       */
+        .main-menu:target {
+            display: block;
+            left: 0;
+            outline: none;
+        }
+    
+    /* this brings the close X button icon to the top of ul so it can be clicked */
+        .main-menu:target .menu-close {
+            z-index: 1001;
+        }
+    /* this brings ul to the top of main menu so it can be clicked */
+        .main-menu:target ul {
+            position: relative;
+            z-index: 1000;
+        }
+    /* 
+    > "+ .backdrop" is used instead of ".main-menu:target:after" to make it clickable letting users easly go back to the main content without clicking the close X button 
+    > the backdrop is the link on HTML line 80: 
+        <a href="#main-menu-toggle" class="backdrop" hidden tabindex="-1"></a>
+    > here it's set as block & fixed
+    > it's moved below of the main menu (notice the z-index values)
+    > set height and width to 100% so that it occupies the remaining space of the screen after main menu is displayed
+    > gave it a light grey color to distinguish it from the main menu and and to make the main content slightly be seen for easier navigation */
+        .main-menu:target + .backdrop {
+            position: fixed;
+            display: block;
+            left: 0;
+            top: 0;
+            z-index: 998;
+            width: 100%;
+            height: 100%;
+            background: var(--color-menu-backdrop);
+            cursor: default;
+        }
 
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    border: 0;
-}
-
-.header nav li:first-child img {
-    width: 75px;
-    height: auto;
-}
-
-.header nav li:first-child img:hover {
-    transform: scale(1.1);
-    transition: 0.5s;
-}
-
-.header nav .projects-link {
-    border-top: 1px solid var(--color-nav-li-border);
-}
-
-.menu-toggle {
-    color: var(--color-black);
-    margin-left: -1rem;
-    position: fixed;
-    z-index: 998;
-}
-
-.menu-toggle:hover,
-.menu-toggle:focus {
-    color: var(--color-grey);
-}
-
-.main-menu {
-    position: fixed;
-    display: none;
-    left: -200px;
-    top: 0;
-    height: 100%;
-    overflow-x: visible;
-    overflow-y: auto;
-    transition: left 0.3 ease;
-    z-index: 999;
-}
-
-.main-menu ul {
-    list-style: none;
-    margin: 0;
-    padding-top: 2.5em;
-    padding-left: 0;
-    min-height: 100%;
-    width: 200px;
-    background-color: var(--color-nav-ul-bg);
-}
-
-.main-menu a {
-    text-decoration: none;
-}
-
-.main-menu .nav-link {
-    display: grid;
-    grid-template-rows: auto;
-    grid-template-columns: 25% 75%;
-    padding: 0.75rem;
-    padding-left: 1.25rem;
-    margin: 0;
-    color: #fff;
-    border-bottom: 1px solid var(--color-nav-li-border);
-}
-
-.main-menu .nav-link i {
-    grid-column: 1/ span 1;
-}
-.main-menu .nav-link p,
-.main-menu .nav-link img {
-    grid-column: 2/ span 2;
-} 
-
-.main-menu .nav-link .fa-home {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-start;
-    align-content: center;
-}
-
-.main-menu .fa-close {
-    padding: 1rem;
-    text-decoration: none;
-    color: var(--color-white);
-}
-.main-menu .first-link {
-    margin-top: 2rem;
-}
-
-.main-menu a {
-    font-size: 1.2rem;
-    text-align: left;
-}
-  
-.main-menu a:hover,
-.main-menu a:focus {
-    background: var(--color-black);
-    transform: scale(1.1);
-    transition: 0.5s;
-}
-
-.main-menu .menu-close {
-    position: absolute;
-    right: 0;
-    top: 0;
-}
-
-.main-menu:target {
-    display: block;
-    left: 0;
-    outline: none;
-}
-
-.main-menu:target .menu-close {
-    z-index: 1001;
-}
-
-.main-menu:target ul {
-    position: relative;
-    z-index: 1000;
-}
-
-.main-menu:target + .backdrop {
-    position: fixed;
-    display: block;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 998;
-    background: var(--color-menu-backdrop);
-    cursor: default;
-}
-
-/* LARGE SCREENS */
-@media (min-width: 850px) {
-    .small-medium-nav,
-    .header .home-link p {
-        display: none;
+/* LARGE SCREENS (850-1360) */
+    @media (min-width: 850px) {
+        /* display off for the nav menu in small screen */
+            .small-medium-nav,
+            .header .home-link p {
+                display: none;
+        }
+        /* header styling */
+            .header {
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: center;
+                align-items: center;
+                align-content: center;
+            }
+        /* navigation bar */
+            .header nav {
+                flex-basis: 100%;
+                width: 100%;
+                height: 70px;
+                background-color: var(--color-black);
+                position: fixed;
+                top: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 999;
+            }
+        /* removing refault styles for ul's */
+            .header nav ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+                background-color: var(--color-black);
+            }
+        /* flex for main ul list */
+            .header nav .main-ul-list {
+                flex-basis: 100%;
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: center;
+            }
+        /* first main li */
+            .header nav .first-main-li {
+                flex-basis: 15%;
+            } 
+            /* first nav grp */
+                .header nav .nav-grp1 {
+                    display: flex;
+                    flex-flow: row wrap;
+                    justify-content: center;
+                    align-items: center;
+                    align-content: center;
+                }
+        /* second main li */
+            .header nav .second-main-li {
+                flex-basis: 85%;
+            }
+            /* second nav grp */
+                .header nav .nav-grp2 {
+                    display: flex;
+                    flex-flow: row wrap;
+                    justify-content: flex-end;
+                    align-items: center;
+                    gap: 2rem;
+                }
+                .header nav .nav-grp2 li:last-child {
+                    margin-right: 2rem;
+                }
+        /* styles for links */
+            .header .nav-link {
+                margin: 0;
+                padding: 0;
+                margin-bottom: -0.2rem;
+                text-decoration: none;
+                display: block;
+                color: var(--color-white);
+            }
+            .header .nav-link p {
+                font-size: 1.1rem;
+            }
+            .header nav .nav-grp1 img {
+                width: 90px;
+                height: auto;
+            }
+            .header .nav-link:hover {
+                transform: scale(1.1);
+                transition: 0.5s;
+            }
+        /* logo sizing */
+            .header nav li:first-child img {
+                width: 90px;
+            }
     }
-    .header,
-    .header nav .nav-grp1 {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
+
+    @media (min-width: 1300px) {
+        /* nav links */
+            .header .nav-link p {
+                font-size: 1.5rem;
+            }
+        /* bigger size for logo */
+            .header nav li:first-child img {
+                width: 106px;
+                height: auto;
+            }
+        /* bigger nav bar */
+            .header nav {
+                height: 70px;
+            }
     }
-    .header nav .nav-grp2 {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: flex-end;
-        align-items: center;
-        gap: 2rem;
-    }
-    .header nav {
-        flex-basis: 100%;
-        width: 100%;
-        height: 70px;
-        background-color: var(--color-black);
-        position: fixed;
-        top: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 999;
-    }
-    .header nav ul {
-        flex-basis: 100%;
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        background-color: var(--color-black);
-        display: grid;
-        grid-template-columns: 15% 85%;
-    }
-    .header nav li {
-        text-align: center;
-    }
-    .header nav .nav-grp1 {
-        grid-column: 1/ span 1;
-    }
-    .header nav .nav-grp2 {
-        grid-column: 2/ span 1;
-    }
-    .header nav .nav-grp2 li:last-child {
-        margin-right: 2rem;
-    }
-    .header .nav-link {
-        margin: 0;
-        padding: 0;
-        margin-bottom: -0.2rem;
-        text-decoration: none;
-        display: block;
-        color: var(--color-white);
-    }
-    .header .nav-link p {
-        font-size: 1.1rem;
-    }
-    .header nav li:first-child img {
-        width: 90px;
-        height: auto;
-    }
-    .header .nav-link:hover {
-        transform: scale(1.1);
-        transition: 0.5s;
-    }
-}
+
+/* LARGER SCREENS (1360-1920) */
 
 /*
   ========================================
@@ -598,7 +691,8 @@ header .row {
   ========================================
 */
 .new-yellow-waves {
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
+    margin-top: 1rem;
 }
 .new-yellow-waves img {
     height: 142px;
@@ -618,6 +712,7 @@ header .row {
     }
     .new-yellow-waves {
         margin-bottom: 5rem;
+        margin-top: 3rem;
     }
 }
 @media (min-width: 500px) {
@@ -722,7 +817,15 @@ header .row {
         margin-top: -20.5rem;
     }
 }
-@media (min-width: 1400px) {
+@media (min-width: 1360px) {
+    .new-yellow-waves {
+        margin-top: 3rem;
+        margin-bottom: 11rem;
+    }
+}
+
+/* stop naaaa */
+/* @media (min-width: 1400px) {
     .new-yellow-waves img {
         height: 527px;
     }
@@ -738,8 +841,6 @@ header .row {
         margin-top: -22.5rem;
     }
 }
-
-/* MOVE NAV BAR TO THE LEFT SIDE SO RETAIN WAVES SIZE!!!! */
 @media (min-width: 1600px) {
     .new-yellow-waves img {
         height: 560px;
@@ -762,7 +863,64 @@ header .row {
     .new-yellow-waves img {
         height: 560px;
     }
+} */
+/*
+  ========================================
+  III. SHARED: 
+    F) SECTIONS' POSITIONING & SPACING
+    (EXCEPT FOR HOME SECTION)
+  ========================================
+*/
+/* 1) MAIN SECTIONS */
+.projects,
+.projects article,
+.flip-yeah,
+.feedback,
+.about,
+.about article,
+.skills,
+.skills article,
+.education,
+.education article,
+.contact {
+    padding: 0;
+    margin: 0 auto; 
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 1rem;   
 }
+
+.projects .feedback {
+    margin-top: -1rem;
+    margin-bottom: 3rem;
+}
+
+.h3-feedback-intro,
+.feedback img {
+    flex-basis: 100%;
+}
+
+/* children flexbasis set to 100% so all be centered */
+    /* projects */
+        .projects article {
+            flex-basis: 100%;
+        }
+    /* about */
+        .about .code-design-solutions-problems-sub-section,
+        .about .one-step-sub-section,
+        .about .con-per-fai-sub-section {
+            flex-basis: 100%;
+        }
+    /* skills */
+        .skills article {
+            flex-basis: 100%;
+        }
+    /* education */
+        .education article {
+            flex-basis: 100%;
+        }
+    
 
 /*
   ========================================
@@ -775,7 +933,7 @@ header .row {
     width: 100%;
     max-width: 350px;
     height: auto;
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
 }
 /* PROJECTS > FEEDBACK */
 .feedback img {
@@ -846,7 +1004,7 @@ header .row {
 }
 .about article section {
     flex-basis: 100%;
-    max-width: 700px;
+    max-width: 610px;
     margin: 0 auto;
 }
 
@@ -944,14 +1102,17 @@ header .row {
 }
 .skills article section {
     flex-basis: 100%;
-    max-width: 700px;
+    /* max-width: 610px; */
     margin: 0 auto;
 }
 .skills .skill-label {
     margin-bottom: 0.5rem;
 }
-
-
+.skills .gained-skills-intro-p,
+.skills .currently-learning-intro-p {
+    max-width: 610px;
+    margin: 0 auto;
+}
     /* > GAINED SKILLS SUB SEC */
         /* > GRID */
 .skills .gained-skills-sub-section {
@@ -993,7 +1154,6 @@ header .row {
     grid-template-rows: auto;
     grid-template-columns: auto;
     grid-gap: 5%;
-    margin-bottom: 5rem;
 }
 .js-uxui-pics-list,
 .learning-skills-label-p,
@@ -1020,6 +1180,30 @@ header .row {
     gap: 2rem;
 }
 
+/* LARGE SCREEN LAYOUT (1360-1920) */ 
+@media (min-width: 1360px) {
+    /* grid for about article to position the sub sections*/
+        .skills article {
+            display: grid;
+            grid-template-columns: auto;
+            grid-template-rows: auto;
+            grid-gap: 2% 2%;
+        }
+        /* row */
+            .skills .gained-skills-sub-section,
+            .skills .currently-learning-sub-section {
+                grid-row: 1/ span 1;
+            }
+        /* column */
+            .skills .gained-skills-sub-section {
+                grid-column: 1/ span 1;
+            }
+            .skills .currently-learning-sub-section {
+                grid-column: 2/ span 1;
+                max-height: 324px;
+            }
+    }
+
 /* EDUCATION */
 .education article {
     max-width: 1600px;
@@ -1033,6 +1217,10 @@ header .row {
 .grateful-label-p,
 .actions-thank-you-label-p {
     flex-basis: 100%;
+}
+.education .class-central-list-intro-p,
+.education .blog-twitter-linkedin-intro-p {
+    max-width: 610px;
 }
 
     /* CLASS CENTRAL LIST SUB SECTION,
@@ -1061,6 +1249,32 @@ header .row {
     justify-content: center;
     gap: 1rem;
 }
+
+/* LARGE SCREEN LAYOUT (1360-1920) */ 
+@media (min-width: 1360px) {
+    /* grid for about article to position the sub sections*/
+        .education article {
+            display: grid;
+            grid-template-columns: auto;
+            grid-template-rows: auto;
+            grid-gap: 2% 2%;
+        }
+        /* row */
+            .education .class-central-list-sub-section,
+            .education .blog-twitter-linkedin-sub-section {
+                grid-row: 1/ span 1;
+            }
+        /* column */
+            .education .class-central-list-sub-section {
+                grid-column: 1/ span 1;
+                margin-left: 4rem;
+            }
+            .education .blog-twitter-linkedin-sub-section {
+                grid-column: 2/ span 1;
+                margin-right: 4rem;
+            }
+
+    }
 
 
 /*
@@ -1234,41 +1448,20 @@ header .row {
     color: var(--color-black);
     font-size: 3rem;
   }
-
-/*
-  ========================================
-  III. SHARED: 
-    F) SECTIONS' POSITIONING & SPACING
-    (EXCEPT FOR HOME SECTION)
-  ========================================
-*/
-/* 1) MAIN SECTIONS */
-.projects,
-.projects article,
-.flip-yeah,
-.feedback,
-.about,
-.about article,
-.skills,
-.skills article,
-.education,
-.education article,
-.contact {
-    padding: 0;
-    margin: 0 auto; 
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    gap: 1rem;   
+@media (min-width: 850px) {
+    .top-button {
+        bottom: 40px;
+        margin-right: 3rem;
+    }
+}
+@media (min-width:1300px) {
+    .top-button {
+        bottom: 50px;
+        margin-right: 4rem;
+        font-size: 5rem;
+    }
 }
 
-.feedback {
-    gap: 0.1rem;
-}
-.h3-feedback-intro,
-.feedback img {
-    flex-basis: 100%;
-}
 
 /*
   ========================================
@@ -1330,25 +1523,78 @@ header .row {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
+    gap: 2rem;
+}
+@media (min-width:850px) {
+    .home {
+        margin-top: 7rem;
+    }
 }
 
 .jewel-keith-intro-home,
 .home img {
     flex-basis: 100%;
 }
-.jewel-keith-intro-home {
-    max-width: 525px;
+
+@media (min-width:620px) {
+    .home img {
+        order: 1;
+    }
+    .jewel-keith-intro-home {
+        order: 2;
+    }
+    .jewel-keith-intro-home {
+        flex-basis: 70%;
+        max-width: 325px;
+    }
+    .home img {
+        flex: 30%;
+        max-width: 200px;
+    }
 }
-.home img {
-    max-width: 350px;
+@media (min-width:700px) {
+    .home img {
+        max-width: 220px;
+    }
+}
+@media (min-width:801px) {
+    .home img {
+        max-width: 250px;
+    }
+    .jewel-keith-intro-home {
+        max-width: 447px;
+    }
 }
 
-@media (min-width: 620px) {
+
+@media (min-width: 1100px) {
+    .home img {
+        max-width: 360px;
+    }
+    .jewel-keith-intro-home {
+        max-width: 631px;
+    }
+    .home h1 {
+        font-size: 5.5rem;
+    }
+    .home h2 {
+        font-size: 3rem;
+    }
+    .home p {
+        font-size: 1.5rem;
+    }
+    .home {
+        margin-top: 8rem;
+    }
+}
+
+/* @media (min-width: 620px) {
     .home {
         justify-content: flex-start;
         margin-left: auto;
         margin-right: auto;
         max-width: 900px;
+        gap: 0;
     }
     .empty-div-home {
         display: inline-block;
@@ -1372,7 +1618,7 @@ header .row {
     .jewel-keith-intro-home .home-bio {
         flex-basis: 100%;
     }
-    /* GRID FOR POSITIONING IN MEDIUM & LARGE SCREENS */
+
     .home {
         display: grid;
         grid-template-rows: auto;
@@ -1391,9 +1637,9 @@ header .row {
         grid-column: 2/ span 1;
         justify-self: start;
     }
-}
+} */
 
-@media (min-width: 670px) {
+/* @media (min-width: 670px) {
     .empty-div-home {
         height: 34px;
     }
@@ -1444,7 +1690,8 @@ header .row {
     .home {
         margin-top: 6rem;
     }
-}
+} */
+
 
 /*
   ========================================
@@ -1459,7 +1706,7 @@ header .row {
 }
 .projects article {
     flex-basis: 100%;
-    max-width: 700px;
+    max-width: 610px;
     margin: 0 auto;
     margin-left: 1rem;
     margin-right: 1rem;
@@ -1611,7 +1858,7 @@ header .row {
     display: none;
 }
 
-/* MEDIUM SCREEN LAYOUT */
+/* MEDIUM SCREEN LAYOUT (620-1359) */
 @media (min-width: 620px) {
 /* DISPLAY OFF THE SMALL LAYOUT FOR MEDIUM AND LARGE */
     .flip-yeah {
@@ -1757,8 +2004,30 @@ header .row {
     .codepen-link-button-right {
         margin: 0 auto;
     }
-    
 }
+
+/* LARGE SCREENS LAYOUT (1360-1920) */
+        @media (min-width: 1360px) {
+        /* EVEN PROJECTS MOVE TO LEFT SIDE */
+            .project-title-right,
+            .project-preview-right,
+            .codepen-link-button-right {
+                grid-column: 1/ span 1;
+            }
+            .empty-div-1-left,
+            .project-info-left,
+            .empty-div-2-left {
+                grid-column: 2/ span 1;
+            }
+        /* added some margin between sections */
+            .projects .third-project,
+            .projects .fourth-project,
+            .projects .feedback {
+                margin-top: 2rem;
+            }
+
+        }
+                
 
 
 
@@ -1769,10 +2038,54 @@ header .row {
   ========================================
 */
 .about article {
+    flex-basis: 100%;
     gap: 0;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
 }
-.about article section {
+.about .code-design-solutions-problems-sub-section,
+.about .one-step-sub-section,
+.about .con-per-fai-sub-section {
+    flex-basis: 100%;
+}
+
+.about .code-design-solutions-problems-sub-section,
+.about .one-step-sub-section {
     margin-bottom: 3rem;
+}
+
+
+/* LARGE SCREENS LAYOUT (1360-1920) */
+@media (min-width: 1360px) {
+/* grid for about article to position the sub sections*/
+    .about article {
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+        grid-gap: 2% 2%;
+    }
+    /* row */
+        .about .code-design-solutions-problems-sub-section,
+        .about .one-step-sub-section {
+            grid-row: 1/ span 1;
+        }
+        .about  .con-per-fai-sub-section {
+            grid-row: 2/ span 1;
+        }
+    /* column */
+        .about .code-design-solutions-problems-sub-section {
+            grid-column: 1/ span 1;
+        }
+        .one-step-sub-section {
+            grid-column: 2/ span 1;
+        }
+        .con-per-fai-sub-section {
+            grid-column: 1/ span 2;
+        }
 }
 
 /*
@@ -1853,8 +2166,9 @@ header .row {
         .contact .intro-and-contact-form,
         .contact .links-my-accounts  {
             flex-basis: 100%;
-            max-width: 700px;
-            margin: 0 auto;
+        }
+        .contact .links-my-accounts {
+            max-width: 610px;
         }
 
 
@@ -1878,6 +2192,13 @@ header .row {
         margin-bottom: 0;
     }
 }
+
+@media (min-width: 1360px) {
+    .footer {
+        padding-bottom: 2rem;
+    }
+}
+
 
 /*
   ========================================
@@ -1918,6 +2239,10 @@ header .row {
     H) FONT FAMILY:
             @google - https://fonts.google.com/
                 >montserrat - https://fonts.google.com/specimen/Montserrat
+    I) BORDER BOX:
+            @brumm - https://shadows.brumm.af/
+                >used it to make the whole content 3d or like popping out when view on a large screen
+                >discovered it through Brett's AWESOME WebGuide - https://webguide.space/theguide/
     I) DESIGN TOOLS:
             @canva - https://www.canva.com (I used it to design and customize the overall layout, typography and colors of my website and logo.)
             @open color - https://yeun.github.io/open-color/ (I used it for building my color palette. Discovered it through Brett's AWESOME WebGuide - https://webguide.space/theguide/)
