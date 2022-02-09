@@ -691,8 +691,8 @@ body {
   ========================================
 */
 .new-yellow-waves {
-    margin-bottom: 4rem;
-    margin-top: 1rem;
+    margin-bottom: 5rem;
+    margin-top: 4rem;
 }
 .new-yellow-waves img {
     height: 142px;
@@ -709,10 +709,6 @@ body {
     }
     .new-yellow-waves .waves-section-intro {
         margin-top: -7.5rem;
-    }
-    .new-yellow-waves {
-        margin-bottom: 5rem;
-        margin-top: 3rem;
     }
 }
 @media (min-width: 500px) {
