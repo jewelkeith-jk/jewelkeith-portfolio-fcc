@@ -1,55 +1,104 @@
 /* 
   ========================================
             TABLE OF CONTENTS:
-  I. VARIABLES
+   I. VARIABLES
         A) COLORS
   II. GENERIC SITE STYLES
   III. SHARED STYLES
         A) TYPOGRAPHY
-        B) YELLOW WAVES AS BG
-        C) IMAGES SIZING
-        D) IMAGES' POSITIONING AND SPACING
-        E) BUTTONS
-            1) CODEPEN, FEEDBACK BUTTON
-            2) SUBMIT BUTTON
-        F) SECTIONS' POSITIONING & SPACING (EXCEPT FOR HOME SECTION)
-            1) MAIN SECTIONS
-            2) CHILDREN'S FLEXBASIS
-        G) HEADER - NAVIGATION
-        H) ANIMATIONS
+            ALL SCREEN SIZES (320-1920+)
+            SMALL SCREENS (320-499)
+            SMALL & MEDIUM SCREENS (320-849)
+            MEDIUM SCREENS (500-849)
+            LARGE SCREENS (850-1359)
+            LARGER SCREENS (1360-1920+)
+        B) PORTFOLIO NAVIGATION
+            SMALL & MEDIUM SCREENS (320-849)
+            LARGE & LARGER SCREENS (850-1920+)
+        C) BUTTONS
+            CODEPEN, FEEDBACK, CLASS CENTRAL LIST, BLOG, TWITTER, LINKEDIN BUTTONS
+            SUBMIT BUTTON
+            BACK TO TOP BUTTON
+            TYPOGRAPHY BUTTON
+        D) ANIMATIONS
+        E) YELLOW WAVES AS BG
+            SMALL SCREENS (320-499)
+            MEDIUM SCREENS (500-849)
+            LARGE SCREENS (850-1359)
+            LARGER SCREENS (1360-1920+)
+        F) IMAGES SIZING
+            HOME
+            PROJECTS > FEEDBACK
+            ABOUT
+            SKILLS
+            EDUCATION
+            CONTACT
+        G) SECTIONS' POSITIONING & SPACING (EXCEPT FOR HOME)
+            FLEXBOX FOR MAIN AND SUB SECTIONS
+            CHILDREN 100% FLEXBASIS SO ALL BE CENTERED UP TO 1200PX
+            MAX WIDTH & HEIGHT, MARGIN FOR SECTIONS / SUBSECTIONS
   IV. CUSTOM STYLES
         A) HOME SECTION
+            MEDIUM SCREENS (500-849)
+            LARGE & LARGER SCREENS (850-1920+)
         B) PROJECTS SECTION
-            1) FLIP CARD
-            2) FEEDBACK
-	    3) OTHERS
-        C) ABOUT ME SECTION
-        D) CONTACT SECTION
-            1) FORM
-            2) LINKS
-        E) FOOTER
-   V. MEDIA QUERIES
-        A) MEDIUM SCREENS - TABLETS (500px to 849px)
-            1) 500px
-            2) 585px
-            3) 691px
-            4) 786px
-	    B) LARGE SCREENS - DESKTOP (850px to 1600px)
-            1) 850px
-            2) 950px
-            3) 1200px
-            4) 1300px
-            5) 1400px
-            6) 1600px
-  VI. CREDITS FOR RESOURCES USED
-	    A) FLIP CARD IN MOBILE SCREEN
-	    B) ANIMATION
-	    C) YELLOW WAVES AS BACKGROUND FOR MAIN HEADINGS
-	    D) ICONS
-	    E) PICTURES
-	    F) OFF CANVAS MENU (CSS ONLY)
-        G) BACK TO TOP BUTTON (CSS ONLY)
-        H) DESIGN TOOL
+            SMALL SCREENS (320-499)
+                FLIP CARD
+                FEEDBACK
+                DISPLAY OFF THE MEDIUM, LARGE & LARGER LAYOUT
+            MEDIUM - LARGE SCREENS (620-1359)
+                DISPLAY ON THE MEDIUM & LARGE LAYOUT
+                FLEXBASIS FOR CONSUMED SPACE
+                FILLING SPACE IN EMPTY DIVS
+                STYLING LANGUAGES LIST & LOGOS, PROJECTS' PREVIEW 
+                GRID FOR ARRANGING THE CELLS UNDER PROJECT ARTICLES 
+                TEXT ALIGN LEFT FOR PROJ INFO LEFT & RIGHT 
+                ADDING PADDING AT ONE SIDE TO PROJ INFOS 
+                CENTERING THE PROJ PREVIEW & BUTTON 
+            LARGER SCREENS LAYOUT (1360-1920) 
+                EVEN PROJECTS MOVE TO LEFT SIDE 
+                MARGIN BETWEEN SECTIONS 
+        C) ABOUT SECTION
+            CODE DESIGN SOLUTION SUB SEC 
+            ONE STEP SUB SEC 
+            CON-PER-FAI-SUB-SEC 
+            LARGER SCREENS LAYOUT (1360-1920) 
+        D) SKILLS SECTION
+            GAINED SKILLS SUB SEC
+            CURRENTLY LEARNING SUB SECTION 
+            LARGE SCREEN LAYOUT (1360-1920) 
+        E) EDUCATION SECTION
+            CLASS CENTRAL LIST SUB SECTION, BLOG TWITTER LINKEDIN SUB SECTION
+            LARGE SCREEN LAYOUT (1360-1920) 
+        F) CONTACT SECTION
+            FORM
+            LINKS
+        G) FOOTER
+            MEDIUM SCREENS (500-849)
+            LARGER SCREENS (1360-1920+)
+   V. CREDITS FOR RESOURCES USED
+	    A) FLIP CARD IN SMALL SCREENS: 
+            @w3schools
+        B) ANIMATION: 
+                @animista
+        C) YELLOW WAVES AS BACKGROUND FOR MAIN HEADINGS: 
+                @haikei
+        D) ICONS / PICTURES / LOGOS: 
+                @font awesome
+                @canva 
+                @github
+                @freecodecamp
+        E) OFF CANVAS MENU (CSS ONLY):
+                @frontend masters
+        F) BACK TO TOP BUTTON (CSS ONLY):
+                @freeCodeCamp News/Articles
+        G) FONT FAMILY:
+                @google
+        H) BORDER BOX:
+                @brumm
+        I) DESIGN TOOLS:
+                @canva
+                @open color
   ========================================
 */ 
 
@@ -61,6 +110,7 @@
 */ 
 :root {
     --color-white: #FFFFFF;
+    --color-different-white: #EDF2F7;
     --color-black: #343A40;
     --color-grey: #737373;
     --color-yellow: #FFF3BF;
@@ -85,10 +135,11 @@
     *, *::before, *::after {
         box-sizing: inherit;
     }
-html {
-    /* avoiding instant jump to diff sections */
-        scroll-behavior: smooth;
-}
+/* avoiding instant jump to diff sections */
+    html {
+            scroll-behavior: smooth;
+    }
+
 body {
     height: 100%;
     padding: 0;
@@ -99,33 +150,32 @@ body {
     /*to position top button*/
         text-align: right; 
 }
+
+/* since a pure css top button is used I have to adjust the whole content's margin */
 .wrapper {
-    /* since a pure css top button is added i have to adjust the whole content's margin */
         margin: 0 1rem -2rem 1rem;
 }
-
 @media (min-width:1360px) {
     body {
-        background-color: #EDF2F7;
+        background-color: var(--color-different-white);
     }
-    /* to center the content */
-    .wrapper {
-        margin: 0 auto;
-        box-shadow:
-            1.6px 1.6px 1.2px rgba(0, 0, 0, 0.015),
-            3.4px 3.4px 2.7px rgba(0, 0, 0, 0.022),
-            5.8px 5.8px 4.6px rgba(0, 0, 0, 0.027),
-            8.7px 8.7px 6.9px rgba(0, 0, 0, 0.031),
-            12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
-            17.7px 17.7px 14.2px rgba(0, 0, 0, 0.039),
-            25.1px 25.1px 20.1px rgba(0, 0, 0, 0.043),
-            36.5px 36.5px 29.2px rgba(0, 0, 0, 0.048),
-            56.3px 56.3px 45px rgba(0, 0, 0, 0.055),
-            100px 100px 80px rgba(0, 0, 0, 0.07)
-            ;
-    }
+    /* to center the content & to add a shadow on the whole content when viewed in a large screen - cool */
+        .wrapper {
+            margin: 0 auto;
+            box-shadow:
+                1.6px 1.6px 1.2px rgba(0, 0, 0, 0.015),
+                3.4px 3.4px 2.7px rgba(0, 0, 0, 0.022),
+                5.8px 5.8px 4.6px rgba(0, 0, 0, 0.027),
+                8.7px 8.7px 6.9px rgba(0, 0, 0, 0.031),
+                12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
+                17.7px 17.7px 14.2px rgba(0, 0, 0, 0.039),
+                25.1px 25.1px 20.1px rgba(0, 0, 0, 0.043),
+                36.5px 36.5px 29.2px rgba(0, 0, 0, 0.048),
+                56.3px 56.3px 45px rgba(0, 0, 0, 0.055),
+                100px 100px 80px rgba(0, 0, 0, 0.07)
+                ;
+        }
 }
-
 
 /*
   ========================================
@@ -133,7 +183,7 @@ body {
     A) TYPOGRAPHY
   ========================================
 */
-/* APPLIED TO ALL SCREEN SIZES */
+/* ALL SCREEN SIZES (320-1920+) */
     /* setting font family & color for all text */
         body {
             font-family: 'Montserrat', Arial, Verdana, "Trebuchet MS", sans-serif;
@@ -201,7 +251,7 @@ body {
             opacity: 1;
         }
 
-/* APPLIED TO SMALL SCREENS (320-499) */
+/* SMALL SCREENS (320-499) */
     /* font sizes, style, weight  */
         h1 {
             font-size: 2.3rem;
@@ -232,7 +282,7 @@ body {
             font-size: 0.8rem;
         }
 
-/* APPLIED TO SMALL & MEDIUM SCREENS (320-849) */
+/* SMALL & MEDIUM SCREENS (320-849) */
     /* off canvas menu - toggle of on icons */
         .fa-bars,
         .fa-close {
@@ -258,7 +308,7 @@ body {
             }
         }
 
-/* APPLIED TO MEDIUM SCREENS (500-849) */
+/* MEDIUM SCREENS (500-849) */
     @media (min-width: 580px) {
         /* yellow waves intro */
             .waves-section-intro h2 {
@@ -317,7 +367,7 @@ body {
             }
     }
 
-/* APPLIED TO LARGE SCREENS (850-1360) */
+/* LARGE SCREENS (850-1359) */
     @media (min-width: 850px) {
         /* paragraphs */
             p {
@@ -344,35 +394,8 @@ body {
             }
     }
 
-/* APPLIED TO LARGER SCREENS (1360-1920) */
+/* LARGER SCREENS (1360-1920+) */
     @media (min-width: 1360px) {
-        /* yellow waves intro */
-            .waves-section-intro h2 {
-                font-size: 3rem;
-            }
-            .waves-section-intro h1 {
-                font-size: 5.5rem;
-            }
-    }
-
-
-    @media (min-width: 1600px) {
-        /* yellow waves intro */
-            .waves-section-intro h2 {
-                font-size: 3rem;
-            }
-            .waves-section-intro h1 {
-                font-size: 5.5rem;
-            }
-    }
-    @media (min-width: 1850px) {
-        /* paragraphs */
-            p {
-                font-size: 1.15rem;
-            }
-            .home p {
-                padding-bottom: 1rem;
-            }
         /* yellow waves intro */
             .waves-section-intro h2 {
                 font-size: 3rem;
@@ -571,7 +594,7 @@ body {
             cursor: default;
         }
 
-/* LARGE SCREENS (850-1360) */
+/* LARGE & LARGER SCREENS (850-1920+) */
     @media (min-width: 850px) {
         /* display off for the nav menu in small screen */
             .small-medium-nav,
@@ -682,787 +705,197 @@ body {
             }
     }
 
-/* LARGER SCREENS (1360-1920) */
-
 /*
   ========================================
   III. SHARED: 
-    B) YELLOW WAVES AS BG
-  ========================================
-*/
-.new-yellow-waves {
-    margin-bottom: 5rem;
-    margin-top: 4rem;
-}
-.new-yellow-waves img {
-    height: 142px;
-    width: auto;
-}
-.new-yellow-waves .waves-section-intro {
-    margin-top: -6.5rem;
-}
-
-@media (min-width: 410px) {
-    .new-yellow-waves img {
-        height: 173px;
-        width: auto;
-    }
-    .new-yellow-waves .waves-section-intro {
-        margin-top: -7.5rem;
-    }
-}
-@media (min-width: 500px) {
-    .new-yellow-waves img {
-        height: 185px;
-    }
-}
-@media (min-width: 530px) {
-    .new-yellow-waves img {
-        height: 200px;
-    }
-    .new-yellow-waves .waves-section-intro {
-        margin-top: -8.5rem;
-    }
-}
-@media (min-width: 575px) {
-    .new-yellow-waves img {
-        height: 220px;
-    }
-    .new-yellow-waves .waves-section-intro {
-        margin-top: -9.5rem;
-    }
-}
-@media (min-width: 630px) {
-    .new-yellow-waves img {
-        height: 245px;
-    }
-    .new-yellow-waves .waves-section-intro {
-        margin-top: -10.5rem;
-    }
-}
-@media (min-width: 700px) {
-    .new-yellow-waves img {
-        height: 280px;
-    }
-    .new-yellow-waves .waves-section-intro {
-        margin-top: -11.75rem;
-    }
-    .new-yellow-waves {
-        margin-bottom: 7rem;
-    }
-}
-@media (min-width: 800px) {
-    .new-yellow-waves img {
-        height: 300px;
-    }
-    .new-yellow-waves .waves-section-intro {
-        margin-top: -11.75rem;
-    }
-}
-@media (min-width: 850px) {
-    .new-yellow-waves img {
-        height: 333px;
-    }
-    .new-yellow-waves .waves-section-intro {
-        margin-top: -13.5rem;
-    }
-}
-@media (min-width: 950px) {
-    .new-yellow-waves img {
-        height: 351px;
-    }
-    .new-yellow-waves .waves-section-intro {
-        margin-top: -14.5rem;
-    }
-    .new-yellow-waves {
-        margin-bottom: 9rem;
-    }
-}
-@media (min-width: 1000px) {
-    .new-yellow-waves img {
-        height: 386px;
-    }
-    .new-yellow-waves .waves-section-intro {
-        margin-top: -15.5rem;
-    }
-}
-@media (min-width: 1100px) {
-    .new-yellow-waves img {
-        height: 421px;
-    }
-    .new-yellow-waves .waves-section-intro {
-        margin-top: -17.5rem;
-    }
-}
-@media (min-width: 1200px) {
-    .new-yellow-waves img {
-        height: 456px;
-    }
-    .new-yellow-waves .waves-section-intro {
-        margin-top: -18.5rem;
-    }
-    .new-yellow-waves {
-        margin-top: 3rem;
-    }
-}
-@media (min-width: 1300px) {
-    .new-yellow-waves img {
-        height: 490px;
-    }
-    .new-yellow-waves .waves-section-intro {
-        margin-top: -20.5rem;
-    }
-}
-@media (min-width: 1360px) {
-    .new-yellow-waves {
-        margin-top: 3rem;
-        margin-bottom: 11rem;
-    }
-}
-
-/* stop naaaa */
-/* @media (min-width: 1400px) {
-    .new-yellow-waves img {
-        height: 527px;
-    }
-    .new-yellow-waves .waves-section-intro {
-        margin-top: -21.5rem;
-    }
-}
-@media (min-width: 1500px) {
-    .new-yellow-waves img {
-        height: 560px;
-    }
-    .new-yellow-waves .waves-section-intro {
-        margin-top: -22.5rem;
-    }
-}
-@media (min-width: 1600px) {
-    .new-yellow-waves img {
-        height: 560px;
-    }
-    .new-yellow-waves {
-        margin-bottom: 11rem;
-    }
-}
-@media (min-width: 1700px) {
-    .new-yellow-waves img {
-        height: 560px;
-    }
-}
-@media (min-width: 1800px) {
-    .new-yellow-waves img {
-        height: 560px;
-    }
-}
-@media (min-width: 1900px) {
-    .new-yellow-waves img {
-        height: 560px;
-    }
-} */
-/*
-  ========================================
-  III. SHARED: 
-    F) SECTIONS' POSITIONING & SPACING
-    (EXCEPT FOR HOME SECTION)
-  ========================================
-*/
-/* 1) MAIN SECTIONS */
-.projects,
-.projects article,
-.flip-yeah,
-.feedback,
-.about,
-.about article,
-.skills,
-.skills article,
-.education,
-.education article,
-.contact {
-    padding: 0;
-    margin: 0 auto; 
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    gap: 1rem;   
-}
-
-.projects .feedback {
-    margin-top: -1rem;
-    margin-bottom: 3rem;
-}
-
-.h3-feedback-intro,
-.feedback img {
-    flex-basis: 100%;
-}
-
-/* children flexbasis set to 100% so all be centered */
-    /* projects */
-        .projects article {
-            flex-basis: 100%;
-        }
-    /* about */
-        .about .code-design-solutions-problems-sub-section,
-        .about .one-step-sub-section,
-        .about .con-per-fai-sub-section {
-            flex-basis: 100%;
-        }
-    /* skills */
-        .skills article {
-            flex-basis: 100%;
-        }
-    /* education */
-        .education article {
-            flex-basis: 100%;
-        }
-    
-
-/*
-  ========================================
-  III. SHARED: 
-    C) IMAGES SIZING
-  ========================================
-*/
-/* HOME */
-.jewel-keith-dp {
-    width: 100%;
-    max-width: 350px;
-    height: auto;
-    /* margin-bottom: 1rem; */
-}
-/* PROJECTS > FEEDBACK */
-.feedback img {
-    width: 150px;
-    max-width: 200px;
-    height: auto;
-}
-
-/* ABOUT */
-.code-design-pics-list img {
-    width: 100%;
-    max-width: 200px;
-    height: auto;
-    margin-bottom: 1rem;
-}
-.one-step-goal-flag-pics-list img {
-    width: 100%;
-    max-width: 200px;
-    height: auto;
-}
-.con-per-fai-pics-list img {
-    width: 100%;
-    max-width: 150px;
-    height: auto;
-}
-
-/* SKILLS */
-.html-css-des-pics-list img,
-.js-uxui-pics-list img {
-    height: 100%;
-    max-height: 80px;
-    width: auto;
-}
-@media (min-width: 580px) {
-    .html-css-des-pics-list img,
-    .js-uxui-pics-list img {
-        max-height: 100px;
-    }
-}
-
-/* EDUCATION */
-.list-brain-strengthening-pics-list img,
-.happy-sharing-writings-money-pics-list img {
-    width: 100%;
-    max-width: 200px;
-    height: auto;
-    margin-bottom: 1rem;
-}
-
-/* CONTACT */
-.contact-links-pics img {
-    width: 80px;
-    height: auto;
-} 
-
-
-/*
-  ========================================
-  III. SHARED: 
-    D) IMAGES' POSITIONING AND SPACING !!!!!!!CHANGEEEEEE / MOVE TO MAIN SECTION NA !!!!!!!!!!
-  ========================================
-*/
-
-
-/* ABOUT */
-.about article {
-    max-width: 1600px;
-}
-.about article section {
-    flex-basis: 100%;
-    max-width: 610px;
-    margin: 0 auto;
-}
-
-    /* > CODE DESIGN SOLUTION SUB SEC */
-        /* > GRID */
-.about .code-design-solutions-problems-sub-section {
-    display: grid;
-    grid-template-rows: auto;
-    grid-template-columns: auto;
-}
-.code-design-pics-list,
-.code-design-solutions-problems-sub-section p {
-    grid-column: 1/ span 1;
-}
-.code-design-pics-list {
-    grid-row: 1/ span 1;
-}
-.code-design-solutions-problems-sub-section p {
-    grid-row: 2/ span 1;
-}
-        /* > FLEXBOX */
-.about .code-design-pics-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    gap: 1rem;
-}
-
-    /* > ONE STEP SUB SEC */
-        /* > GRID */
-.about .one-step-sub-section {
-    display: grid;
-    grid-template-rows: auto;
-    grid-template-columns: auto;
-    grid-gap: 5% 0;
-}
-.one-step-goal-flag-pics-list,
-.one-step-sub-section p {
-    grid-column: 1/ span 1;
-    margin: 0 auto 1rem auto;
-}
-.one-step-goal-flag-pics-list {
-    grid-row: 1/ span 1;
-}
-.one-step-sub-section p {
-    grid-row: 2/ span 1;
-}
-        /* > FLEXBOX */
-.about .one-step-goal-flag-pics-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    gap: 1rem;
-}
-
-    /* CON-PER-FAI-SUB-SEC */
-        /* GRID */
-.about .con-per-fai-sub-section {
-    display: grid;
-    grid-template-rows: auto;
-    grid-template-columns: auto;
-    grid-gap: 10%;
-}
-.con-per-fai-pics-list,
-.con-per-fai-sub-section h3 {
-    grid-column: 1/ span 1;
-}
-.con-per-fai-pics-list {
-    grid-row: 1/ span 1;
-}
-.con-per-fai-sub-section h3 {
-    grid-row: 2/ span 1;
-}
-        /* > FLEXBOX */
-.about .con-per-fai-pics-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    gap: 1rem;
-}
-
-/* SKILLS */
-.skills article {
-    max-width: 1600px;
-    margin: 0 auto;
-}
-.skills article section {
-    flex-basis: 100%;
-    /* max-width: 610px; */
-    margin: 0 auto;
-}
-.skills .skill-label {
-    margin-bottom: 0.5rem;
-}
-.skills .gained-skills-intro-p,
-.skills .currently-learning-intro-p {
-    max-width: 610px;
-    margin: 0 auto;
-}
-    /* > GAINED SKILLS SUB SEC */
-        /* > GRID */
-.skills .gained-skills-sub-section {
-    display: grid;
-    grid-template-rows: auto;
-    grid-template-columns: auto;
-    grid-gap: 5%;
-    margin-bottom: 5rem;
-}
-.html-css-des-pics-list,
-.skills-label-p,
-.gained-skills-intro-p {
-    grid-column: 1/ span 1;
-}
-.html-css-des-pics-list {
-    grid-row: 1/ span 1;
-}
-.skills-label-p {
-    grid-row: 2/ span 1;
-}
-.gained-skills-intro-p {
-    grid-row: 3/ span 1;
-}
-
-        /* FLEXBOX */
-.skills .html-css-des-pics-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    gap: 2rem;
-}
-    /* CURRENTLY LEARNING SUB SECTION */
-        /* GRID */
-.skills .currently-learning-sub-section {
-    display: grid;
-    grid-template-rows: auto;
-    grid-template-columns: auto;
-    grid-gap: 5%;
-}
-.js-uxui-pics-list,
-.learning-skills-label-p,
-.currently-learning-intro-p {
-    grid-column: 1/ span 1;
-}
-.js-uxui-pics-list {
-    grid-row: 1/ span 1;
-}
-.learning-skills-label-p {
-    grid-row: 2/ span 1;
-}
-.currently-learning-intro-p {
-    grid-row: 3/ span 1;
-}
-        /* FLEXBOX */
-.skills .js-uxui-pics-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    gap: 2rem;
-}
-
-/* LARGE SCREEN LAYOUT (1360-1920) */ 
-@media (min-width: 1360px) {
-    /* grid for about article to position the sub sections*/
-        .skills article {
-            display: grid;
-            grid-template-columns: auto;
-            grid-template-rows: auto;
-            grid-gap: 2% 2%;
-        }
-        /* row */
-            .skills .gained-skills-sub-section,
-            .skills .currently-learning-sub-section {
-                grid-row: 1/ span 1;
-            }
-        /* column */
-            .skills .gained-skills-sub-section {
-                grid-column: 1/ span 1;
-            }
-            .skills .currently-learning-sub-section {
-                grid-column: 2/ span 1;
-                max-height: 324px;
-            }
-    }
-
-/* EDUCATION */
-.education article {
-    max-width: 1600px;
-    margin: 0 auto;
-}
-.education article section {
-    flex-basis: 100%;
-    max-width: 700px;
-    margin: 0 auto;
-}
-.grateful-label-p,
-.actions-thank-you-label-p {
-    flex-basis: 100%;
-}
-.education .class-central-list-intro-p,
-.education .blog-twitter-linkedin-intro-p {
-    max-width: 610px;
-}
-
-    /* CLASS CENTRAL LIST SUB SECTION,
-       BLOG TWITTER LINKEDIN SUB SECTION */
-        /* GRID */
-.education .class-central-list-sub-section,
-.education .blog-twitter-linkedin-sub-section {
-    flex-basis: 100%;
-    padding: 0;
-    padding-bottom: 1rem;
-    margin: 0 auto;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-content: flex-start;
-    gap: 1rem;
-}
-
-.list-brain-strengthening-pics-list,
-.happy-sharing-writings-money-pics-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    gap: 1rem;
-}
-
-/* LARGE SCREEN LAYOUT (1360-1920) */ 
-@media (min-width: 1360px) {
-    /* grid for about article to position the sub sections*/
-        .education article {
-            display: grid;
-            grid-template-columns: auto;
-            grid-template-rows: auto;
-            grid-gap: 2% 2%;
-        }
-        /* row */
-            .education .class-central-list-sub-section,
-            .education .blog-twitter-linkedin-sub-section {
-                grid-row: 1/ span 1;
-            }
-        /* column */
-            .education .class-central-list-sub-section {
-                grid-column: 1/ span 1;
-                margin-left: 4rem;
-            }
-            .education .blog-twitter-linkedin-sub-section {
-                grid-column: 2/ span 1;
-                margin-right: 4rem;
-            }
-
-    }
-
-
-/*
-  ========================================
-  III. SHARED: 
-    E) BUTTONS
+    C) BUTTONS
   ========================================
 */
 /* CODEPEN, FEEDBACK, CLASS CENTRAL LIST, BLOG, TWITTER, LINKEDIN BUTTONS */
-.codepen-link-button,
-.fb-link-button,
-.cc-link-button,
-.bg-link-button,
-.tr-link-button,
-.ln-link-button {
-    width: 280px;
-    height: 50px;
-}
-.codepen-button,
-.feedback-button,
-.list-class-central-button,
-.blog-button,
-.twitter-button,
-.linkedin-button {
-    /* looks */
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    background-color: var(--color-black);
-    color: var(--color-white);
-    /* positioning */
-    display: grid;
-    grid-template-rows: auto;
-    grid-template-columns: 20% 80%;
-}
-.codepen-button i,
-.feedback-button i,
-.list-class-central-button i,
-.blog-button i,
-.twitter-button i,
-.linkedin-button i,
-.codepen-button p,
-.feedback-button p,
-.list-class-central-button p,
-.blog-button p,
-.twitter-button p,
-.linkedin-button p  {
-    grid-row: 1/ span 1;
-}
-.codepen-button i,
-.feedback-button i,
-.list-class-central-button i,
-.blog-button i,
-.twitter-button i,
-.linkedin-button i {
-    grid-column: 1/ span 1;
-}
-.codepen-button p,
-.feedback-button p,
-.list-class-central-button p,
-.blog-button p,
-.twitter-button p,
-.linkedin-button p  {
-    grid-column: 2/ span 1;
-}
-.codepen-button .link-icon,
-.feedback-button .link-icon,
-.list-class-central-button .link-icon,
-.blog-button .link-icon,
-.twitter-button .link-icon,
-.linkedin-button .link-icon,
-.codepen-button .view-on-codepen,
-.feedback-button .leave-a-message,
-.list-class-central-button .view-on-class-central,
-.blog-button .view-on-blog,
-.twitter-button .view-on-twitter,
-.linkedin-button .view-on-linkedin {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    align-content: center;
-}
-.codepen-button .link-icon,
-.feedback-button .link-icon,
-.list-class-central-button .link-icon,
-.blog-button .link-icon,
-.twitter-button .link-icon,
-.linkedin-button .link-icon {
-    justify-content: flex-end;
-}
-.codepen-button .view-on-codepen,
-.feedback-button .leave-a-message,
-.list-class-central-button .view-on-class-central,
-.blog-button .view-on-blog,
-.twitter-button .view-on-twitter,
-.linkedin-button .view-on-linkedin {
-    justify-content: flex-start;
-    margin-left: 1.5rem;
-}
-/* TYPOGRAPHY */
-.codepen-button p,
-.feedback-button p,
-.list-class-centralbutton p,
-.blog-button p,
-.twitter-button p,
-.linkedin-button p {
-    font-size: 1.2rem;
-}
-.codepen-button .link-icon,
-.feedback-button .link-icon,
-.cc-link-button .link-icon,
-.bg-link-button .link-icon,
-.tr-link-button .link-icon,
-.ln-link-button .link-icon {
-    font-size: 1.75rem;
-}
-@media (min-width:850px) {
-    .view-on-class-central p {
-        font-size: 1.05rem;
+    .codepen-link-button,
+    .fb-link-button,
+    .cc-link-button,
+    .bg-link-button,
+    .tr-link-button,
+    .ln-link-button {
+        width: 280px;
+        height: 50px;
     }
-}
-#projects .feedback-button .leave-a-message p {
-    margin: 0;
-}
-.education .view-on-class-central {
-    font-size: 1.05rem;
-}
-
-.codepen-button:hover,
-.feedback-button:hover,
-.list-class-central-button:hover,
-.blog-button:hover,
-.twitter-button:hover,
-.linkedin-button:hover {
-    color: var(--color-black);
-    background-color: var(--color-yellow);
-    border: 1px solid var(--color-black);
-}
+    .codepen-button,
+    .feedback-button,
+    .list-class-central-button,
+    .blog-button,
+    .twitter-button,
+    .linkedin-button {
+        /* looks */
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        background-color: var(--color-black);
+        color: var(--color-white);
+        /* positioning */
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: 20% 80%;
+    }
+    .codepen-button i,
+    .feedback-button i,
+    .list-class-central-button i,
+    .blog-button i,
+    .twitter-button i,
+    .linkedin-button i,
+    .codepen-button p,
+    .feedback-button p,
+    .list-class-central-button p,
+    .blog-button p,
+    .twitter-button p,
+    .linkedin-button p  {
+        grid-row: 1/ span 1;
+    }
+    .codepen-button i,
+    .feedback-button i,
+    .list-class-central-button i,
+    .blog-button i,
+    .twitter-button i,
+    .linkedin-button i {
+        grid-column: 1/ span 1;
+    }
+    .codepen-button p,
+    .feedback-button p,
+    .list-class-central-button p,
+    .blog-button p,
+    .twitter-button p,
+    .linkedin-button p  {
+        grid-column: 2/ span 1;
+    }
+    .codepen-button .link-icon,
+    .feedback-button .link-icon,
+    .list-class-central-button .link-icon,
+    .blog-button .link-icon,
+    .twitter-button .link-icon,
+    .linkedin-button .link-icon,
+    .codepen-button .view-on-codepen,
+    .feedback-button .leave-a-message,
+    .list-class-central-button .view-on-class-central,
+    .blog-button .view-on-blog,
+    .twitter-button .view-on-twitter,
+    .linkedin-button .view-on-linkedin {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        align-content: center;
+    }
+    .codepen-button .link-icon,
+    .feedback-button .link-icon,
+    .list-class-central-button .link-icon,
+    .blog-button .link-icon,
+    .twitter-button .link-icon,
+    .linkedin-button .link-icon {
+        justify-content: flex-end;
+    }
+    .codepen-button .view-on-codepen,
+    .feedback-button .leave-a-message,
+    .list-class-central-button .view-on-class-central,
+    .blog-button .view-on-blog,
+    .twitter-button .view-on-twitter,
+    .linkedin-button .view-on-linkedin {
+        justify-content: flex-start;
+        margin-left: 1.5rem;
+    }
 
 /* SUBMIT BUTTON */
-#contact input[type="submit"] {
-    display: block;
-    width: 100%;
-    max-width: 550px;
-    margin: 1em auto;
-    height: 50px;
-    font-size: 1.1rem;
-    background-color: var(--color-yellow-brighter);
-    border-color: var(--color-yellow-brighter);
-    border-radius: 0.25rem;
-    cursor: pointer;
-    color: var(--color-black);
-    font-weight: 600;
-    font-size: 1.25rem;
-}
-#contact input[type="submit"]:hover {
-    background-color: var(--color-black);
-    border-color: var(--color-black);
-    color: var(--color-white);
-}
+    #contact input[type="submit"] {
+        display: block;
+        width: 100%;
+        max-width: 550px;
+        margin: 1em auto;
+        height: 50px;
+        font-size: 1.1rem;
+        background-color: var(--color-yellow-brighter);
+        border-color: var(--color-yellow-brighter);
+        border-radius: 0.25rem;
+        cursor: pointer;
+        color: var(--color-black);
+        font-weight: 600;
+        font-size: 1.25rem;
+    }
+    #contact input[type="submit"]:hover {
+        background-color: var(--color-black);
+        border-color: var(--color-black);
+        color: var(--color-white);
+    }
 
 /* BACK TO TOP BUTTON */
-.top-button {
-    place-self: end;
-    position: sticky;
-    bottom: 20px;
-    margin-right: 1.5rem;
-    margin-top: 100vh;
-    text-decoration: none;
-    padding: 0px;
-    color: var(--color-black);
-    font-size: 3rem;
-  }
-@media (min-width: 850px) {
     .top-button {
-        bottom: 40px;
-        margin-right: 3rem;
+        place-self: end;
+        position: sticky;
+        bottom: 20px;
+        margin-right: 1.5rem;
+        margin-top: 100vh;
+        text-decoration: none;
+        padding: 0px;
+        color: var(--color-black);
+        font-size: 3rem;
     }
-}
-@media (min-width:1300px) {
-    .top-button {
-        bottom: 50px;
-        margin-right: 4rem;
-        font-size: 5rem;
+    @media (min-width: 850px) {
+        .top-button {
+            bottom: 40px;
+            margin-right: 3rem;
+        }
     }
-}
+    @media (min-width:1300px) {
+        .top-button {
+            bottom: 50px;
+            margin-right: 4rem;
+            font-size: 5rem;
+        }
+    }
+
+/* TYPOGRAPHY BUTTON */
+    .codepen-button p,
+    .feedback-button p,
+    .list-class-centralbutton p,
+    .blog-button p,
+    .twitter-button p,
+    .linkedin-button p {
+        font-size: 1.2rem;
+    }
+    .codepen-button .link-icon,
+    .feedback-button .link-icon,
+    .cc-link-button .link-icon,
+    .bg-link-button .link-icon,
+    .tr-link-button .link-icon,
+    .ln-link-button .link-icon {
+        font-size: 1.75rem;
+    }
+    @media (min-width:850px) {
+        .view-on-class-central p {
+            font-size: 1.05rem;
+        }
+    }
+    #projects .feedback-button .leave-a-message p {
+        margin: 0;
+    }
+    .education .view-on-class-central {
+        font-size: 1.05rem;
+    }
+
+    .codepen-button:hover,
+    .feedback-button:hover,
+    .list-class-central-button:hover,
+    .blog-button:hover,
+    .twitter-button:hover,
+    .linkedin-button:hover {
+        color: var(--color-black);
+        background-color: var(--color-yellow);
+        border: 1px solid var(--color-black);
+    }
 
 
 /*
   ========================================
   III. SHARED:
-    H) ANIMATIONS
+    D) ANIMATIONS
   ========================================
 */
 /* ----------------------------------------------
@@ -1507,7 +940,359 @@ body {
 
 /*
   ========================================
-  CUSTOM: 
+  III. SHARED: 
+    E) YELLOW WAVES AS BG
+  ========================================
+*/
+/* SMALL SCREENS (320-499) */
+    .new-yellow-waves {
+        margin-bottom: 5rem;
+        margin-top: 4rem;
+    }
+    .new-yellow-waves img {
+        height: 142px;
+        width: auto;
+    }
+    .new-yellow-waves .waves-section-intro {
+        margin-top: -6.5rem;
+    }
+
+    @media (min-width: 410px) {
+        .new-yellow-waves img {
+            height: 173px;
+            width: auto;
+        }
+        .new-yellow-waves .waves-section-intro {
+            margin-top: -7.5rem;
+        }
+    }
+
+/* MEDIUM SCREENS (500-849) */
+    @media (min-width: 500px) {
+        .new-yellow-waves img {
+            height: 185px;
+        }
+    }
+    @media (min-width: 530px) {
+        .new-yellow-waves img {
+            height: 200px;
+        }
+        .new-yellow-waves .waves-section-intro {
+            margin-top: -8.5rem;
+        }
+    }
+    @media (min-width: 575px) {
+        .new-yellow-waves img {
+            height: 220px;
+        }
+        .new-yellow-waves .waves-section-intro {
+            margin-top: -9.5rem;
+        }
+    }
+    @media (min-width: 630px) {
+        .new-yellow-waves img {
+            height: 245px;
+        }
+        .new-yellow-waves .waves-section-intro {
+            margin-top: -10.5rem;
+        }
+    }
+    @media (min-width: 700px) {
+        .new-yellow-waves img {
+            height: 280px;
+        }
+        .new-yellow-waves .waves-section-intro {
+            margin-top: -11.75rem;
+        }
+        .new-yellow-waves {
+            margin-bottom: 7rem;
+        }
+    }
+    @media (min-width: 800px) {
+        .new-yellow-waves img {
+            height: 300px;
+        }
+        .new-yellow-waves .waves-section-intro {
+            margin-top: -11.75rem;
+        }
+    }
+
+/* LARGE SCREENS (850-1359) */
+    @media (min-width: 850px) {
+        .new-yellow-waves img {
+            height: 333px;
+        }
+        .new-yellow-waves .waves-section-intro {
+            margin-top: -13.5rem;
+        }
+    }
+    @media (min-width: 950px) {
+        .new-yellow-waves img {
+            height: 351px;
+        }
+        .new-yellow-waves .waves-section-intro {
+            margin-top: -14.5rem;
+        }
+        .new-yellow-waves {
+            margin-bottom: 9rem;
+        }
+    }
+    @media (min-width: 1000px) {
+        .new-yellow-waves img {
+            height: 386px;
+        }
+        .new-yellow-waves .waves-section-intro {
+            margin-top: -15.5rem;
+        }
+    }
+    @media (min-width: 1100px) {
+        .new-yellow-waves img {
+            height: 421px;
+        }
+        .new-yellow-waves .waves-section-intro {
+            margin-top: -17.5rem;
+        }
+    }
+    @media (min-width: 1200px) {
+        .new-yellow-waves img {
+            height: 456px;
+        }
+        .new-yellow-waves .waves-section-intro {
+            margin-top: -18.5rem;
+        }
+        .new-yellow-waves {
+            margin-top: 3rem;
+        }
+    }
+    @media (min-width: 1300px) {
+        .new-yellow-waves img {
+            height: 490px;
+        }
+        .new-yellow-waves .waves-section-intro {
+            margin-top: -20.5rem;
+        }
+    }
+
+/* LARGER SCREENS (1360-1920+) */
+    @media (min-width: 1360px) {
+        .new-yellow-waves {
+            margin-top: 3rem;
+            margin-bottom: 11rem;
+        }
+    }
+
+/*
+  ========================================
+  III. SHARED: 
+    F) IMAGES SIZING
+  ========================================
+*/
+/* HOME */
+    .jewel-keith-dp {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+        /* margin-bottom: 1rem; */
+    }
+/* PROJECTS > FEEDBACK */
+    .feedback img {
+        width: 150px;
+        max-width: 200px;
+        height: auto;
+}
+
+/* ABOUT */
+    .code-design-pics-list img {
+        width: 100%;
+        max-width: 200px;
+        height: auto;
+        margin-bottom: 1rem;
+    }
+    .one-step-goal-flag-pics-list img {
+        width: 100%;
+        max-width: 200px;
+        height: auto;
+    }
+    .con-per-fai-pics-list img {
+        width: 100%;
+        max-width: 150px;
+        height: auto;
+    }
+
+/* SKILLS */
+    .html-css-des-pics-list img,
+    .js-uxui-pics-list img {
+        height: 100%;
+        max-height: 80px;
+        width: auto;
+    }
+    @media (min-width: 580px) {
+        .html-css-des-pics-list img,
+        .js-uxui-pics-list img {
+            max-height: 100px;
+        }
+    }
+
+/* EDUCATION */
+    .list-brain-strengthening-pics-list img,
+    .happy-sharing-writings-money-pics-list img {
+        width: 100%;
+        max-width: 200px;
+        height: auto;
+        margin-bottom: 1rem;
+    }
+
+/* CONTACT */
+    .contact-links-pics img {
+        width: 80px;
+        height: auto;
+    } 
+
+/*
+  ========================================
+  III. SHARED: 
+    G) SECTIONS' POSITIONING & SPACING (EXCEPT FOR HOME)
+  ========================================
+*/
+/* FLEXBOX FOR MAIN AND SUB SECTIONS */
+    .projects,
+    .projects article,
+    .flip-yeah,
+    .feedback,
+    .about,
+    .about article,
+    .skills,
+    .skills article,
+    .education,
+    .education article,
+    .contact {
+        padding: 0;
+        margin: 0 auto; 
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        gap: 1rem;   
+    }
+
+    .projects .feedback {
+        margin-top: 1rem;
+        margin-bottom: 3rem;
+    }
+
+    .h3-feedback-intro,
+    .feedback img {
+        flex-basis: 100%;
+    }
+
+/* CHILDREN 100% FLEXBASIS SO ALL BE CENTERED UP TO 1200PX*/
+    /* projects */
+        .projects article {
+            flex-basis: 100%;
+        }
+    /* about */
+        .about article,
+        .about .code-design-solutions-problems-sub-section,
+        .about .one-step-sub-section,
+        .about .con-per-fai-sub-section {
+            flex-basis: 100%;
+        }
+    /* skills */
+        .skills article {
+            flex-basis: 100%;
+        }
+    /* education */
+        .education article {
+            flex-basis: 100%;
+        }
+    /* contact */
+        .contact .intro-and-contact-form,
+        .contact .links-my-accounts  {
+            flex-basis: 100%;
+        }
+        .contact .links-my-accounts {
+            max-width: 610px;
+        }
+
+/* MAX WIDTH & HEIGHT, MARGIN FOR SECTIONS / SUBSECTIONS */
+    /* projects */
+        .projects {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        .projects article {
+            flex-basis: 100%;
+            max-width: 610px;
+            margin: 0 auto;
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
+        .projects .project-title {
+            flex-basis: 100%;
+        }
+        
+        .projects article {
+            margin-bottom: 1rem;
+        }
+    /* about */
+        .about article {
+            max-width: 1600px;
+        }
+        .about article section {
+            max-width: 610px;
+            margin: 0 auto;
+        }
+
+        .about .code-design-solutions-problems-sub-section,
+        .about .one-step-sub-section {
+            margin-bottom: 3rem;
+        }
+
+        @media (min-width: 760px) {
+            .about article {
+                margin-left: 3rem;
+                margin-right: 3rem;
+            }
+        }
+    /* skills */
+        .skills article {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        .skills article section {
+            flex-basis: 100%;
+            margin: 0 auto;
+        }
+        .skills .gained-skills-intro-p,
+        .skills .currently-learning-intro-p {
+            max-width: 610px;
+            margin: 0 auto;
+        }
+        .skills .skill-label {
+            margin-bottom: 0.5rem;
+        }
+        @media (min-width: 1360px) {
+            .skills .currently-learning-sub-section {
+                max-height: 324px;
+            }
+        }
+    /* education */
+        .education article {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        .education article section {
+            flex-basis: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .education .class-central-list-intro-p,
+        .education .blog-twitter-linkedin-intro-p {
+            max-width: 610px;
+        }
+
+/*
+  ========================================
+  IV. CUSTOM: 
     A) HOME SECTION
   ========================================
 */
@@ -1521,173 +1306,68 @@ body {
     justify-content: center;
     gap: 2rem;
 }
-@media (min-width:850px) {
-    .home {
-        margin-top: 7rem;
-    }
-}
-
 .jewel-keith-intro-home,
 .home img {
     flex-basis: 100%;
 }
 
-@media (min-width:620px) {
-    .home img {
-        order: 1;
+/* MEDIUM SCREENS (500-849) */
+    @media (min-width:620px) {
+        .home img {
+            order: 1;
+        }
+        .jewel-keith-intro-home {
+            order: 2;
+        }
+        .jewel-keith-intro-home {
+            flex-basis: 70%;
+            max-width: 325px;
+        }
+        .home img {
+            flex: 30%;
+            max-width: 200px;
+        }
     }
-    .jewel-keith-intro-home {
-        order: 2;
+    @media (min-width:700px) {
+        .home img {
+            max-width: 220px;
+        }
     }
-    .jewel-keith-intro-home {
-        flex-basis: 70%;
-        max-width: 325px;
-    }
-    .home img {
-        flex: 30%;
-        max-width: 200px;
-    }
-}
-@media (min-width:700px) {
-    .home img {
-        max-width: 220px;
-    }
-}
-@media (min-width:801px) {
-    .home img {
-        max-width: 250px;
-    }
-    .jewel-keith-intro-home {
-        max-width: 447px;
-    }
-}
-
-
-@media (min-width: 1100px) {
-    .home img {
-        max-width: 360px;
-    }
-    .jewel-keith-intro-home {
-        max-width: 631px;
-    }
-    .home h1 {
-        font-size: 5.5rem;
-    }
-    .home h2 {
-        font-size: 3rem;
-    }
-    .home p {
-        font-size: 1.5rem;
-    }
-    .home {
-        margin-top: 8rem;
-    }
-}
-
-/* @media (min-width: 620px) {
-    .home {
-        justify-content: flex-start;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 900px;
-        gap: 0;
-    }
-    .empty-div-home {
-        display: inline-block;
-        height: 28px;
-        width: auto;
-    }
-    .jewel-keith-intro-home {
-        flex-basis: 70%;
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: center;
-        margin-left: 1.5rem;
-        max-width: 500px;
-    }
-    .home img {
-        max-width: 400px;
-    }
-    .empty-div-home,
-    .jewel-keith-intro-home h2,
-    .jewel-keith-intro-home h1,
-    .jewel-keith-intro-home .home-bio {
-        flex-basis: 100%;
+    @media (min-width:801px) {
+        .home img {
+            max-width: 250px;
+        }
+        .jewel-keith-intro-home {
+            max-width: 447px;
+        }
     }
 
-    .home {
-        display: grid;
-        grid-template-rows: auto;
-        grid-template-columns: 40% 60%;
+/* LARGE & LARGER SCREENS (850-1920+) */
+    @media (min-width:850px) {
+        .home {
+            margin-top: 7rem;
+        }
     }
-    .empty-div-home,
-    .home .jewel-keith-intro-home, 
-    .home img {
-        grid-row: 1/ span 1;
+    @media (min-width: 1100px) {
+        .home img {
+            max-width: 360px;
+        }
+        .jewel-keith-intro-home {
+            max-width: 631px;
+        }
+        .home h1 {
+            font-size: 5.5rem;
+        }
+        .home h2 {
+            font-size: 3rem;
+        }
+        .home p {
+            font-size: 1.5rem;
+        }
+        .home {
+            margin-top: 8rem;
+        }
     }
-    .home img {
-        grid-column: 1/ span 1;
-        justify-self: end;
-    }
-    .home .jewel-keith-intro-home {
-        grid-column: 2/ span 1;
-        justify-self: start;
-    }
-} */
-
-/* @media (min-width: 670px) {
-    .empty-div-home {
-        height: 34px;
-    }
-}
-
-@media (min-width: 700px) {
-    .empty-div-home {
-        height: 48px;
-    }
-    .jewel-keith-intro-home h2 {
-        font-size: 1.4rem;
-    }
-    .jewel-keith-intro-home h1 {
-        font-size: 2.8rem;
-    }
-}
-@media (min-width: 737px) {
-    .jewel-keith-intro-home p {
-        font-size: 1.05rem;
-    }
-}
-@media (min-width: 769px) {
-    .jewel-keith-intro-home p {
-        font-size: 1.1rem;
-    }
-}
-@media (min-width: 801px) {
-    .jewel-keith-intro-home h2 {
-        font-size: 1.6rem;
-    }
-    .jewel-keith-intro-home h1 {
-        font-size: 3.5rem;
-    }
-}
-@media (min-width: 820px) {
-    .empty-div-home {
-        height: 59px;
-    }
-}
-@media (min-width: 850px) {
-    .jewel-keith-intro-home p {
-        font-size: 1.15rem;
-        padding-bottom: 1rem;
-    }
-    .empty-div-home {
-        height: 76px;
-    }
-    .home {
-        margin-top: 6rem;
-    }
-} */
-
 
 /*
   ========================================
@@ -1695,314 +1375,298 @@ body {
     B) PROJECTS SECTION
   ========================================
 */
-/* SETTING MAX WIDTH FOR PROJECTS' ARTICLES*/
-.projects {
-    max-width: 1600px;
-    margin: 0 auto;
-}
-.projects article {
-    flex-basis: 100%;
-    max-width: 610px;
-    margin: 0 auto;
-    margin-left: 1rem;
-    margin-right: 1rem;
-}
+/* SMALL SCREENS (320-499) */
+    /* 1) FLIP CARD */
+        .flip-card {
+            width: 280px;
+            height: 280px;
+            perspective: 1000px;
+            margin: 0.4rem 0 0.4rem 0;
+        }
 
-/* 1) FLIP CARD */
-.flip-card {
-    width: 280px;
-    height: 280px;
-    perspective: 1000px;
-    margin: 0.4rem 0 0.4rem 0;
-}
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
 
-.flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-}
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
 
-.flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-}
+        .flip-card-front, 
+        .flip-card-back5, 
+        .flip-card-back6,
+        .flip-card-back3,
+        .flip-card-back4 {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
 
-.flip-card-front, 
-.flip-card-back5, 
-.flip-card-back6,
-.flip-card-back3,
-.flip-card-back4 {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
+        .flip-card-back5,
+        .flip-card-back6,
+        .flip-card-back3,
+        .flip-card-back4 {
+            transform: rotateY(180deg);
+            background-image: url('../img/(Light-Projects)_Small_Pp/Projects_Window_W_lightbg_Back.png');
+            background-size: 100% 100%;
+        }
 
-.flip-card-back5,
-.flip-card-back6,
-.flip-card-back3,
-.flip-card-back4 {
-    transform: rotateY(180deg);
-    background-image: url('../img/(Light-Projects)_Small_Pp/Projects_Window_W_lightbg_Back.png');
-    background-size: 100% 100%;
-}
+        .flip-card-back5 p,
+        .flip-card-back6 p,
+        .flip-card-back3 p,
+        .flip-card-back4 p {
+            font-size: 0.9rem;
+            text-align: left;
+            padding: 2.4rem 1rem 0 1rem;
+            font-style: italic;
+        }
+        .flip-card-back5 .languages,
+        .flip-card-back6 .languages,
+        .flip-card-back3 .languages,
+        .flip-card-back4 .languages {
+            padding: 0.4rem 1rem 0 1rem;
+        }
 
-.flip-card-back5 p,
-.flip-card-back6 p,
-.flip-card-back3 p,
-.flip-card-back4 p {
-    font-size: 0.9rem;
-    text-align: left;
-    padding: 2.4rem 1rem 0 1rem;
-    font-style: italic;
-}
-.flip-card-back5 .languages,
-.flip-card-back6 .languages,
-.flip-card-back3 .languages,
-.flip-card-back4 .languages {
-    padding: 0.4rem 1rem 0 1rem;
-}
+        .flip-card-back5 .languages,
+        .flip-card-back6 .languages,
+        .flip-card-back3 .languages,
+        .flip-card-back4 .languages,
+        .flip-card-back5 li,
+        .flip-card-back6 li,
+        .flip-card-back3 li,
+        .flip-card-back4 li {
+            font-style: normal;
+            font-weight: bold;
+        }
 
-.flip-card-back5 .languages,
-.flip-card-back6 .languages,
-.flip-card-back3 .languages,
-.flip-card-back4 .languages,
-.flip-card-back5 li,
-.flip-card-back6 li,
-.flip-card-back3 li,
-.flip-card-back4 li {
-    font-style: normal;
-    font-weight: bold;
-}
+        .flip-card-back5 ul,
+        .flip-card-back6 ul,
+        .flip-card-back3 ul,
+        .flip-card-back4 ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-flow: row wrap;
+        }
 
-.flip-card-back5 ul,
-.flip-card-back6 ul,
-.flip-card-back3 ul,
-.flip-card-back4 ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-flow: row wrap;
-}
+        .flip-card-back5 li,
+        .flip-card-back6 li,
+        .flip-card-back3 li,
+        .flip-card-back4 li {
+            text-align: center;
+            flex-basis: 10%;
+            font-size: 0.7rem;
+            padding: 0.3rem 0 0 1rem;
+        }
 
-.flip-card-back5 li,
-.flip-card-back6 li,
-.flip-card-back3 li,
-.flip-card-back4 li {
-    text-align: center;
-    flex-basis: 10%;
-    font-size: 0.7rem;
-    padding: 0.3rem 0 0 1rem;
-}
+        .flip-card-back5 li:first-child,
+        .flip-card-back6 li:first-child,
+        .flip-card-back3 li:first-child,
+        .flip-card-back4 li:first-child {
+            padding: 0.3rem 0 0 2rem;
+        }
 
-.flip-card-back5 li:first-child,
-.flip-card-back6 li:first-child,
-.flip-card-back3 li:first-child,
-.flip-card-back4 li:first-child {
-    padding: 0.3rem 0 0 2rem;
-}
+        .flip-card-back5 img,
+        .flip-card-back6 img,
+        .flip-card-back3 img,
+        .flip-card-back4 img {
+            width: 40px;
+            height: auto;
+        }
+        
+    /* 2) FEEDBACK */
+        .feedback p {
+            margin: 0 1rem 0 1rem;
+        }
+        .feedback-info-button {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+        }
+        .feedback-info-button .feedback-info-margin {
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+        }
 
-.flip-card-back5 img,
-.flip-card-back6 img,
-.flip-card-back3 img,
-.flip-card-back4 img {
-    width: 40px;
-    height: auto;
-}
-    
-/* 2) FEEDBACK */
-.feedback p {
-    margin: 0 1rem 0 1rem;
-}
-.feedback-info-button {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-}
-.feedback-info-button .feedback-info-margin {
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
-}
+        @media (min-width: 410px) {
+            .feedback-info-button .feedback-info-margin {
+                flex-basis: 79%;
+            }
+        }
 
-@media (min-width: 410px) {
-    .feedback-info-button .feedback-info-margin {
-        flex-basis: 79%;
-    }
-}
+    /* DISPLAY OFF THE MEDIUM, LARGE & LARGER LAYOUT */
+        .projects .empty-div-1-left,
+        .projects .empty-div-1-right,
+        .projects .empty-div-2-left,
+        .projects .empty-div-2-right,
+        .project-preview-left,
+        .project-preview-right,
+        .project-info-right,
+        .project-info-left {
+            display: none;
+        }
 
-.projects .project-title {
-    flex-basis: 100%;
-}
+/* MEDIUM - LARGE SCREENS (620-1359) */
+    @media (min-width: 620px) {
+    /* DISPLAY OFF THE SMALL LAYOUT FOR MEDIUM AND LARGE */
+            .flip-yeah {
+                display: none;
+        }
 
-/* BIT SPACE AFTER PROJECT ARTICLE */
-.projects article {
-    margin-bottom: 1rem;
-}
+    /* DISPLAY ON THE MEDIUM & LARGE LAYOUT  */
+        .projects .empty-div-1-left,
+        .projects .empty-div-1-right,
+        .projects .empty-div-2-left,
+        .projects .empty-div-2-right,
+        .project-preview-left,
+        .project-preview-right,
+        .project-info-right,
+        .project-info-left {
+            display: block;
+        }
 
-/* DISPLAY OFF THE MEDIUM & LARGE LAYOUT FOR SMALL */
-.projects .empty-div-1-left,
-.projects .empty-div-1-right,
-.projects .empty-div-2-left,
-.projects .empty-div-2-right,
-.project-preview-left,
-.project-preview-right,
-.project-info-right,
-.project-info-left {
-    display: none;
-}
+    /* FLEXBASIS FOR CONSUMED SPACE */
+        .project-title-left,
+        .empty-div-1-right,
+        .project-preview-left,
+        .project-info-right,
+        .codepen-link-button-left,
+        .empty-div-2-right,
+        .empty-div-1-left,
+        .project-title-right,
+        .project-info-left,
+        .project-preview-right,
+        .empty-div-2-left
+        .codepen-link-button-right {
+            flex-basis: 45%;
+        }
 
-/* MEDIUM SCREEN LAYOUT (620-1359) */
-@media (min-width: 620px) {
-/* DISPLAY OFF THE SMALL LAYOUT FOR MEDIUM AND LARGE */
-    .flip-yeah {
-        display: none;
-    }
-/* DISPLAY ON THE MEDIUM & LARGE LAYOUT  */
-    .projects .empty-div-1-left,
-    .projects .empty-div-1-right,
-    .projects .empty-div-2-left,
-    .projects .empty-div-2-right,
-    .project-preview-left,
-    .project-preview-right,
-    .project-info-right,
-    .project-info-left {
-        display: block;
-    }
-/* FLEXBASIS FOR CONSUMED SPACE */
-    .project-title-left,
-    .empty-div-1-right,
-    .project-preview-left,
-    .project-info-right,
-    .codepen-link-button-left,
-    .empty-div-2-right,
-    .empty-div-1-left,
-    .project-title-right,
-    .project-info-left,
-    .project-preview-right,
-    .empty-div-2-left
-    .codepen-link-button-right {
-        flex-basis: 45%;
-    }
-/* FILLING SPACE IN EMPTY DIVS */
-    .empty-div-1-left,
-    .empty-div-1-right,
-    .empty-div-2-left,
-    .empty-div-2-right {
-        height: 25px;
-        width: auto;
-    }
-/* STYLING LANGUAGES LIST & LOGOS, PROJECTS' PREVIEW */
-    .project-info-left ul,
-    .project-info-right ul {
-        list-style-type: none;
-        padding: 0;
-        padding-left: 2rem;
-        margin: 0;
-        display: flex;
-        flex-flow: row wrap;
-    }
-    .project-info-left li,
-    .project-info-right li {
-        font-style: normal;
-        font-weight: bold;
-        text-align: center;
-        flex-basis: 10%;
-        font-size: 1rem;
-        padding: 0.3rem 0 0 1rem;
-    }
-    .project-info-left .languages,
-    .project-info-right .languages {
-        font-weight: bold;
-        margin-top: 0.5rem;
-    }
-    .project-info-left ul img,
-    .project-info-right ul img {
-        width: 40px;
-        height: auto;
-    }
-    .project-preview-left,
-    .project-preview-right {
-        display: inline-block;
-        width: 280px;
-        max-width: 300px;
-        height: auto;
-    }
-/* GRID FOR ARRANGING THE CELLS UNDER PROJECT ARTICLES */
-    .projects .first-project,
-    .projects .second-project,
-    .projects .third-project,
-    .projects .fourth-project {
-        display: grid;
-        grid-template-rows: auto;
-        grid-template-columns: 50% 50%;
-    }
-    /* UNIFORM ROWS */
-    .project-title-left,
-    .empty-div-1-right,
-    .empty-div-1-left,
-    .project-title-right {
-        grid-row: 1/ span 1;
-    }
-    .project-preview-left,
-    .project-info-right,
-    .project-info-left,
-    .project-preview-right {
-        grid-row: 2/ span 1;
-    }
-    .codepen-link-button-left,
-    .empty-div-2-right,
-    .empty-div-2-left
-    .codepen-link-button-right {
-        grid-row: 3/ span 1;
-    }
-    /* ODD PROJECTS - LEFT SIDE */
-    .project-title-left,
-    .project-preview-left,
-    .codepen-link-button-left {
-        grid-column: 1/ span 1;
-    }
-    .empty-div-1-right,
-    .project-info-right,
-    .empty-div-2-right {
-        grid-column: 2/ span 1;
-    }
-    /* EVEN PROJECTS - RIGHT SIDE */
-    .empty-div-1-left,
-    .project-info-left,
-    .empty-div-2-left {
-        grid-column: 1/ span 1;
-    }
-    .project-title-right,
-    .project-preview-right,
-    .codepen-link-button-right {
-        grid-column: 2/ span 1;
-    }
-    
-/* TEXT ALIGN LEFT FOR PROJ INFO LEFT & RIGHT */
-    .project-info-right,
-    .project-info-left {
-        text-align: left;
-    }
-/* ADDING PADDING AT ONE SIDE TO PROJ INFOS */
-    .project-info-right {
-        padding-left: 0.5rem;
-    }
-    .project-info-left {
-        padding-right: 0.5rem;
-    }
-/* CENTERING THE PROJ PREVIEW & BUTTON */
-    .project-preview-left,
-    .project-preview-right,
-    .codepen-link-button-left,
-    .codepen-link-button-right {
-        margin: 0 auto;
-    }
-}
+    /* FILLING SPACE IN EMPTY DIVS */
+        .empty-div-1-left,
+        .empty-div-1-right,
+        .empty-div-2-left,
+        .empty-div-2-right {
+            height: 25px;
+            width: auto;
+        }
 
-/* LARGE SCREENS LAYOUT (1360-1920) */
+    /* STYLING LANGUAGES LIST & LOGOS, PROJECTS' PREVIEW */
+        .project-info-left ul,
+        .project-info-right ul {
+            list-style-type: none;
+            padding: 0;
+            padding-left: 2rem;
+            margin: 0;
+            display: flex;
+            flex-flow: row wrap;
+        }
+        .project-info-left li,
+        .project-info-right li {
+            font-style: normal;
+            font-weight: bold;
+            text-align: center;
+            flex-basis: 10%;
+            font-size: 1rem;
+            padding: 0.3rem 0 0 1rem;
+        }
+        .project-info-left .languages,
+        .project-info-right .languages {
+            font-weight: bold;
+            margin-top: 0.5rem;
+        }
+        .project-info-left ul img,
+        .project-info-right ul img {
+            width: 40px;
+            height: auto;
+        }
+        .project-preview-left,
+        .project-preview-right {
+            display: inline-block;
+            width: 280px;
+            max-width: 300px;
+            height: auto;
+        }
+
+    /* GRID FOR ARRANGING THE CELLS UNDER PROJECT ARTICLES */
+        .projects .first-project,
+        .projects .second-project,
+        .projects .third-project,
+        .projects .fourth-project {
+            display: grid;
+            grid-template-rows: auto;
+            grid-template-columns: 50% 50%;
+        }
+        /* UNIFORM ROWS */
+        .project-title-left,
+        .empty-div-1-right,
+        .empty-div-1-left,
+        .project-title-right {
+            grid-row: 1/ span 1;
+        }
+        .project-preview-left,
+        .project-info-right,
+        .project-info-left,
+        .project-preview-right {
+            grid-row: 2/ span 1;
+        }
+        .codepen-link-button-left,
+        .empty-div-2-right,
+        .empty-div-2-left
+        .codepen-link-button-right {
+            grid-row: 3/ span 1;
+        }
+        /* ODD PROJECTS - LEFT SIDE */
+        .project-title-left,
+        .project-preview-left,
+        .codepen-link-button-left {
+            grid-column: 1/ span 1;
+        }
+        .empty-div-1-right,
+        .project-info-right,
+        .empty-div-2-right {
+            grid-column: 2/ span 1;
+        }
+        /* EVEN PROJECTS - RIGHT SIDE */
+        .empty-div-1-left,
+        .project-info-left,
+        .empty-div-2-left {
+            grid-column: 1/ span 1;
+        }
+        .project-title-right,
+        .project-preview-right,
+        .codepen-link-button-right {
+            grid-column: 2/ span 1;
+        }
+        
+    /* TEXT ALIGN LEFT FOR PROJ INFO LEFT & RIGHT */
+        .project-info-right,
+        .project-info-left {
+            text-align: left;
+        }
+    /* ADDING PADDING AT ONE SIDE TO PROJ INFOS */
+        .project-info-right {
+            padding-left: 0.5rem;
+        }
+        .project-info-left {
+            padding-right: 0.5rem;
+        }
+    /* CENTERING THE PROJ PREVIEW & BUTTON */
+        .project-preview-left,
+        .project-preview-right,
+        .codepen-link-button-left,
+        .codepen-link-button-right {
+            margin: 0 auto;
+        }
+    }
+
+/* LARGER SCREENS LAYOUT (1360-1920) */
         @media (min-width: 1360px) {
         /* EVEN PROJECTS MOVE TO LEFT SIDE */
             .project-title-right,
@@ -2015,17 +1679,13 @@ body {
             .empty-div-2-left {
                 grid-column: 2/ span 1;
             }
-        /* added some margin between sections */
+        /* MARGIN BETWEEN SECTIONS */
             .projects .third-project,
             .projects .fourth-project,
             .projects .feedback {
                 margin-top: 2rem;
             }
-
         }
-                
-
-
 
 /*
   ========================================
@@ -2033,34 +1693,93 @@ body {
     C) ABOUT SECTION
   ========================================
 */
-.about article {
-    flex-basis: 100%;
-    gap: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-}
-.about .code-design-solutions-problems-sub-section,
-.about .one-step-sub-section,
-.about .con-per-fai-sub-section {
-    flex-basis: 100%;
-}
+/* CODE DESIGN SOLUTION SUB SEC */
+    /* GRID */
+        .about .code-design-solutions-problems-sub-section {
+            display: grid;
+            grid-template-rows: auto;
+            grid-template-columns: auto;
+        }
+        .code-design-pics-list,
+        .code-design-solutions-problems-sub-section p {
+            grid-column: 1/ span 1;
+        }
+        .code-design-pics-list {
+            grid-row: 1/ span 1;
+        }
+        .code-design-solutions-problems-sub-section p {
+            grid-row: 2/ span 1;
+        }
+    /* FLEXBOX */
+        .about .code-design-pics-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+/* ONE STEP SUB SEC */
+    /* GRID */
+        .about .one-step-sub-section {
+            display: grid;
+            grid-template-rows: auto;
+            grid-template-columns: auto;
+            grid-gap: 5% 0;
+        }
+        .one-step-goal-flag-pics-list,
+        .one-step-sub-section p {
+            grid-column: 1/ span 1;
+            margin: 0 auto 1rem auto;
+        }
+        .one-step-goal-flag-pics-list {
+            grid-row: 1/ span 1;
+        }
+        .one-step-sub-section p {
+            grid-row: 2/ span 1;
+        }
+    /* FLEXBOX */
+        .about .one-step-goal-flag-pics-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            gap: 1rem;
+        }
 
-.about .code-design-solutions-problems-sub-section,
-.about .one-step-sub-section {
-    margin-bottom: 3rem;
-}
+/* CON-PER-FAI-SUB-SEC */
+    /* GRID */
+        .about .con-per-fai-sub-section {
+            display: grid;
+            grid-template-rows: auto;
+            grid-template-columns: auto;
+            grid-gap: 10%;
+        }
+        .con-per-fai-pics-list,
+        .con-per-fai-sub-section h3 {
+            grid-column: 1/ span 1;
+        }
+        .con-per-fai-pics-list {
+            grid-row: 1/ span 1;
+        }
+        .con-per-fai-sub-section h3 {
+            grid-row: 2/ span 1;
+        }
+    /* FLEXBOX */
+        .about .con-per-fai-pics-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            gap: 1rem;
+        }
 
-@media (min-width: 760px) {
-    .about article {
-        margin-left: 3rem;
-        margin-right: 3rem;
-    }
-}
-
-
-/* LARGE SCREENS LAYOUT (1360-1920) */
+/* LARGER SCREENS LAYOUT (1360-1920) */
 @media (min-width: 1360px) {
 /* grid for about article to position the sub sections*/
     .about article {
@@ -2091,93 +1810,240 @@ body {
 
 /*
   ========================================
-  IV. CUSTOM:
-    D) CONTACT SECTION
+  IV. CUSTOM: 
+    D) SKILLS SECTION
   ========================================
 */
-/* 1) FORM */
-.contact form {
-    max-width: 550px;
-    min-width: 300px;
-    margin: 0 auto;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    border-radius: 0.25rem;
-}
+/* GAINED SKILLS SUB SEC */
+    /* GRID */
+        .skills .gained-skills-sub-section {
+            display: grid;
+            grid-template-rows: auto;
+            grid-template-columns: auto;
+            grid-gap: 5%;
+            margin-bottom: 5rem;
+        }
+        .html-css-des-pics-list,
+        .skills-label-p,
+        .gained-skills-intro-p {
+            grid-column: 1/ span 1;
+        }
+        .html-css-des-pics-list {
+            grid-row: 1/ span 1;
+        }
+        .skills-label-p {
+            grid-row: 2/ span 1;
+        }
+        .gained-skills-intro-p {
+            grid-row: 3/ span 1;
+        }
+        
+    /* FLEXBOX */
+        .skills .html-css-des-pics-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+/* CURRENTLY LEARNING SUB SECTION */
+    /* GRID */
+        .skills .currently-learning-sub-section {
+            display: grid;
+            grid-template-rows: auto;
+            grid-template-columns: auto;
+            grid-gap: 5%;
+        }
+        .js-uxui-pics-list,
+        .learning-skills-label-p,
+        .currently-learning-intro-p {
+            grid-column: 1/ span 1;
+        }
+        .js-uxui-pics-list {
+            grid-row: 1/ span 1;
+        }
+        .learning-skills-label-p {
+            grid-row: 2/ span 1;
+        }
+        .currently-learning-intro-p {
+            grid-row: 3/ span 1;
+        }
+    /* FLEXBOX */
+        .skills .js-uxui-pics-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+        
+/* LARGE SCREEN LAYOUT (1360-1920) */ 
+    @media (min-width: 1360px) {
+        /* grid for about article to position the sub sections*/
+            .skills article {
+                display: grid;
+                grid-template-columns: auto;
+                grid-template-rows: auto;
+                grid-gap: 2% 2%;
+            }
+            /* row */
+                .skills .gained-skills-sub-section,
+                .skills .currently-learning-sub-section {
+                    grid-row: 1/ span 1;
+                }
+            /* column */
+                .skills .gained-skills-sub-section {
+                    grid-column: 1/ span 1;
+                }
+                .skills .currently-learning-sub-section {
+                    grid-column: 2/ span 1;
+                }
+        }
 
-.contact fieldset {
-    border: none;
-    padding: 0;
-    margin: 0 auto;
-    max-width: 550px;
-}
-
-.contact label {
-    display: block;
-    margin: 0.5rem 0;
-    text-align: left;
-}
-
-.contact input,
-.contact textarea {
-    margin: 10px 0 0 0;
-    width: 100%;
-    min-height: 2em;
-    padding: 5px;
-    background-color: var(--color-black);
-    color: var(--color-white);
-    border: 1px solid var(--color-black);
-    border-radius: 0.25rem;
-}
-
-/* 2) LINKS */
-.contact-links-pics {
-    flex-basis: 100%;
-    list-style-type: none;
-    padding: 0;
-    margin-top: 1.5rem;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 0.8rem;
-}
-
-.contact-links-pics li {
-    text-align: center;
-    flex-basis: 25%;
-}
-@media (min-width: 620px) {
-    .contact-links-pics li {
-        flex-basis: 17%;
-    }
-}
-
-.contact-links-pics p {
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-    font-weight: 400;
-}
-.contact .links-my-accounts p {
-    margin-bottom: 1.5rem;
-}
-
-/* POSITIONING */
-    /* FLEXBASIS & MAX WIDTH */
-        .contact .intro-and-contact-form,
-        .contact .links-my-accounts  {
+/*
+  ========================================
+  IV. CUSTOM: 
+    E) EDUCATION SECTION
+  ========================================
+*/
+/* CLASS CENTRAL LIST SUB SECTION,
+    BLOG TWITTER LINKEDIN SUB SECTION */
+    /* GRID */
+        .education .class-central-list-sub-section,
+        .education .blog-twitter-linkedin-sub-section {
+            flex-basis: 100%;
+            padding: 0;
+            padding-bottom: 1rem;
+            margin: 0 auto;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            align-content: flex-start;
+            gap: 1rem;
+        }
+        
+        .list-brain-strengthening-pics-list,
+        .happy-sharing-writings-money-pics-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .grateful-label-p,
+        .actions-thank-you-label-p {
             flex-basis: 100%;
         }
-        .contact .links-my-accounts {
-            max-width: 610px;
+        
+/* LARGE SCREEN LAYOUT (1360-1920) */ 
+    @media (min-width: 1360px) {
+        /* grid for about article to position the sub sections*/
+            .education article {
+                display: grid;
+                grid-template-columns: auto;
+                grid-template-rows: auto;
+                grid-gap: 2% 2%;
+            }
+            /* row */
+                .education .class-central-list-sub-section,
+                .education .blog-twitter-linkedin-sub-section {
+                    grid-row: 1/ span 1;
+                }
+            /* column */
+                .education .class-central-list-sub-section {
+                    grid-column: 1/ span 1;
+                    margin-left: 4rem;
+                }
+                .education .blog-twitter-linkedin-sub-section {
+                    grid-column: 2/ span 1;
+                    margin-right: 4rem;
+                }
         }
-
-
 
 /*
   ========================================
   IV. CUSTOM:
-    E) FOOTER
+    D) CONTACT SECTION
+  ========================================
+*/
+/* FORM */
+    .contact form {
+        max-width: 550px;
+        min-width: 295px;
+        margin: 0 auto;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        border-radius: 0.25rem;
+    }
+
+    .contact fieldset {
+        border: none;
+        padding: 0;
+        margin: 0 auto;
+        max-width: 550px;
+    }
+
+    .contact label {
+        display: block;
+        margin: 0.5rem 0;
+        text-align: left;
+    }
+
+    .contact input,
+    .contact textarea {
+        margin: 10px 0 0 0;
+        width: 100%;
+        min-height: 2em;
+        padding: 5px;
+        background-color: var(--color-black);
+        color: var(--color-white);
+        border: 1px solid var(--color-black);
+        border-radius: 0.25rem;
+    }
+
+/* LINKS */
+    .contact-links-pics {
+        flex-basis: 100%;
+        list-style-type: none;
+        padding: 0;
+        margin-top: 1.5rem;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 0.8rem;
+    }
+
+    .contact-links-pics li {
+        text-align: center;
+        flex-basis: 25%;
+    }
+    @media (min-width: 620px) {
+        .contact-links-pics li {
+            flex-basis: 17%;
+        }
+    }
+
+    .contact-links-pics p {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        font-weight: 400;
+    }
+    .contact .links-my-accounts p {
+        margin-bottom: 1.5rem;
+    }
+
+/*
+  ========================================
+  IV. CUSTOM:
+    E) FOOTER 
   ========================================
 */
 .footer .footer-info {
@@ -2188,17 +2054,19 @@ body {
     max-width: 1600px;
 }
 
-@media (min-width: 500px) {
-    .footer .footer-info {
-        margin-bottom: 0;
+/* MEDIUM SCREENS (500-849) */
+    @media (min-width: 500px) {
+        .footer .footer-info {
+            margin-bottom: 0;
+        }
     }
-}
 
-@media (min-width: 1360px) {
-    .footer {
-        padding-bottom: 2rem;
+/* LARGER SCREENS (1360-1920+) */
+    @media (min-width: 1360px) {
+        .footer {
+            padding-bottom: 2rem;
+        }
     }
-}
 
 
 /*
@@ -2227,20 +2095,20 @@ body {
                 >the link points out to a page where it discusses how the github logo must be used. (In my case, I used it to link to my github profile which is one of the awesome things to do under their rules.)
             @freecodecamp - https://design-style-guide.freecodecamp.org/
                 >freecodecamp logo used in contact section to point out to my learner's profile where you can see my learning progress under the curriculum
-    F) OFF CANVAS MENU (CSS ONLY):
+    E) OFF CANVAS MENU (CSS ONLY):
             @frontend masters - https://frontendmasters.com/
                 >course: Advanced CSS Layouts by Jen Kramer
                 >section: Pure CSS Off-Canvas Menu
                 >link: https://frontendmasters.com/courses/advanced-css-layouts/
                 >price: 5months free access for those who have the github student developer pack - https://education.github.com/pack
-    G) BACK TO TOP BUTTON (CSS ONLY):
+    F) BACK TO TOP BUTTON (CSS ONLY):
             @freeCodeCamp News/Articles - https://www.freecodecamp.org/news
                 >article: How to Make an Animated Back to Top Button Using Only CSS by Temani Afif
                 >link: https://www.freecodecamp.org/news/css-only-back-to-top-button/
-    H) FONT FAMILY:
+    G) FONT FAMILY:
             @google - https://fonts.google.com/
                 >montserrat - https://fonts.google.com/specimen/Montserrat
-    I) BORDER BOX:
+    H) BORDER BOX:
             @brumm - https://shadows.brumm.af/
                 >used it to make the whole content 3d or like popping out when view on a large screen
                 >discovered it through Brett's AWESOME WebGuide - https://webguide.space/theguide/
